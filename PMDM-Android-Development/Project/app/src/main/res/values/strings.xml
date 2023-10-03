@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Pmdm</string>
+    <string name="txtHelloWorld">Hello World</string>
 </resources>

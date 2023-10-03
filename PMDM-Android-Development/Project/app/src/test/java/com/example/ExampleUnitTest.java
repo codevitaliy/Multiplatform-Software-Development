@@ -1,4 +1,4 @@
-package com.example.pmdm;
+package com.example;
 
 import org.junit.Test;
 
