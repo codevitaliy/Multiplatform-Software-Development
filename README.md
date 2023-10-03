@@ -29,9 +29,6 @@ Welcome to the repository for my Multimedia Software Development studies. This r
 - Low-level programming concepts.
 - System-level programming.
 
-## Projects
-Here are some of the key projects and assignments included in this repository:
-
 ## How to Use
 Each project may have its own set of instructions for building and running. Refer to the individual project folders for specific details.
 
