@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let daysWeekArray = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+    let dayInput = prompt("Enter a day of the week to know if it exists");
+    let checkDay = false;
+    let message;
+
+    for (let i = 0; i < daysWeekArray.length ; i++) {
+
+      if(daysWeekArray[i] == dayInput) {
+        checkDay = true;
+        break;
+      }else {
+        checkDay = false;
+      }
+    }
+
+    switch (checkDay) {
+      case true:
+        message = "Day exists: " + dayInput;
+        break;
+      case false:
+        message = "Day does not exist: " + dayInput;
+        break;
+      default:
+        message = "An error has occurred";
+    }
+
+    alert(message);
+
+  </script>  
+</body>
+</html>

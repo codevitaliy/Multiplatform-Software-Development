@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+
+    let dayInput = prompt("Enter a day of the week to know if you work").toLocaleLowerCase();
+
+    let daysArray = ["monday","tuesday","wednesday","thursday","friday","saturday","sunday"];
+
+    let message;
+
+    for(let i = 0; i < daysArray.length; i++) {
+      if (dayInput == "saturday" || dayInput == "sunday") {
+        message = "You are not working on! Enjoy " + dayInput;
+      }  else {
+        message = "You work on " + dayInput;
+      }
+    }
+
+    alert(message);
+
+  </script>
+  
+</body>
+</html>

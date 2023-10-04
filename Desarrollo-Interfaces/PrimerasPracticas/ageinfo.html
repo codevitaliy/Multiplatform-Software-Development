@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mayor de edad</title>
+</head>
+
+<body>
+  <script>
+
+    let adult = 18, oldAge = 65;
+    let message;
+    let ageInput = parseInt(prompt("Enter your age"));
+
+    if (ageInput < adult) {
+      message = "You are a kid";
+    } else if (ageInput >= adult && ageInput < oldAge) {
+      message = "You are an adult";
+    } else if (ageInput >= oldAge) {
+      message = "You are retired";
+    } else {
+      alert("Edad fuera de rango");
+    }
+
+    alert(message);
+
+  </script>
+</body>
+
+</html>
