@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <p id="text1">Text one</p>
+  <a href="https://www.google.com" id="link1">Google link</a>
+  <p id="text2">Text two</p>
+  <a href="https://www.reddit.com" id="link2">Reddit link</a>
+  <p id="text3">Text three</p>
+  <a href="https://www.youtube.com" id="link3">Youtube link</a>
+</body>
+
+<script>
+
+  let strLink = "https://" + prompt("Enter a website, for example www.infojobs.com");
+  let strLine = prompt("Enter a phrase");
+
+  document.getElementById("link2").href = strLink;
+
+  document.getElementById("text2").innerHTML = strLine;
+
+  for (let i = 0; i < document.getElementsByTagName("a").length; i++) {
+
+    console.log(document.getElementsByTagName("a")[i].innerHTML);
+
+  }
+
+  // Array.from(document.getElementsByTagName("a")).forEach(element => {
+  //   console.log(element.href + " " + element.innerHTML);
+  // });
+
+
+
+
+</script>
+
+</html>
