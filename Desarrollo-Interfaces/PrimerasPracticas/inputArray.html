@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let inputArray = [];
+    let inputText = "", endText = "end", totalText = "";
+
+    do {
+
+      inputText = prompt("Introduce una palabra").toLocaleLowerCase();
+
+      if (inputText !== endText) {
+        inputArray.push(inputText);
+      } else {
+        if (!window.confirm("Quieres continuar")) {
+          break;
+        }
+        inputText="";
+      }
+
+    } while (inputText !== endText);
+
+    for (let i = 0; i < inputArray.length; i++) {
+      totalText += inputArray[i] + ", ";
+    }
+
+    alert(totalText);
+
+  </script>
+</body>
+
+</html>
