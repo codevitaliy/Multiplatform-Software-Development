@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">Pmdm</string>
-    <string name="txtHelloWorld">Hello World</string>
+    <string name="u1a1TxtHelloWorld">Hello World</string>
+    <string name="u2a1TxtGuessAge">Guess the age!</string>
+    <string name="u2a1TxtEnterAge">Enter the age, you have 5 chances</string>
+    <string name="u2a1btEnterAGe">START</string>
+    <string name="u2a1tvPrompt"></string>
+    <string name="u2a1btRestart">RESTART</string>
 </resources>
