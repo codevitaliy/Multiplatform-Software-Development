@@ -1,6 +1,9 @@
 <resources>
+
     <string name="app_name">Pmdm</string>
     <string name="u1a1TxtHelloWorld">Hello World</string>
+
+    //GUESS THE AGE
     <string name="u2a1TxtGuessAge">Guess the age!</string>
     <string name="u2a1TxtEnterAge">Enter the age, you have 5 chances</string>
     <string name="u2a1btEnterAGe">START</string>
@@ -10,5 +13,16 @@
     <string name="u2a1lowerAge">The age must be lower, chances left: </string>
     <string name="u2a1higherAge">The age must be higher, chances left: </string>
     <string name="u2a1startAgain">Lets start again, number of tries: </string>
+    //GUESS THE AGE
+
+    //COLOR NAME
+    <string name="u2a2Title">Color Name</string>
+    <string name="u2a2etInputColor"> </string>
+    <string name="u2a2tvStrR">R</string>
+    <string name="u2a2tvStrG">G</string>
+    <string name="u2a2tvStrB">B</string>
+    <string name="u2a2btStrButton">COLOUR ME</string>
+    <string name="u2a2swColor">White</string>
+
 
 </resources>

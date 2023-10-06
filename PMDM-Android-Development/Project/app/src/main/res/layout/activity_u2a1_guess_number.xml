@@ -59,7 +59,7 @@
         android:textColor="#4A148C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.298"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/u2e1etEnterAge"
         app:layout_constraintVertical_bias="0.188" />
@@ -68,16 +68,15 @@
         android:id="@+id/u2a1btRestart"
         android:layout_width="110dp"
         android:layout_height="48dp"
-        android:layout_marginStart="16dp"
         android:backgroundTint="#CC5656"
         android:text="@string/u2a1btRestart"
         android:textColor="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.126"
         app:layout_constraintStart_toEndOf="@+id/u2e1btStart"
         app:layout_constraintTop_toBottomOf="@+id/u2e1etEnterAge"
-        app:layout_constraintVertical_bias="0.189" />
+        app:layout_constraintVertical_bias="0.186" />
 
     <TextView
         android:id="@+id/u2a1tvPrompt"
