@@ -4,6 +4,11 @@
     <string name="u2a1TxtGuessAge">Guess the age!</string>
     <string name="u2a1TxtEnterAge">Enter the age, you have 5 chances</string>
     <string name="u2a1btEnterAGe">START</string>
-    <string name="u2a1tvPrompt"></string>
     <string name="u2a1btRestart">RESTART</string>
+    <string name="u2a1youLost">You lost and out of chances: </string>
+    <string name="u2a1youWin">You win!</string>
+    <string name="u2a1lowerAge">The age must be lower, chances left: </string>
+    <string name="u2a1higherAge">The age must be higher, chances left: </string>
+    <string name="u2a1startAgain">Lets start again, number of tries: </string>
+
 </resources>

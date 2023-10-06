@@ -3,6 +3,7 @@ package com.example.pmdm.u2;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -39,19 +40,22 @@ public class u2a1GuessNumber extends AppCompatActivity {
       public void onClick(View v) {
 
         inputAge = Integer.parseInt(ageEditText.getText().toString());
+        String strTries;
 
         if (inputAge == randomAge) {
-          promptMessage.setText("You won!");
+          promptMessage.setText(R.string.u2a1youWin);
+          promptMessage.setTextColor(Color.parseColor("#008000"));
         } else {
           if (tries == 1) {
-            promptMessage.setText("You lost and out of chances");
+            promptMessage.setText(R.string.u2a1youLost);
+            promptMessage.setTextColor(Color.parseColor("#FF0000"));
           } else {
             if (inputAge > randomAge) {
               tries--;
-              promptMessage.setText("The age must be lower, chances left: " + tries);
+              promptMessage.setText(getString(R.string.u2a1lowerAge) + " " + tries);
             } else {
               tries--;
-              promptMessage.setText("The age must be higher, chances left: " + tries);
+              promptMessage.setText(getString(R.string.u2a1higherAge) + " " + tries);
             }
           }
         }
@@ -59,11 +63,13 @@ public class u2a1GuessNumber extends AppCompatActivity {
     });
 
     restartButton.setOnClickListener(new View.OnClickListener() {
+      @SuppressLint("SetTextI18n")
       @Override
       public void onClick(View v) {
         tries = 5;
-        promptMessage.setText("Lets start again, number of tries: " + tries);
+        promptMessage.setText(getString(R.string.u2a1startAgain) + " " + tries);
         randomAge = (int) (Math.random() * 99 + 1);
+        promptMessage.setTextColor(Color.parseColor("#000000"));
       }
     });
 
