@@ -28,17 +28,8 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuCocheMensajeMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuCocheMensajeActionPerformed"/>
               </Events>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu1">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu1"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="jMenu2">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="jMenu2"/>
-              </Properties>
             </Menu>
           </SubComponents>
         </Menu>
@@ -56,6 +47,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuMotoMensajeMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuMotoMensajeActionPerformed"/>
               </Events>
             </Menu>
           </SubComponents>
@@ -74,6 +66,7 @@
               </Properties>
               <Events>
                 <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jMenuCamionMensajeMouseClicked"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jMenuCamionMensajeActionPerformed"/>
               </Events>
             </Menu>
           </SubComponents>
@@ -86,7 +79,6 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="cc" green="d4" red="f6" type="rgb"/>
     </Property>
-    <Property name="enabled" type="boolean" value="false"/>
     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="0" green="c8" id="orange" palette="1" red="ff" type="palette"/>
     </Property>
@@ -148,7 +140,7 @@
                   <Group type="102" alignment="1" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jCheckBoxTipoCamion" alignment="0" min="-2" pref="85" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonGasGasolina" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonGasolina" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="70" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
@@ -159,8 +151,8 @@
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jTextYear" min="-2" pref="125" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonGasElectrico" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonGasDiesel" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonElectric" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonDiesel" alignment="0" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
@@ -225,7 +217,7 @@
                       <EmptySpace pref="36" max="32767" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelCombustible" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jRadioButtonGasGasolina" alignment="3" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRadioButtonGasolina" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="jComboBoxColors" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                   </Group>
@@ -234,9 +226,9 @@
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jRadioButtonGasDiesel" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonDiesel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="jRadioButtonGasElectrico" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRadioButtonElectric" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="103" alignment="0" groupAlignment="3" attributes="0">
                       <Component id="jButtonAddVehiculo" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -344,7 +336,7 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jCheckBoxAddSidecarActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButtonGasGasolina">
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonGasolina">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -352,10 +344,10 @@
         <Property name="text" type="java.lang.String" value="Gasolina"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGasGasolinaActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGasolinaActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButtonGasDiesel">
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonDiesel">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -363,10 +355,10 @@
         <Property name="text" type="java.lang.String" value="Diesel"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGasDieselActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonDieselActionPerformed"/>
       </Events>
     </Component>
-    <Component class="javax.swing.JRadioButton" name="jRadioButtonGasElectrico">
+    <Component class="javax.swing.JRadioButton" name="jRadioButtonElectric">
       <Properties>
         <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
           <ComponentRef name="buttonGroup1"/>
@@ -374,7 +366,7 @@
         <Property name="text" type="java.lang.String" value="Electric"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonGasElectricoActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jRadioButtonElectricActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JComboBox" name="jComboBoxColors">

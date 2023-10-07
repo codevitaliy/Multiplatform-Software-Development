@@ -16,7 +16,7 @@ import javax.swing.table.DefaultTableModel;
 public class Practica1 extends javax.swing.JFrame {
     
     String finalMessage,nombreVehiculo,nombreModelo,yearVehiculo,tipoCombustible,
-            tipoVehiculo,tipoAdd,mensajeMenu;
+            tipoVehiculo,tipoAdd,colorVehiculo;
     
    
     public Practica1() {
@@ -50,9 +50,9 @@ public class Practica1 extends javax.swing.JFrame {
         jCheckBoxAddRemolque = new javax.swing.JCheckBox();
         jCheckBoxAddCapota = new javax.swing.JCheckBox();
         jCheckBoxAddSidecar = new javax.swing.JCheckBox();
-        jRadioButtonGasGasolina = new javax.swing.JRadioButton();
-        jRadioButtonGasDiesel = new javax.swing.JRadioButton();
-        jRadioButtonGasElectrico = new javax.swing.JRadioButton();
+        jRadioButtonGasolina = new javax.swing.JRadioButton();
+        jRadioButtonDiesel = new javax.swing.JRadioButton();
+        jRadioButtonElectric = new javax.swing.JRadioButton();
         jComboBoxColors = new javax.swing.JComboBox<>();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTableMarcaModelo = new javax.swing.JTable();
@@ -63,8 +63,6 @@ public class Practica1 extends javax.swing.JFrame {
         jMenuBarCoches = new javax.swing.JMenuBar();
         jMenuCoche = new javax.swing.JMenu();
         jMenuCocheMensaje = new javax.swing.JMenu();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
         jMenuMoto = new javax.swing.JMenu();
         jMenuMotoMensaje = new javax.swing.JMenu();
         jMenuCamion = new javax.swing.JMenu();
@@ -74,7 +72,6 @@ public class Practica1 extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(246, 212, 204));
-        setEnabled(false);
         setForeground(java.awt.Color.orange);
 
         jLabelMarca.setText("MARCA:");
@@ -151,27 +148,27 @@ public class Practica1 extends javax.swing.JFrame {
             }
         });
 
-        buttonGroup1.add(jRadioButtonGasGasolina);
-        jRadioButtonGasGasolina.setText("Gasolina");
-        jRadioButtonGasGasolina.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonGasolina);
+        jRadioButtonGasolina.setText("Gasolina");
+        jRadioButtonGasolina.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonGasGasolinaActionPerformed(evt);
+                jRadioButtonGasolinaActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButtonGasDiesel);
-        jRadioButtonGasDiesel.setText("Diesel");
-        jRadioButtonGasDiesel.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonDiesel);
+        jRadioButtonDiesel.setText("Diesel");
+        jRadioButtonDiesel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonGasDieselActionPerformed(evt);
+                jRadioButtonDieselActionPerformed(evt);
             }
         });
 
-        buttonGroup1.add(jRadioButtonGasElectrico);
-        jRadioButtonGasElectrico.setText("Electric");
-        jRadioButtonGasElectrico.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup1.add(jRadioButtonElectric);
+        jRadioButtonElectric.setText("Electric");
+        jRadioButtonElectric.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jRadioButtonGasElectricoActionPerformed(evt);
+                jRadioButtonElectricActionPerformed(evt);
             }
         });
 
@@ -239,13 +236,12 @@ public class Practica1 extends javax.swing.JFrame {
                 jMenuCocheMensajeMouseClicked(evt);
             }
         });
+        jMenuCocheMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCocheMensajeActionPerformed(evt);
+            }
+        });
         jMenuCoche.add(jMenuCocheMensaje);
-
-        jMenu1.setText("jMenu1");
-        jMenuCoche.add(jMenu1);
-
-        jMenu2.setText("jMenu2");
-        jMenuCoche.add(jMenu2);
 
         jMenuBarCoches.add(jMenuCoche);
 
@@ -260,6 +256,11 @@ public class Practica1 extends javax.swing.JFrame {
         jMenuMotoMensaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuMotoMensajeMouseClicked(evt);
+            }
+        });
+        jMenuMotoMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuMotoMensajeActionPerformed(evt);
             }
         });
         jMenuMoto.add(jMenuMotoMensaje);
@@ -277,6 +278,11 @@ public class Practica1 extends javax.swing.JFrame {
         jMenuCamionMensaje.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jMenuCamionMensajeMouseClicked(evt);
+            }
+        });
+        jMenuCamionMensaje.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuCamionMensajeActionPerformed(evt);
             }
         });
         jMenuCamion.add(jMenuCamionMensaje);
@@ -321,7 +327,7 @@ public class Practica1 extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jCheckBoxTipoCamion, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButtonGasGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioButtonGasolina, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jCheckBoxAddSidecar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -329,8 +335,8 @@ public class Practica1 extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextYear, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButtonGasElectrico, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jRadioButtonGasDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jRadioButtonElectric, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jRadioButtonDiesel, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -380,15 +386,15 @@ public class Practica1 extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelCombustible)
-                            .addComponent(jRadioButtonGasGasolina)
+                            .addComponent(jRadioButtonGasolina)
                             .addComponent(jComboBoxColors, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButtonGasDiesel)
+                        .addComponent(jRadioButtonDiesel)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButtonGasElectrico))
+                        .addComponent(jRadioButtonElectric))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(jButtonAddVehiculo)
                         .addComponent(jButtonRemoveVehiculo)))
@@ -427,10 +433,39 @@ public class Practica1 extends javax.swing.JFrame {
      nombreVehiculo = jTextNombre.getText();
      nombreModelo = jTextModelo.getText();
      yearVehiculo = jTextYear.getText();
-        
-     finalMessage = "Nombre del Vehiculo: " + nombreVehiculo + "\n" +
-                        "Nombre del Modelo: " + nombreModelo + "\n" +
-                        "Año del Vehiculo: " + yearVehiculo;   
+     
+     if(jCheckBoxTipoCoche.isSelected()) {
+         tipoVehiculo = "coche";
+     }else if(jCheckBoxTipoMoto.isSelected()) {
+         tipoVehiculo = "moto";
+     }else if(jCheckBoxTipoCamion.isSelected()) {
+         tipoVehiculo = "camion";
+     }else {
+         tipoVehiculo = "No seleccionado";
+     }
+     
+     if(jCheckBoxAddRemolque.isSelected()) {
+         tipoAdd = "Remolque";
+     }else if(jCheckBoxAddCapota.isSelected()) {
+         tipoAdd = "Capota";
+     }else if (jCheckBoxAddSidecar.isSelected()) {
+         tipoAdd = "Sidecar";
+     }else {
+         tipoAdd = "No se ha seleccionado nada para añidir";
+     }
+     
+     finalMessage = "Nombre: " + nombreVehiculo + "\n" +
+                    "Modelo: " + nombreModelo + "\n" +
+                    "Year: " + yearVehiculo + "\n" +
+                    "Tipo: " + tipoVehiculo + "\n" +
+                    "Color: " + colorVehiculo + "\n" +
+                    "Comustible: " + tipoCombustible + "\n" +
+                    "Extras: " + tipoAdd + "\n";
+     
+        System.out.println(finalMessage);
+     
+   
+     
         
     }//GEN-LAST:event_jButtonStartActionPerformed
 
@@ -476,25 +511,25 @@ public class Practica1 extends javax.swing.JFrame {
         tipoVehiculo = "Moto";
     }//GEN-LAST:event_jCheckBoxTipoMotoActionPerformed
 
-    private void jRadioButtonGasGasolinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGasGasolinaActionPerformed
+    private void jRadioButtonGasolinaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGasolinaActionPerformed
         // TODO add your handling code here:
-        if(jRadioButtonGasGasolina.isSelected())
+        if(jRadioButtonGasolina.isSelected())
             tipoCombustible = "Gasolina";
-    }//GEN-LAST:event_jRadioButtonGasGasolinaActionPerformed
+    }//GEN-LAST:event_jRadioButtonGasolinaActionPerformed
 
-    private void jRadioButtonGasDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGasDieselActionPerformed
+    private void jRadioButtonDieselActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonDieselActionPerformed
         // TODO add your handling code here:
-        if(jRadioButtonGasDiesel.isSelected()) {
+        if(jRadioButtonDiesel.isSelected()) {
             tipoCombustible = "Diesel";
         }
-    }//GEN-LAST:event_jRadioButtonGasDieselActionPerformed
+    }//GEN-LAST:event_jRadioButtonDieselActionPerformed
 
-    private void jRadioButtonGasElectricoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonGasElectricoActionPerformed
+    private void jRadioButtonElectricActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRadioButtonElectricActionPerformed
         // TODO add your handling code here:
-        if(jRadioButtonGasElectrico.isSelected()) {
+        if(jRadioButtonElectric.isSelected()) {
             tipoCombustible = "Electrico";
         }
-    }//GEN-LAST:event_jRadioButtonGasElectricoActionPerformed
+    }//GEN-LAST:event_jRadioButtonElectricActionPerformed
 
     private void jButtonResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonResetActionPerformed
         // TODO add your handling code here:
@@ -567,7 +602,9 @@ public class Practica1 extends javax.swing.JFrame {
 
     private void jComboBoxColorsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxColorsActionPerformed
         // TODO add your handling code here:
-         
+        Object colors = jComboBoxColors.getSelectedItem();
+        colorVehiculo = colors.toString();
+        
     }//GEN-LAST:event_jComboBoxColorsActionPerformed
 
     private void jButtonRemoveVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRemoveVehiculoActionPerformed
@@ -629,11 +666,28 @@ public class Practica1 extends javax.swing.JFrame {
 
     private void jMenuCocheMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCocheMouseClicked
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jMenuCocheMouseClicked
 
     private void jMenuCocheMensajeMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jMenuCocheMensajeMouseClicked
         // TODO add your handling code here:
+        JOptionPane.showInputDialog("Es un coche");
     }//GEN-LAST:event_jMenuCocheMensajeMouseClicked
+
+    private void jMenuCocheMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCocheMensajeActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showInputDialog("Es un coche");
+    }//GEN-LAST:event_jMenuCocheMensajeActionPerformed
+
+    private void jMenuMotoMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuMotoMensajeActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showInputDialog("Es una moto");
+    }//GEN-LAST:event_jMenuMotoMensajeActionPerformed
+
+    private void jMenuCamionMensajeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuCamionMensajeActionPerformed
+        // TODO add your handling code here:
+        JOptionPane.showInputDialog("Es una camion");
+    }//GEN-LAST:event_jMenuCamionMensajeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -686,8 +740,6 @@ public class Practica1 extends javax.swing.JFrame {
     private javax.swing.JLabel jLabelModelo;
     private javax.swing.JLabel jLabelTipo;
     private javax.swing.JLabel jLabelYear;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBarCoches;
     private javax.swing.JMenu jMenuCamion;
     private javax.swing.JMenu jMenuCamionMensaje;
@@ -696,9 +748,9 @@ public class Practica1 extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenu jMenuMoto;
     private javax.swing.JMenu jMenuMotoMensaje;
-    private javax.swing.JRadioButton jRadioButtonGasDiesel;
-    private javax.swing.JRadioButton jRadioButtonGasElectrico;
-    private javax.swing.JRadioButton jRadioButtonGasGasolina;
+    private javax.swing.JRadioButton jRadioButtonDiesel;
+    private javax.swing.JRadioButton jRadioButtonElectric;
+    private javax.swing.JRadioButton jRadioButtonGasolina;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTableMarcaModelo;
     private javax.swing.JTextField jTextModelo;
