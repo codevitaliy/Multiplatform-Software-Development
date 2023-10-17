@@ -19,8 +19,11 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="24sp"
-        tools:layout_editor_absoluteX="55dp"
-        tools:layout_editor_absoluteY="6dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
 
     <Button
         android:id="@+id/u2a3btPoor"
@@ -30,19 +33,26 @@
         android:text="@string/u2a3Poor"
         android:textColor="#000000"
         android:textColorLink="#000000"
-        tools:layout_editor_absoluteX="38dp"
-        tools:layout_editor_absoluteY="292dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.137"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/u2a3btNice"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="91dp"
+        android:layout_height="49dp"
         android:backgroundTint="#FFAB91"
         android:text="@string/u2a3Nice"
         android:textColor="#000000"
         android:textColorLink="#000000"
-        tools:layout_editor_absoluteX="141dp"
-        tools:layout_editor_absoluteY="292dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.465" />
 
     <Button
         android:id="@+id/u2a3btGreat"
@@ -52,20 +62,12 @@
         android:text="@string/u2a3Excellent"
         android:textColor="#000000"
         android:textColorLink="#000000"
-        tools:layout_editor_absoluteX="239dp"
-        tools:layout_editor_absoluteY="292dp" />
-
-    <Button
-        android:id="@+id/u2a3btN3"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n5"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="440dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.894"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.467" />
 
     <EditText
         android:id="@+id/u2a3etNumberInput"
@@ -75,68 +77,10 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="108dp" />
-
-    <Button
-        android:id="@+id/u2a3btN1"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n1"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="519dp" />
-
-    <Button
-        android:id="@+id/u2a3btN4"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n6"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="440dp" />
-
-    <Button
-        android:id="@+id/u2a3btN6"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n9"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="360dp" />
-
-    <Button
-        android:id="@+id/u2a3btN7"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n8"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="360dp" />
-
-    <Button
-        android:id="@+id/u2a3btN"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n2"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="519dp" />
+        app:layout_constraintBottom_toTopOf="@+id/u2a3tvTip"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a3tvAmount" />
 
     <Button
         android:id="@+id/u2a3btN9"
@@ -147,18 +91,44 @@
         android:textAlignment="center"
         android:textColor="#000000"
         app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="360dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
 
-    <TextView
-        android:id="@+id/u2a3tvAmount"
-        android:layout_width="162dp"
-        android:layout_height="30dp"
-        android:text="@string/u2a3TotalMoney"
+    <Button
+        android:id="@+id/u2a3btN"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n2"
         android:textAlignment="center"
-        android:textColor="#FFFFFF"
-        tools:layout_editor_absoluteX="99dp"
-        tools:layout_editor_absoluteY="62dp" />
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
+
+    <Button
+        android:id="@+id/u2a3btN7"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n8"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.591" />
 
     <Button
         android:id="@+id/u2a3btN2"
@@ -169,32 +139,28 @@
         android:textAlignment="center"
         android:textColor="#000000"
         app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="519dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
 
     <Button
-        android:id="@+id/u2a3btN18"
+        android:id="@+id/u2a3btN4"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n0"
+        android:text="@string/u2a3n6"
         android:textAlignment="center"
         android:textColor="#000000"
         app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="149dp"
-        tools:layout_editor_absoluteY="598dp" />
-
-    <Button
-        android:id="@+id/u2a3btN5"
-        android:layout_width="65dp"
-        android:layout_height="70dp"
-        android:backgroundTint="#CEB6A5D6"
-        android:text="@string/u2a3n4"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="76dp"
-        tools:layout_editor_absoluteY="440dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
 
     <Button
         android:id="@+id/u2a3btN19"
@@ -205,8 +171,28 @@
         android:textAlignment="center"
         android:textColor="#000000"
         app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="220dp"
-        tools:layout_editor_absoluteY="598dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.942" />
+
+    <Button
+        android:id="@+id/u2a3btN5"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n4"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.708" />
 
     <Button
         android:id="@+id/u2a3btN20"
@@ -217,8 +203,90 @@
         android:textAlignment="center"
         android:textColor="#000000"
         app:cornerRadius="30dp"
-        tools:layout_editor_absoluteX="79dp"
-        tools:layout_editor_absoluteY="598dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94" />
+
+    <Button
+        android:id="@+id/u2a3btN1"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n1"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.274"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.826" />
+
+    <Button
+        android:id="@+id/u2a3btN3"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n5"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.52"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.709" />
+
+    <Button
+        android:id="@+id/u2a3btN6"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n9"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.59" />
+
+    <Button
+        android:id="@+id/u2a3btN18"
+        android:layout_width="65dp"
+        android:layout_height="70dp"
+        android:backgroundTint="#CEB6A5D6"
+        android:text="@string/u2a3n0"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        app:cornerRadius="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.514"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.94" />
+
+    <TextView
+        android:id="@+id/u2a3tvAmount"
+        android:layout_width="162dp"
+        android:layout_height="30dp"
+        android:text="@string/u2a3TotalMoney"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.115" />
 
     <TextView
         android:id="@+id/u2a3tvTip"
@@ -228,7 +296,11 @@
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
-        tools:layout_editor_absoluteX="81dp"
-        tools:layout_editor_absoluteY="172dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.537"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.324" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
