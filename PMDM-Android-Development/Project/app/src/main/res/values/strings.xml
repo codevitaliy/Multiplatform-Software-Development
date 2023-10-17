@@ -24,5 +24,15 @@
     <string name="u2a2btStrButton">COLOUR ME</string>
     <string name="u2a2swColor">White</string>
 
+    //PROPINATRON2000
+    <string name="u2a3Title">PROPINATRON 2000</string>
+    <string name="u2a3TotalMoney">Enter the total amount: </string>
+    <string name="u2a3TipsText">Your tip is: </string>
+    <string name="u2a3Poor">Poor :(</string>
+    <string name="u2a3Nice">Nice :)</string>
+    <string name="u2a3Excellent">Great :D</string>
+
+
+
 
 </resources>
