@@ -54,23 +54,24 @@
         android:inputType="text"
         android:minHeight="48dp"
         android:text="@string/u2a2etInputColor"
+        app:layout_constraintBottom_toTopOf="@+id/u2a2sbR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/u2a2tvTitle"
+        app:layout_constraintVertical_bias="0.0"
         tools:ignore="SpeakableTextPresentCheck" />
 
     <SeekBar
         android:id="@+id/u2a2sbR"
         android:layout_width="193dp"
         android:layout_height="29dp"
+        android:layout_marginBottom="12dp"
         android:progressBackgroundTint="#DD0C0C"
         app:layout_constraintBottom_toTopOf="@+id/u2a2sbG"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
-        app:layout_constraintStart_toEndOf="@+id/u2a2tvR"
-        app:layout_constraintTop_toBottomOf="@+id/u2a2etColorInput"
-        app:layout_constraintVertical_bias="0.712" />
+        app:layout_constraintHorizontal_bias="0.076"
+        app:layout_constraintStart_toEndOf="@+id/u2a2tvR" />
 
     <SeekBar
         android:id="@+id/u2a2sbB"
@@ -80,18 +81,18 @@
         android:progressBackgroundTint="#0032FA"
         app:layout_constraintBottom_toTopOf="@+id/u2a2swTxColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toEndOf="@+id/u2a2tvB" />
 
     <SeekBar
         android:id="@+id/u2a2sbG"
         android:layout_width="193dp"
         android:layout_height="29dp"
-        android:layout_marginBottom="12dp"
+        android:layout_marginBottom="8dp"
         android:progressBackgroundTint="#14DC1D"
         app:layout_constraintBottom_toTopOf="@+id/u2a2sbB"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.11"
+        app:layout_constraintHorizontal_bias="0.076"
         app:layout_constraintStart_toEndOf="@+id/u2a2tvG" />
 
     <TextView
@@ -106,7 +107,7 @@
         app:layout_constraintBottom_toTopOf="@+id/u2a2tvG"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.973" />
+        app:layout_constraintVertical_bias="1.0" />
 
     <Switch
         android:id="@+id/u2a2swTxColor"
@@ -116,7 +117,8 @@
         android:text="@string/u2a2swColor"
         app:layout_constraintBottom_toTopOf="@+id/u2a2btShowColor"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
 
     <TextView
         android:id="@+id/u2a2tvResult"
