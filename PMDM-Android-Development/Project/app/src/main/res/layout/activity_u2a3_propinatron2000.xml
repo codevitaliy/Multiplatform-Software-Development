@@ -6,10 +6,13 @@
     android:layout_height="match_parent"
     android:background="#E0000000"
     android:padding="20dp"
+    android:windowSoftInputMode="stateHidden"
     android:textAlignment="center"
     tools:context=".u2.u2a3Propinatron2000"
     tools:layout_editor_absoluteX="0dp"
-    tools:layout_editor_absoluteY="-91dp">
+    tools:layout_editor_absoluteY="-91dp"
+    tools:ignore="ExtraText">
+
 
     <TextView
         android:id="@+id/u2a3tvTitle"
@@ -26,58 +29,17 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.003" />
 
-    <Button
-        android:id="@+id/u2a3btPoor"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFAB91"
-        android:text="@string/u2a3Poor"
-        android:textColor="#000000"
-        android:textColorLink="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.137"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
-
-    <Button
-        android:id="@+id/u2a3btNice"
-        android:layout_width="91dp"
-        android:layout_height="49dp"
-        android:backgroundTint="#FFAB91"
-        android:text="@string/u2a3Nice"
-        android:textColor="#000000"
-        android:textColorLink="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.465" />
-
-    <Button
-        android:id="@+id/u2a3btGreat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:backgroundTint="#FFAB91"
-        android:text="@string/u2a3Excellent"
-        android:textColor="#000000"
-        android:textColorLink="#000000"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.894"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.467" />
-
     <EditText
         android:id="@+id/u2a3etNumberInput"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="none"
         android:minHeight="48dp"
+        android:maxLength="10"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
+        android:textColorHint="#F4F4F4"
         app:layout_constraintBottom_toTopOf="@+id/u2a3tvTip"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.079"
@@ -85,8 +47,10 @@
         app:layout_constraintTop_toBottomOf="@+id/u2a3tvAmount"
         app:layout_constraintVertical_bias="0.52" />
 
+
+
     <Button
-        android:id="@+id/u2a3btN9"
+        android:id="@+id/u2a3btId7"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -102,7 +66,7 @@
         app:layout_constraintVertical_bias="0.59" />
 
     <Button
-        android:id="@+id/u2a3btN"
+        android:id="@+id/u2a3btId2"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -118,7 +82,7 @@
         app:layout_constraintVertical_bias="0.826" />
 
     <Button
-        android:id="@+id/u2a3btN7"
+        android:id="@+id/u2a3btId8"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -128,13 +92,13 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.757"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.591" />
 
     <Button
-        android:id="@+id/u2a3btN2"
+        android:id="@+id/u2a3btId3"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -150,7 +114,7 @@
         app:layout_constraintVertical_bias="0.826" />
 
     <Button
-        android:id="@+id/u2a3btN4"
+        android:id="@+id/u2a3btId6"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -166,7 +130,7 @@
         app:layout_constraintVertical_bias="0.708" />
 
     <Button
-        android:id="@+id/u2a3btN19"
+        android:id="@+id/u2a3btIdD"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -182,7 +146,7 @@
         app:layout_constraintVertical_bias="0.942" />
 
     <Button
-        android:id="@+id/u2a3btN5"
+        android:id="@+id/u2a3btId4"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -198,7 +162,7 @@
         app:layout_constraintVertical_bias="0.708" />
 
     <Button
-        android:id="@+id/u2a3btN20"
+        android:id="@+id/u2a3btIdC"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -214,7 +178,7 @@
         app:layout_constraintVertical_bias="0.94" />
 
     <Button
-        android:id="@+id/u2a3btN1"
+        android:id="@+id/u2a3btId1"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -230,7 +194,7 @@
         app:layout_constraintVertical_bias="0.826" />
 
     <Button
-        android:id="@+id/u2a3btN3"
+        android:id="@+id/u2a3btId5"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -246,7 +210,7 @@
         app:layout_constraintVertical_bias="0.709" />
 
     <Button
-        android:id="@+id/u2a3btN6"
+        android:id="@+id/u2a3btId9"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -256,13 +220,13 @@
         app:cornerRadius="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintHorizontal_bias="0.76"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.59" />
 
     <Button
-        android:id="@+id/u2a3btN18"
+        android:id="@+id/u2a3btId0"
         android:layout_width="65dp"
         android:layout_height="70dp"
         android:backgroundTint="#CEB6A5D6"
@@ -295,7 +259,6 @@
         android:id="@+id/u2a3tvTip"
         android:layout_width="199dp"
         android:layout_height="60dp"
-        android:text="@string/u2a3TipsText"
         android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
@@ -307,7 +270,7 @@
         app:layout_constraintVertical_bias="0.347" />
 
     <ImageView
-        android:id="@+id/imageView3"
+        android:id="@+id/u2a3ImageView"
         android:layout_width="134dp"
         android:layout_height="213dp"
         android:alpha="0.5"
@@ -319,7 +282,80 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/weiter" />/
-    >
+        app:srcCompat="@drawable/weiter" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.467">
+
+        <RadioButton
+            android:id="@+id/u2a3rbPoor"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_radio_button"
+            android:backgroundTint="#FFECB3"
+            android:text="@string/u2a3Poor"
+            app:cornerRadius="600dp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+
+        <RadioButton
+            android:id="@+id/u2a3rbNice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_radio_button"
+            android:backgroundTint="#FFECB3"
+            android:text="@string/u2a3Nice"
+            app:cornerRadius="600dp" />
+
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+
+        <!-- Additional Space at the end -->
+        <Space
+            android:layout_width="8dp"
+            android:layout_height="1dp" />
+
+        <RadioButton
+            android:id="@+id/u2a3rbGreat"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/rounded_radio_button"
+            android:backgroundTint="#FFECB3"
+            android:text="@string/u2a3Excellent"
+            app:cornerRadius="600dp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/u2a3btIdCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#A5D6A7"
+        android:text="@string/u2a3Calculate"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.933"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.349" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
