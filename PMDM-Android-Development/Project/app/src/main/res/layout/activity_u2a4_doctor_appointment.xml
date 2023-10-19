@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mainLayout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#BE80DEEA"
+    android:textAlignment="center"
+    tools:context=".u2.u2a4DoctorAppointment">
+
+    <TextView
+        android:id="@+id/u2a4tvTitle"
+        android:layout_width="267dp"
+        android:layout_height="98dp"
+        android:text="@string/u2a4title"
+        android:textSize="34sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.114"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.057" />
+
+    <ImageView
+        android:id="@+id/u2a4ivHospital"
+        android:layout_width="118dp"
+        android:layout_height="135dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/hospital" />
+
+    <TextView
+        android:id="@+id/u2a4tvWorkingHouers"
+        android:layout_width="114dp"
+        android:layout_height="50dp"
+        android:text="@string/u2a4WorkingHours"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.986"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a4ivHospital"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/u2a4twTypeDNI"
+        android:layout_width="155dp"
+        android:layout_height="37dp"
+        android:text="@string/u2a4TypeDni"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a4tvTitle"
+        app:layout_constraintVertical_bias="0.192" />
+
+    <EditText
+        android:id="@+id/u2a4etInputDNI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:autofillHints="12345678W"
+        android:ems="10"
+        android:hint="12345678W"
+        android:inputType="text"
+        android:maxLength="9"
+        android:minHeight="48dp"
+        android:text=""
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a4twTypeDNI"
+        app:layout_constraintVertical_bias="0.068" />
+
+    <Button
+        android:id="@+id/u2a4btChooseDate"
+        android:layout_width="175dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#FFD54F"
+        android:text="@string/u2a4ChooseDate"
+        android:textColor="#050404"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.067"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a4etInputDNI"
+        app:layout_constraintVertical_bias="0.304" />
+
+    <Button
+        android:id="@+id/u2a4btChooseTime"
+        android:layout_width="175dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#FFCA28"
+        android:text="@string/u2a4ChooseTime"
+        android:textColor="#050404"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.377"
+        app:layout_constraintStart_toEndOf="@+id/u2a4btChooseDate"
+        app:layout_constraintTop_toBottomOf="@+id/u2a4etInputDNI"
+        app:layout_constraintVertical_bias="0.304" />
+
+    <Button
+        android:id="@+id/u2a4btConfirm"
+        android:layout_width="280dp"
+        android:layout_height="61dp"
+        android:backgroundTint="#4CAF50"
+        android:text="@string/u2a4Confirm"
+        android:textColor="#050404"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.827" />
+
+    <TextView
+        android:id="@+id/u2a4tvValidation"
+        android:layout_width="128dp"
+        android:layout_height="33dp"
+        android:text="@string/u2a4Validation"
+        app:layout_constraintBottom_toTopOf="@+id/u2a4btConfirm"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a4etInputDNI"
+        app:layout_constraintVertical_bias="0.077" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

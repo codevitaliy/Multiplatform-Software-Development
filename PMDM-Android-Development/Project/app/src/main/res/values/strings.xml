@@ -46,6 +46,15 @@
     <string name="u2a3Calculate">Calculate</string>
     <string name="u2a3Hint">Enter amount here</string>
 
+    //DOCTOR APPOINTMENT
+    <string name="u2a4title">MEDICAL APPOINTMENT</string>
+    <string name="u2a4WorkingHours">Monday –> Friday 9:00 – 14:00</string>
+    <string name="u2a4TypeDni">Enter your DNI: </string>
+    <string name="u2a4ChooseTime">Choose time</string>
+    <string name="u2a4ChooseDate">Choose date</string>
+    <string name="u2a4Confirm">CONFIRM </string>
+    <string name="u2a4Validation"> </string>
+
 
 
 
