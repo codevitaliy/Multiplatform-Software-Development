@@ -139,7 +139,7 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
     //---------------------------------------------------------------------------------------------
 
     //Shows the message of the date and time in the TextView
-    displayTimeDayMessage.setText(setDateTimeMessage());
+    //displayTimeDayMessage.setText(setDateTimeMessage());
 
 
   }
