@@ -2,9 +2,11 @@ package com.example.pmdm.u2;
 
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
+import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Vibrator;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -13,12 +15,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.example.pmdm.R;
-
 import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
@@ -40,6 +40,8 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
   public static Boolean checkDni;
   ImageView greenCheck;
 
+  Vibrator vibrator;
+
   //String regex = "^[a-zA-Z0-9_]+$"; Letras, Números y Guiones Bajos (Underscores);
   //String regex = "^[a-zA-Z]{5}[0-9]{2}$"; 5 letras y 2 números al final;
   private static final String REGEX_DNI = "[0-9]{8}[A-Za-z]$";
@@ -57,6 +59,9 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
     displayTimeDayMessage = findViewById(R.id.u2a4tvMessage);
     greenCheck = findViewById(R.id.u2a4ivCheck);
     btnConfirm = findViewById(R.id.u2a4btConfirm);
+
+    //ADD VIBRATION TO THE CODE
+    vibrator = (Vibrator) getSystemService(Context.VIBRATOR_SERVICE);
 
     //find the root layout content of the activity
     rootView = findViewById(android.R.id.content);
@@ -153,12 +158,7 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
 
     // CONFIRM BUTTON
 
-    btnConfirm.setOnClickListener(v -> {
-
-      checkCampos();
-
-
-    });
+    btnConfirm.setOnClickListener(v -> checkCampos());
 
 
 
@@ -232,7 +232,7 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
   }
 
   public boolean checkCampos() {
-    if(selectedDate != null && selectedTime != null && checkDni == true) {
+    if(selectedDate != null && selectedTime != null && checkDni) {
 
       btnConfirm.setVisibility(View.INVISIBLE);
       btnDatePicker.setEnabled(false);
@@ -241,7 +241,12 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
       greenCheck.setVisibility(View.VISIBLE);
       return true;
     }
-    return false;
-  }
 
+    //DO NOT USE THIS, ONLY FOR EDUCATIONAL PURPOSES
+    Toast.makeText(getApplicationContext(), "TOAST Por favor, complete todos los campos", Toast.LENGTH_SHORT).show();
+    vibrator.vibrate(500);
+
+    return false;
+
+  }
 }
