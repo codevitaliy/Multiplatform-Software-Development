@@ -1,10 +1,9 @@
 package com.example.pmdm.u2;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -12,12 +11,18 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.pmdm.R;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.GregorianCalendar;
 
 public class u2a4DoctorAppointment extends AppCompatActivity {
 
@@ -26,16 +31,20 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
   View rootView;
   Button btnDatePicker;
   Button btnTimePicker;
+  Button btnConfirm;
   DatePickerDialog.OnDateSetListener onDateSetListener;
-  String selectedDate;
+  LocalDate selectedDate;
   TimePickerDialog.OnTimeSetListener onTimeSetListener;
-  String selectedTime;
+  LocalTime selectedTime;
   TextView displayTimeDayMessage;
+  public static Boolean checkDni;
+  ImageView greenCheck;
 
   //String regex = "^[a-zA-Z0-9_]+$"; Letras, Números y Guiones Bajos (Underscores);
   //String regex = "^[a-zA-Z]{5}[0-9]{2}$"; 5 letras y 2 números al final;
   private static final String REGEX_DNI = "[0-9]{8}[A-Za-z]$";
 
+  @RequiresApi(api = Build.VERSION_CODES.O)
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
@@ -46,17 +55,14 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
     btnDatePicker = findViewById(R.id.u2a4btChooseDate);
     btnTimePicker = findViewById(R.id.u2a4btChooseTime);
     displayTimeDayMessage = findViewById(R.id.u2a4tvMessage);
+    greenCheck = findViewById(R.id.u2a4ivCheck);
+    btnConfirm = findViewById(R.id.u2a4btConfirm);
 
     //find the root layout content of the activity
     rootView = findViewById(android.R.id.content);
 
     // Click listener to hide the soft keyboard
-    rootView.setOnClickListener(new View.OnClickListener() {
-      @Override
-      public void onClick(View v) {
-        hideSoftKeyboard();
-      }
-    });
+    rootView.setOnClickListener(v -> hideSoftKeyboard());
 
     // SIRVE PARA ACTUALIZAR EN TIEMPO REAL EL EDIT TEXT CON LA FUNCION DE CHECKDNI
     etDNI.addTextChangedListener(new TextWatcher() {
@@ -98,8 +104,11 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
     onDateSetListener = (view, year, monthOfYear, dayOfMonth) -> {
       // This is the callback method when the date is set
       // You can handle the selected date here
-      selectedDate = dayOfMonth + "/" + (monthOfYear + 1) + "/" + year;
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        selectedDate = LocalDate.of(year,monthOfYear,dayOfMonth);
+      }
       // Do something with the selected date, like updating a TextView
+      setDateTimeMessage();
     };
 
   //-----------------------------------------------------------------------------------------------
@@ -110,6 +119,7 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
       Calendar calendar = Calendar.getInstance();
       int hour = calendar.get(Calendar.HOUR_OF_DAY);
       int minute = calendar.get(Calendar.MINUTE);
+
 
       //create a TimePickerDialog
 
@@ -134,15 +144,28 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
     */
 
     onTimeSetListener = (view, hourOfDay, minute) -> {
-      selectedTime = hourOfDay + ":" + minute;
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+        selectedTime = LocalTime.of(hourOfDay,minute);
+      }
+      setDateTimeMessage();
     };
     //---------------------------------------------------------------------------------------------
 
-    //Shows the message of the date and time in the TextView
-    //displayTimeDayMessage.setText(setDateTimeMessage());
+    // CONFIRM BUTTON
+
+    btnConfirm.setOnClickListener(v -> {
+
+      checkCampos();
+
+
+    });
+
+
+
 
 
   }
+  //HERE GOES THE METHODS FOR THE CODE ------------------------------------------------------------
   public void checkDNI() {
     String dni = etDNI.getText().toString().trim();  // Trim to remove leading/trailing spaces
 
@@ -165,14 +188,17 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
         if (dniLetter == letterArray[i] && dniRemainder == i) {
           dniValidationText.setText("RIGHT DNI");
           dniValidationText.setTextColor(Color.GREEN);
+          checkDni = true;
           return;  // No need to continue checking
         }
       }
       dniValidationText.setText("WRONG DNI LETTER");
       dniValidationText.setTextColor(Color.RED);
+      checkDni = false;
     } else {
       dniValidationText.setText("WRONG DNI FORMAT");
       dniValidationText.setTextColor(Color.RED);
+      checkDni = false;
     }
   }
 
@@ -187,16 +213,35 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
       }
   }
 
-  public String setDateTimeMessage() {
+  @RequiresApi(api = Build.VERSION_CODES.O)
+  public void setDateTimeMessage() {
     String message = "";
 
-    if(!selectedTime.isEmpty() && !selectedDate.isEmpty() && selectedTime != null && selectedDate != null) {
-      message = "Fecha: " + selectedDate + "\n" +
-                "Hora: " + selectedTime;
+    if (selectedTime != null || selectedDate != null) {
+      DateTimeFormatter dateFormatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+      DateTimeFormatter timeFormatter = DateTimeFormatter.ofPattern("HH:mm");
+
+      String formattedDate = selectedDate != null ? selectedDate.format(dateFormatter) : "";
+      String formattedTime = selectedTime != null ? selectedTime.format(timeFormatter) : "";
+
+      message = "Fecha: " + formattedDate + "\n" +
+                "Hora: " + formattedTime;
       displayTimeDayMessage.setText(message);
       displayTimeDayMessage.setTextColor(Color.BLACK);
-
     }
-    return message;
   }
+
+  public boolean checkCampos() {
+    if(selectedDate != null && selectedTime != null && checkDni == true) {
+
+      btnConfirm.setVisibility(View.INVISIBLE);
+      btnDatePicker.setEnabled(false);
+      btnTimePicker.setEnabled(false);
+      etDNI.setEnabled(false);
+      greenCheck.setVisibility(View.VISIBLE);
+      return true;
+    }
+    return false;
+  }
+
 }
