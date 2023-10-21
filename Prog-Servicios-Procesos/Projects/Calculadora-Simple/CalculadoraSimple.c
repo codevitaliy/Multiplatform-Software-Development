@@ -6,7 +6,7 @@ int main()
 
   // FIRST WAY
 
-  /* int num1, num2, addedNums;
+  int num1, num2, addedNums;
 
   printf("Enter two numbers to add them: \n");
 
@@ -17,9 +17,8 @@ int main()
   printf("The result is: %d \n", addedNums);
 
   return 0;
-  */
-
-  /*  EXAMPLE OF FGETS
+  
+  //EXAMPLE OF FGETS
   // Buffer to store the input
   char buffer[100]; 
 
@@ -33,7 +32,7 @@ int main()
   printf("You entered: %s", buffer);
 
   return 0;
-  */
+  
 
  // SECOND WAY
 
@@ -55,8 +54,5 @@ printf("El resultado es de: %d\n",result);
 
 return 0;
 */
-
-
-
 
 }
