@@ -36,7 +36,7 @@ public class u2a2ColorsName extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_u2a2_colors_name);
+    setContentView(R.layout.u2a2_colors_name);
 
     colorEditText = findViewById(R.id.u2a2etColorInput);
     blackWhiteSwitch = findViewById(R.id.u2a2swTxColor);

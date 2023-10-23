@@ -27,7 +27,7 @@ public class u2a3Propinatron2000 extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_u2a3_propinatron2000);
+    setContentView(R.layout.u2a3_propinatron2000);
 
     bt1 = findViewById(R.id.u2a3btId1);
     bt2 = findViewById(R.id.u2a3btId2);

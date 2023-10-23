@@ -23,7 +23,7 @@ public class u2a1GuessNumber extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_u2a1_guess_number);
+    setContentView(R.layout.u2a1_guess_number);
 
     //referencing UI elements
     ageEditText = findViewById(R.id.u2e1etEnterAge);

@@ -11,6 +11,6 @@ public class u1a1HelloWorld extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_u1a1_hello_world);
+        setContentView(R.layout.u1a1_hello_world);
     }
 }

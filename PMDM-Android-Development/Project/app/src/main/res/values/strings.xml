@@ -55,7 +55,12 @@
     <string name="u2a4Confirm">CONFIRM </string>
     <string name="u2a4Validation"> </string>
 
+    //ROCK-PAPER-SCISSORS
 
+    <string name="u2a5title">ROCK-PAPER-SCISSORS</string>
+    <string name="u2a5Cpu">CPU</string>
+    <string name="u2a5Player">PLAYER</string>
+    <string name="u2a5Reset">RESET</string>
 
 
 </resources>

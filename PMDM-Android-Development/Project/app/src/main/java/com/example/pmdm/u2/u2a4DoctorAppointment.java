@@ -50,7 +50,7 @@ public class u2a4DoctorAppointment extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_u2a4_doctor_appointment);
+    setContentView(R.layout.u2a4_doctor_appointment);
 
     etDNI = findViewById(R.id.u2a4etInputDNI);
     dniValidationText = findViewById(R.id.u2a4tvValidation);

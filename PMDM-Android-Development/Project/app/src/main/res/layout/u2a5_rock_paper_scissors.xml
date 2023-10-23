@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/rockpaperscissors"
+    tools:context=".u2.u2a5RockPaperScissors">
+
+    <!-- BACKGROUND IMAGE how to do it -->
+
+
+    <ImageButton
+        android:id="@+id/u2a5iBtnPaperPlayer"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvPlayer"
+        app:layout_constraintVertical_bias="0.167"
+        app:srcCompat="@drawable/paper_roll" />
+
+    <ImageButton
+        android:id="@+id/u2a5iBtnRockPlayer"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvPlayer"
+        app:layout_constraintVertical_bias="0.167"
+        app:srcCompat="@drawable/stone" />
+
+    <ImageButton
+        android:id="@+id/u2a5iBtnScissorsPlayer"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvPlayer"
+        app:layout_constraintVertical_bias="0.164"
+        app:srcCompat="@drawable/scissor" />
+
+    <TextView
+        android:id="@+id/u2a5tvTitle"
+        android:layout_width="374dp"
+        android:layout_height="52dp"
+        android:text="@string/u2a5title"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="30dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.567"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <TextView
+        android:id="@+id/u2a5tvCPU"
+        android:layout_width="54dp"
+        android:layout_height="36dp"
+        android:layout_marginTop="36dp"
+        android:text="@string/u2a5Cpu"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.201"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvTitle" />
+
+    <TextView
+        android:id="@+id/u2a5tvPlayer"
+        android:layout_width="145dp"
+        android:layout_height="39dp"
+        android:text="@string/u2a5Player"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.165"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.404" />
+
+    <!--REDUCE BUTTON AND CENTER IT AND MAKE IT TRANSPARENT ON TIP
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"-->
+
+    <ImageButton
+        android:id="@+id/u2a5iBtnPaperCpu"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.494"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvTitle"
+        app:layout_constraintVertical_bias="0.167"
+        app:srcCompat="@drawable/paper_roll" />
+
+    <ImageButton
+        android:id="@+id/u2a5iBtnRockCpu"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toTopOf="@+id/u2a5tvPlayer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.194"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvCPU"
+        app:layout_constraintVertical_bias="0.373"
+        app:srcCompat="@drawable/stone" />
+
+    <ImageButton
+        android:id="@+id/u2a5iBtnScissorsCpu"
+        android:layout_width="57dp"
+        android:layout_height="65dp"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.252"
+        app:srcCompat="@drawable/scissor" />
+
+    <TextView
+        android:id="@+id/u2a5tvCpuScore"
+        android:layout_width="89dp"
+        android:layout_height="44dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.423"
+        app:layout_constraintStart_toEndOf="@+id/u2a5tvCPU"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvTitle"
+        app:layout_constraintVertical_bias="0.058" />
+
+    <TextView
+        android:id="@+id/u2a5tvPlayerScore"
+        android:layout_width="89dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="20dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/u2a5tvPlayer"
+        app:layout_constraintTop_toBottomOf="@+id/u2a5tvTitle"
+        app:layout_constraintVertical_bias="0.342" />
+
+    <Button
+        android:id="@+id/u2a5btnReset"
+        android:layout_width="111dp"
+        android:layout_height="48dp"
+        android:text="@string/u2a5Reset"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.831" />
+
+    <TextView
+        android:id="@+id/u2a5tvDisplay"
+        android:layout_width="258dp"
+        android:layout_height="67dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="50dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.71" />
+
+    <!--
+     <a href="https://www.flaticon.com/free-icons/rock" title="rock icons">Rock icons created by Icongeek26 - Flaticon</a>
+     <a href="https://www.flaticon.com/free-icons/tissue-roll" title="tissue roll icons">Tissue roll icons created by Icongeek26 - Flaticon</a>
+     <a href="https://www.flaticon.com/free-icons/scissor" title="scissor icons">Scissor icons created by Icongeek26 - Flaticon</a>-->
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
