@@ -1,0 +1,8 @@
+#parent {
+  display: flex; /* Use a flex container to align items */
+  /* flex-direction: column; */ /* Align items vertically (top to bottom) */
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  height: 100vh; /* Ensure the body takes up the full viewport height */
+  margin: 0; /* Remove default body margin */
+}
