@@ -56,8 +56,8 @@ public class u2a5RockPaperScissors extends AppCompatActivity {
     btnPaperCpu.setEnabled(false);
     btnScissorsCpu.setEnabled(false);
 
-    reset.setOnClickListener(v -> {
-      if (playerScore != 0 || cpuScore != 0) {
+    reset.setOnClickListener(view -> {
+      if (playerScore <= 2 && playerScore > 0 || cpuScore <= 2 && cpuScore > 0) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         // Set the title and message for the dialog
         builder.setTitle("RESET")
@@ -73,18 +73,18 @@ public class u2a5RockPaperScissors extends AppCompatActivity {
         builder.setNegativeButton("NO", new DialogInterface.OnClickListener() {
           @Override
           public void onClick(DialogInterface dialog, int which) {
+
             dialog.dismiss();
           }
         });
-
         // Create and show the AlertDialog
         AlertDialog alertDialog = builder.create();
         alertDialog.show();
       } else {
         setReset();
+
       }
     });
-
 
 
     playerTurn();
@@ -153,6 +153,8 @@ public class u2a5RockPaperScissors extends AppCompatActivity {
 
     cpuScore = 0;
     playerScore = 0;
+    tvCpuScore.setText(String.valueOf(cpuScore));
+    tvPlayerScore.setText(String.valueOf(playerScore));
 
     btnRockPlayer.setEnabled(true);
     btnPaperPlayer.setEnabled(true);
