@@ -61,6 +61,11 @@
     <string name="u2a5Cpu">CPU</string>
     <string name="u2a5Player">PLAYER</string>
     <string name="u2a5Reset">RESET</string>
+    <string name="u2a5Draw">DRAW!</string>
+    <string name="u2a5PlayerWinsRound">Player wins round!</string>
+    <string name="u2a5CpuWinsRound">Cpu wins round!</string>
+    <string name="u2a5PlayerWins">PLAYER WINS</string>
+    <string name="u2a5CpuWins">CPU WINS</string>
 
 
 </resources>
