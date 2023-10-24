@@ -14,7 +14,7 @@
         android:id="@+id/u2a5iBtnPaperPlayer"
         android:layout_width="57dp"
         android:layout_height="65dp"
-        android:background="@android:color/transparent"
+        android:background="?android:selectableItemBackground"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -28,7 +28,7 @@
         android:id="@+id/u2a5iBtnRockPlayer"
         android:layout_width="57dp"
         android:layout_height="65dp"
-        android:background="@android:color/transparent"
+        android:background="?android:selectableItemBackground"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -42,7 +42,7 @@
         android:id="@+id/u2a5iBtnScissorsPlayer"
         android:layout_width="57dp"
         android:layout_height="65dp"
-        android:background="@android:color/transparent"
+        android:background="?android:selectableItemBackground"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -97,14 +97,17 @@
         app:layout_constraintVertical_bias="0.404" />
 
     <!--REDUCE BUTTON AND CENTER IT AND MAKE IT TRANSPARENT ON TIP
-        android:background="@android:color/transparent"
+        android:background="@android:color/transparent
+        This one is to make it clickable
+        android:background="?android:selectableItemBackground"
+
         android:scaleType="fitCenter"-->
 
     <ImageButton
         android:id="@+id/u2a5iBtnPaperCpu"
         android:layout_width="57dp"
         android:layout_height="65dp"
-        android:background="@android:color/transparent"
+        android:background="?android:selectableItemBackground"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -118,7 +121,7 @@
         android:id="@+id/u2a5iBtnRockCpu"
         android:layout_width="57dp"
         android:layout_height="65dp"
-        android:background="@android:color/transparent"
+        android:background="?android:selectableItemBackground"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/u2a5tvPlayer"
         app:layout_constraintEnd_toEndOf="parent"
@@ -132,7 +135,7 @@
         android:id="@+id/u2a5iBtnScissorsCpu"
         android:layout_width="57dp"
         android:layout_height="65dp"
-        android:background="@android:color/transparent"
+        android:background="?android:selectableItemBackground"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -177,6 +180,7 @@
         android:id="@+id/u2a5btnReset"
         android:layout_width="111dp"
         android:layout_height="48dp"
+        android:backgroundTint="#3F116C"
         android:text="@string/u2a5Reset"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
