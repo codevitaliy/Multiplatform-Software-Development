@@ -15,6 +15,24 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
+            android:name=".u3.u3a1HelloWorldLaunched"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".u3.u3a1HelloWorldLauncher"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".u2.u2a5RockPaperScissors"
             android:exported="true">
             <intent-filter>

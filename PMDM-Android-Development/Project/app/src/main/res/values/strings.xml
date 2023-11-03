@@ -67,5 +67,12 @@
     <string name="u2a5PlayerWins">PLAYER WINS</string>
     <string name="u2a5CpuWins">CPU WINS</string>
 
+    //HELLO WORLD LAUNCHER
+
+    <string name="u3a1strBtn">Press me!</string>
+    <string name="u3a1strTv">Press to launch hello world in another activity!</string>
+    <string name="u3a1strTvLaunchedHelloWorld">Hello World!</string>
+    <string name="u3a1strLaunchedBtnClose">FINISH</string>
+
 
 </resources>
