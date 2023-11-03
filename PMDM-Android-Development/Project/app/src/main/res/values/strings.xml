@@ -74,5 +74,20 @@
     <string name="u3a1strTvLaunchedHelloWorld">Hello World!</string>
     <string name="u3a1strLaunchedBtnClose">FINISH</string>
 
+    //CALCULATOR LAUNCHER
+
+    <string name="u3a2strTitleMain">CALCULATOR</string>
+    <string name="u3a2strNumber1Main">Number 1:</string>
+    <string name="u3a2strNumber2Main">Number 2:</string>
+    <string name="u3a2strAdditionMain">+</string>
+    <string name="u3a2strSubtractionMain">-</string>
+    <string name="u3a2strMultiplicationMain">*</string>
+    <string name="u3a2strDivisionMain">/</string>
+    <string name="u3a2btnCalculateMain">CALCULATE</string>
+    <string name="u3a2tvStrResultTitle">RESULT:</string>
+    <string name="u3a2TooLongMessage">THE NUMBER IS TOO LONG</string>
+    <string name="u3a2strBtnGoBack">GO BACK</string>
+
+
 
 </resources>

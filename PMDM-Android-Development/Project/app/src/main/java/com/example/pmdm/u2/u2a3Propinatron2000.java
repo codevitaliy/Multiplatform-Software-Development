@@ -19,7 +19,6 @@ public class u2a3Propinatron2000 extends AppCompatActivity {
   EditText etNumberInput;
   TextView tvDisplay;
   Button bt1, bt2, bt3, bt4, bt5, bt6, bt7, bt8, bt9, bt0, btC, btD, buttonCalculate;
-  RadioButton radioButton;
   RadioGroup radioGroup;
   RadioButton btPoor, btNice, btGreat;
   double tipPercentage;

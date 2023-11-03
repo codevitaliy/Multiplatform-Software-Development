@@ -15,6 +15,24 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
+            android:name=".u3.u3a2CalculatorLaunched"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".u3.u3a2CalculatorMain"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".u3.u3a1HelloWorldLaunched"
             android:exported="true">
             <intent-filter>
