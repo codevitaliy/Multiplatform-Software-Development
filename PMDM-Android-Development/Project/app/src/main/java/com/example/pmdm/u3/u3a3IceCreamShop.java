@@ -21,7 +21,9 @@ public class u3a3IceCreamShop extends AppCompatActivity {
   public static final String VANILLA_BALLS = "com.example.pmdm.u3.VANILLA_BALLS";
   public static final String STRAWBERRY_BALLS ="com.example.pmdm.u3.STRAWBERRY_BALLS";
   public static final String CHOCOLATE_BALLS ="com.example.pmdm.u3.CHOCOLATE_BALLS";
-  static final int MAX_NUMBER = 3;
+  public static final String SPINNER_SELECTION ="com.example.pmdm.ur.SPINNER_SELECTION";
+  static final int MAX_NUMBER_BALLS = 3;
+  static final int MIN_NUMBER_BALLS = 1;
   View rootView;
   EditText numberVanilla;
   EditText numberStrawberry;
@@ -30,6 +32,8 @@ public class u3a3IceCreamShop extends AppCompatActivity {
   ArrayAdapter<String> adapter;
   ArrayList<String> spinnerData;
   Button generateBtn;
+
+  int intVanillaBalls, intStrawberryBalls,intChocolateBalls, totalIceCream;
 
 
   @Override
@@ -55,37 +59,53 @@ public class u3a3IceCreamShop extends AppCompatActivity {
     spinner.setAdapter(adapter);
 
     addElementToSpinner("CORNET");
-    addElementToSpinner("CHOCO CORNET");
     addElementToSpinner("TUB");
 
     //GENERATE BUTTON
 
     generateBtn.setOnClickListener(view -> {
 
-      checkIceCream();
+      if(checkIceCream()) {
 
 
 
+        Intent intent = new Intent(this, u3a3IceCreamLaunched.class);
+        intent.putExtra(VANILLA_BALLS, intVanillaBalls);
+        intent.putExtra(STRAWBERRY_BALLS, intStrawberryBalls);
+        intent.putExtra(CHOCOLATE_BALLS, intChocolateBalls);
 
+        String spinnerValue = spinner.getSelectedItem().toString();
+        intent.putExtra(SPINNER_SELECTION, spinnerValue);
 
+        startActivity(intent);
+      }
     });
-
-
-
 
   }
 
   public boolean checkIceCream() {
 
-    int vanillaInt,strawberryInt,chocolateInt,totalIceCream;
+    try {
+      intVanillaBalls = Integer.parseInt(numberVanilla.getText().toString());
+    }catch (NumberFormatException e) {
+      intVanillaBalls = 0;
+    }
 
-    vanillaInt = Integer.parseInt(numberVanilla.getText().toString());
-    strawberryInt = Integer.parseInt(numberStrawberry.getText().toString());
-    chocolateInt = Integer.parseInt(numberChocolate.getText().toString());
+    try {
+      intStrawberryBalls = Integer.parseInt(numberStrawberry.getText().toString());
+    }catch (NumberFormatException e) {
+      intStrawberryBalls = 0;
+    }
 
-    totalIceCream = vanillaInt + strawberryInt + chocolateInt;
+    try {
+      intChocolateBalls = Integer.parseInt(numberChocolate.getText().toString());
+    }catch (NumberFormatException e) {
+      intChocolateBalls = 0;
+    }
 
-    if(totalIceCream > MAX_NUMBER) {
+    totalIceCream = intVanillaBalls + intStrawberryBalls + intChocolateBalls;
+
+    if(totalIceCream > MAX_NUMBER_BALLS) {
       AlertDialog.Builder builder = new AlertDialog.Builder(this);
       builder.setTitle("MAX NUMBER OF BALLS IS 3")
              .setMessage("Try again")
@@ -94,7 +114,16 @@ public class u3a3IceCreamShop extends AppCompatActivity {
       AlertDialog alertDialog = builder.create();
       alertDialog.show();
       return false;
-    }else {
+    }else if(totalIceCream < MIN_NUMBER_BALLS ) {
+      AlertDialog.Builder builder = new AlertDialog.Builder(this);
+      builder.setTitle("MIN NUMBER OF BALLS IS 1")
+              .setMessage("Try again")
+              .setNegativeButton("OK", (dialog, which) -> dialog.dismiss());
+
+      AlertDialog alertDialog = builder.create();
+      alertDialog.show();
+      return false;
+    } else {
       return true;
     }
   }

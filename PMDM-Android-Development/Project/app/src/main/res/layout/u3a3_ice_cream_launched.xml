@@ -64,29 +64,29 @@
         app:srcCompat="@drawable/ice_vanilla" />
 
     <ImageView
-        android:id="@+id/u3a3ivTub"
+        android:id="@+id/u3a3ivCone"
         android:layout_width="137dp"
         android:layout_height="215dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.467"
+        app:layout_constraintHorizontal_bias="0.441"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558"
+        app:layout_constraintVertical_bias="0.434"
         app:srcCompat="@drawable/cone" />
 
     <ImageView
-        android:id="@+id/u3a3ivCone"
+        android:id="@+id/u3a3ivTub"
         android:layout_width="145dp"
         android:layout_height="215dp"
         android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.424"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.558"
+        app:layout_constraintVertical_bias="0.42"
         app:srcCompat="@drawable/tub" />
 
     <ImageView
