@@ -15,6 +15,24 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
+            android:name=".u3.u3a4WarmUpLaunched"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".u3.u3a4WarmUp"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".u3.u3aExtra1PrimeNumbersLaunched"
             android:exported="true">
             <intent-filter>

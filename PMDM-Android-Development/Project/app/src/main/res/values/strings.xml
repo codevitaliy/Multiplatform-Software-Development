@@ -2,6 +2,7 @@
 
     <string name="app_name">Pmdm</string>
     <string name="u1a1TxtHelloWorld">Hello World</string>
+    <string name="CANCEL_MESSAGE">CANCELLED\n</string>
 
     //GUESS THE AGE
     <string name="u2a1TxtGuessAge">Guess the age!</string>
@@ -103,6 +104,14 @@
     <string name="u3aExtra1strWriteNumber">Write the number below:</string>
     <string name="u3aExtra1strBtnBack">GO BACK</string>
     <string name="u3aExtra1strBtnCheckNumber">CHECK NUMBER</string>
-    <string name="CANCEL_MESSAGE">CANCELLED\n</string>
+
+
+    //WARM UP
+
+    <string name="u3a4strTvUserName">ANONYMOUS</string>
+    <string name="u3a4strBtnChangeName">CHANGE NAME</string>
+    <string name="u3a4strBtnAccept">Continue</string>
+    <string name="u3a4strBtnCancel">Cancel</string>
+    <string name="u3a4strBtnClean">Clean</string>
 
 </resources>
