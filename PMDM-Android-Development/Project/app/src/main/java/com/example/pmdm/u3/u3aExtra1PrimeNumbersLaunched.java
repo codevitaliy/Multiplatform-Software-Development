@@ -12,6 +12,7 @@ import com.example.pmdm.R;
 public class u3aExtra1PrimeNumbersLaunched extends AppCompatActivity {
 
   static final String CHECK_PRIME = "com.example.pmdm.u3.CHECK_PRIME";
+
   Button btnCheckPrime;
   Button btnExit;
   EditText etNumberInput;
@@ -26,31 +27,26 @@ public class u3aExtra1PrimeNumbersLaunched extends AppCompatActivity {
     etNumberInput = findViewById(R.id.u3aExtra1etNumber);
 
     btnExit.setOnClickListener(view -> {
+      setResult(RESULT_CANCELED);
       finish();
     });
 
     btnCheckPrime.setOnClickListener(view -> {
-
       int etNumberInt = Integer.parseInt(etNumberInput.getText().toString());
 
-      Intent intent = new Intent(this, u3aExtra1PrimeNumbers.class);
+      Intent data = new Intent();
 
       String isPrime = "";
 
-      if(checkPrimerNumber(etNumberInt)) {
-
+      if (checkPrimerNumber(etNumberInt)) {
         isPrime = "The number: " + etNumberInt + " is prime";
-
-        intent.putExtra(CHECK_PRIME,isPrime);
-
-      }else {
+      } else {
         isPrime = "The number: " + etNumberInt + " is not prime";
-
-        intent.putExtra(CHECK_PRIME,isPrime);
       }
 
-      startActivity(intent);
-
+      data.putExtra(CHECK_PRIME, isPrime);
+      setResult(RESULT_OK, data);
+      finish();
     });
   }
 
@@ -58,17 +54,11 @@ public class u3aExtra1PrimeNumbersLaunched extends AppCompatActivity {
     int counter = 0;
 
     for (int i = 1; i <= number; i++) {
-
       if ((number % i) == 0) {
         counter++;
       }
     }
 
-    if (counter == 2) {
-      return true;
-    }
-    return false;
+    return counter == 2;
   }
-
-
 }

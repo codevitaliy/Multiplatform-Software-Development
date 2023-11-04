@@ -3,6 +3,9 @@
     <string name="app_name">Pmdm</string>
     <string name="u1a1TxtHelloWorld">Hello World</string>
 
+    //MESSAGES
+    <string name="CANCEL_MESSAGE">MESSAGED CANCELED</string>
+
     //GUESS THE AGE
     <string name="u2a1TxtGuessAge">Guess the age!</string>
     <string name="u2a1TxtEnterAge">Enter the age, you have 5 chances</string>
