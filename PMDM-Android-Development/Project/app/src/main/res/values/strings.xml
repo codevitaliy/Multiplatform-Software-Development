@@ -88,5 +88,14 @@
     <string name="u3a2TooLongMessage">THE NUMBER IS TOO LONG</string>
     <string name="u3a2strBtnGoBack">GO BACK</string>
 
+    //ICE CREAM SHOP
+
+    <string name="u3a3strTitleMain">ICE CREAM SHOP</string>
+    <string name="u3a3strVanilla">VANILLA</string>
+    <string name="u3a3strStrawberry">STRAWBERRY</string>
+    <string name="u3a3strChocolate">CHOCOLATE</string>
+    <string name="u3a3strTip">TIP</string>
+    <string name="u3a3btnGenerate">MAKE MY ICE CREAM</string>
+
 
 </resources>

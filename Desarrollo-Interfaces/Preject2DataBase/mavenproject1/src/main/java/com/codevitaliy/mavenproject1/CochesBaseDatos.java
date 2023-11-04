@@ -7,9 +7,11 @@ package com.codevitaliy.mavenproject1;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -23,8 +25,10 @@ public class CochesBaseDatos extends javax.swing.JFrame {
     int autonomia;
     int precio;
     int maletero; 
+     
     
-    public CochesBaseDatos(String modelo, int potencia, int autonomia, int precio, int maletero){
+    public CochesBaseDatos(int idCoche, String modelo, int potencia, int autonomia, int precio, int maletero){
+        this.idCoche = idCoche;
         this.modelo = modelo;
         this.potencia = potencia;
         this.autonomia = autonomia;
@@ -32,6 +36,7 @@ public class CochesBaseDatos extends javax.swing.JFrame {
         this.maletero = maletero;
         
     }
+    
     
     
    
@@ -222,6 +227,47 @@ public class CochesBaseDatos extends javax.swing.JFrame {
 
     private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
         // TODO add your handling code here:
+       
+       String url = "jdbc:mysql://localhost:3306/tesla";
+       String usuario = "root";
+       String contraseña = "";
+       DefaultTableModel tableModel = new DefaultTableModel();
+        tableModel.addColumn("ID");
+        tableModel.addColumn("Modelo");
+        tableModel.addColumn("Potencia");
+        tableModel.addColumn("Autonomia");
+        tableModel.addColumn("Precio");
+        tableModel.addColumn("Maletero");
+     
+       try{
+           Connection connection = DriverManager.getConnection(url, usuario, contraseña);
+           
+           String sqlQuery = "SELECT idCoche, Modelo, Potencia, Autonomia, Precio, Maletero FROM coches";
+           
+           try (PreparedStatement statement = connection.prepareStatement(sqlQuery);
+                ResultSet resultSet = statement.executeQuery()) {
+                    
+                    //Procesar el resultado
+                    
+                    while(resultSet.next()) {
+                        int idCoche = resultSet.getInt("idCoche");
+                        String modelo = resultSet.getString("Modelo");
+                        int potencia = resultSet.getInt("Potencia");
+                        int autonomia = resultSet.getInt("Autonomia");
+                        int precio = resultSet.getInt("Precio");
+                        int maletero = resultSet.getInt("Maletero");
+                        
+                    Object[] rowData = {idCoche, modelo, potencia, autonomia, precio, maletero};
+                    tableModel.addRow(rowData);
+                        
+                  }    
+                }
+                
+                connection.close();
+           
+       }catch(SQLException e) {
+           System.out.println("Sql exception: " + e.getMessage());
+       } 
     }//GEN-LAST:event_jButtonReadActionPerformed
 
     private void jButtonClearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonClearActionPerformed
@@ -243,13 +289,14 @@ public class CochesBaseDatos extends javax.swing.JFrame {
     private void jButtonCreateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonCreateMouseClicked
         // TODO add your handling code here:
         
+        idCoche = 0;
         modelo = jTextFieldModelo.getText();
         potencia = Integer.parseInt(jTextFieldPotencia.getText());
         autonomia = Integer.parseInt(jTextFieldAutonomia.getText());
         precio = Integer.parseInt(jTextFieldPrecio.getText());
         maletero = Integer.parseInt(jTextFieldMaletero.getText());
         
-        CochesBaseDatos coche = new CochesBaseDatos(modelo,potencia,autonomia,precio,maletero);
+        CochesBaseDatos coche = new CochesBaseDatos(idCoche,modelo,potencia,autonomia,precio,maletero);
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (ClassNotFoundException ex) {
@@ -257,11 +304,12 @@ public class CochesBaseDatos extends javax.swing.JFrame {
         }
         String url = "jdbc:mysql://localhost:3306/tesla";
         String usuario = "root";
-        String contraseña = "";
+        String password = "";
 
-        try (Connection con = DriverManager.getConnection(url, usuario, contraseña)) {
-            String sql = "INSERT INTO coches (modelo, potencia, autonomia, precio, maletero) VALUES (?, ?, ?, ?, ?)";
+        try (Connection con = DriverManager.getConnection(url, usuario, password)) {
+            String sql = "INSERT INTO coches (idCoche,modelo, potencia, autonomia, precio, maletero) VALUES (?, ?, ?, ?, ?, ?)";
             try (PreparedStatement pstmt = con.prepareStatement(sql)) {
+                pstmt.setInt(1,idCoche);
                 pstmt.setString(2, modelo);
                 pstmt.setInt(3, potencia);
                 pstmt.setInt(4, autonomia);
