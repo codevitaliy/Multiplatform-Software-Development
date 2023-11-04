@@ -15,6 +15,7 @@ public class u3a3IceCreamLaunched extends AppCompatActivity {
                               strawberry3, chocolate1, chocolate2, chocolate3;
   Integer vanillaBallsInt,strawberryBallsInt,chocolateBallsInt;
   String spinnerSelection;
+  static final int DEFAULT_VALUE = 0;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -35,9 +36,9 @@ public class u3a3IceCreamLaunched extends AppCompatActivity {
 
     Bundle info = getIntent().getExtras();
 
-    vanillaBallsInt = info.getInt(u3a3IceCreamShop.VANILLA_BALLS);
-    strawberryBallsInt = info.getInt(u3a3IceCreamShop.STRAWBERRY_BALLS);
-    chocolateBallsInt = info.getInt(u3a3IceCreamShop.CHOCOLATE_BALLS);
+    vanillaBallsInt = info.getInt(u3a3IceCreamShop.VANILLA_BALLS,DEFAULT_VALUE);
+    strawberryBallsInt = info.getInt(u3a3IceCreamShop.STRAWBERRY_BALLS,DEFAULT_VALUE);
+    chocolateBallsInt = info.getInt(u3a3IceCreamShop.CHOCOLATE_BALLS,DEFAULT_VALUE);
     spinnerSelection = info.getString(u3a3IceCreamShop.SPINNER_SELECTION);
     spinnerSelection = spinnerSelection.toLowerCase();
 

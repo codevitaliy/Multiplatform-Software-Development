@@ -97,5 +97,11 @@
     <string name="u3a3strTip">TIP</string>
     <string name="u3a3btnGenerate">MAKE MY ICE CREAM</string>
 
+    //PRIME NUMBERS
+
+    <string name="u3aExtra1strBtnChooseNumber">Choose Number</string>
+    <string name="u3aExtra1strWriteNumber">Write the number below:</string>
+    <string name="u3aExtra1strBtnBack">GO BACK</string>
+    <string name="u3aExtra1strBtnCheckNumber">CHECK NUMBER</string>
 
 </resources>
