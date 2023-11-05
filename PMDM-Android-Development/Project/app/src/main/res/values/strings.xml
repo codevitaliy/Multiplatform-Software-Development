@@ -122,4 +122,10 @@
     <string name="u3a5strBtnNext">Next</string>
     <string name="u3a5strBtnAccept">Continue</string>
 
+    //TEXT ANALYZER
+
+    <string name="u3a6strTvTitle">TEXT ANALYZER</string>
+    <string name="u3a6strBtnStart">ANALYZE</string>
+    <string name="u3a6strBtnFinish">FINISH</string>
+
 </resources>
