@@ -114,4 +114,12 @@
     <string name="u3a4strBtnCancel">Cancel</string>
     <string name="u3a4strBtnClean">Clean</string>
 
+    //FIBONACCI
+
+    <string name="u3a5strTvTitle">FIBONACCI</string>
+    <string name="u3a5strTvNumber1">1</string>ç
+    <string name="u3a5strTvNumber2">1</string>
+    <string name="u3a5strBtnNext">Next</string>
+    <string name="u3a5strBtnAccept">Continue</string>
+
 </resources>

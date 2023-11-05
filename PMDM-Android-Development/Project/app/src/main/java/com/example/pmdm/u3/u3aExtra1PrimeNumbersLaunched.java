@@ -46,6 +46,9 @@ public class u3aExtra1PrimeNumbersLaunched extends AppCompatActivity {
 
       data.putExtra(CHECK_PRIME, isPrime);
       setResult(RESULT_OK, data);
+       /*method is used to set the result that will be sent back to the calling activity when the current
+      activity finishes. This method is typically called when an action in the current activity is completed,
+      and you want to send some data back to the activity that started it.*/
       finish();
     });
   }
