@@ -1,6 +1,6 @@
-# Multimedia-Software-Development
+# Multiplatform-Software-Development
 
-Welcome to the repository for my Multimedia Software Development studies. This repository contains projects and code related to various technologies, including Android Studio, Java, SQL, Python, and C.
+Welcome to the repository for my Multiplatform Software Development studies. This repository contains projects and code related to various technologies, including Android Studio, Java, PL/SQL and C.
 
 ## Technologies Covered
 
@@ -18,11 +18,6 @@ Welcome to the repository for my Multimedia Software Development studies. This r
 - Database design and management.
 - SQL queries for data retrieval and manipulation.
 - Integration with backend systems.
-
-### Python
-- Python programming language fundamentals.
-- Application development using Python.
-- Scripting and automation.
 
 ### C
 - C programming language basics.
