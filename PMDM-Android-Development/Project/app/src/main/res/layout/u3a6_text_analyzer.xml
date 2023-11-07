@@ -50,7 +50,7 @@
         app:layout_constraintVertical_bias="0.339" />
 
     <Button
-        android:id="@+id/u3a6btnStart"
+        android:id="@+id/u3a6btnAnalyze"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:backgroundTint="#42A5F5"

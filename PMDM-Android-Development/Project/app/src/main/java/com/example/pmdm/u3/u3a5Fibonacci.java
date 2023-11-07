@@ -42,8 +42,7 @@ public class u3a5Fibonacci extends AppCompatActivity {
               if (result.getResultCode() == RESULT_OK) {
                 Intent data = result.getData();
                 if (data != null) {
-                  Integer receivedData = data.getIntExtra(u3a5FibonacciLaunched.SUM_DATA,DEFAULT_VALUE
-                  );
+                  Integer receivedData = data.getIntExtra(u3a5FibonacciLaunched.SUM_DATA,DEFAULT_VALUE);
                   if (receivedData != null) {
                     tvNumber1.setText(tvNumber2.getText().toString());
                     number1Int = number2Int;
