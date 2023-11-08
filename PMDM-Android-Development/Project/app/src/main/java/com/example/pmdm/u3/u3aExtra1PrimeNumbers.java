@@ -20,7 +20,7 @@ public class u3aExtra1PrimeNumbers extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_u3aextra1_prime_numbers);
+    setContentView(R.layout.u3aextra1_prime_numbers);
 
     btnChooseNumber = findViewById(R.id.u3aExtra1BtnChooseNumber);
     tvResult = findViewById(R.id.u3aExtra1tvResult);

@@ -20,7 +20,7 @@ public class u3aExtra1PrimeNumbersLaunched extends AppCompatActivity {
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    setContentView(R.layout.activity_u3aextra1_prime_numbers_launched);
+    setContentView(R.layout.u3aextra1_prime_numbers_launched);
 
     btnCheckPrime = findViewById(R.id.u3aExtra1btnCheckPrime);
     btnExit = findViewById(R.id.u3aExtra1btnExit);

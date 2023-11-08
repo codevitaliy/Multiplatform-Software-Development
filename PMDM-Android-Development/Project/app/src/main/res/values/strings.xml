@@ -128,4 +128,14 @@
     <string name="u3a6strBtnStart">ANALYZE</string>
     <string name="u3a6strBtnFinish">FINISH</string>
 
+    //LEFT 4 DEAD
+
+    <string name="u3a7strSelectPlayer1">SELECT PLAYER ONE</string>
+    <string name="u3a7strSelectPlayer2">SELECT PLAYER TWO</string>
+    <string name="u3a7strSelectWeapon1">SELECT WEAPON ONE</string>
+    <string name="u3a7strSelectWeapon2">SELECT WEAPON TWO</string>
+    <string name="u3a7strSelectCharacter">SELECT CHARACTER</string>
+    <string name="u3a7strSelectWeapon">SELECT WEAPON</string>
+
+
 </resources>
