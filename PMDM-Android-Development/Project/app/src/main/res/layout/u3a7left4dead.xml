@@ -9,7 +9,7 @@
     tools:context=".u3.u3a7left4deadMain">
 
     <ImageButton
-        android:id="@+id/u2a7btnWeapon1"
+        android:id="@+id/u3a7btnWeapon1"
         android:layout_width="131dp"
         android:layout_height="134dp"
         android:adjustViewBounds="true"
@@ -38,7 +38,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <TextView
-        android:id="@+id/u2a7tvWeapon2"
+        android:id="@+id/u3a7tvWeapon2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/u3a7strSelectWeapon2"
@@ -52,7 +52,7 @@
         app:layout_constraintVertical_bias="0.581" />
 
     <ImageButton
-        android:id="@+id/u2a7btnWeapon2"
+        android:id="@+id/u3a7btnWeapon2"
         android:layout_width="131dp"
         android:layout_height="134dp"
         android:adjustViewBounds="true"
@@ -67,7 +67,7 @@
         app:srcCompat="@drawable/glock__copy_" />
 
     <TextView
-        android:id="@+id/u2a7tvPlayer2"
+        android:id="@+id/u3a7tvPlayer2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/u3a7strSelectPlayer2"
@@ -81,7 +81,7 @@
         app:layout_constraintVertical_bias="0.581" />
 
     <ImageButton
-        android:id="@+id/u2a7btnPlayer1"
+        android:id="@+id/u3a7btnPlayer1"
         android:layout_width="131dp"
         android:layout_height="134dp"
         android:adjustViewBounds="true"
@@ -96,7 +96,7 @@
         app:srcCompat="@drawable/character_4__copy_" />
 
     <TextView
-        android:id="@+id/u2a7tvPlayer1"
+        android:id="@+id/u3a7tvPlayer1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/u3a7strSelectPlayer1"
@@ -110,7 +110,7 @@
         app:layout_constraintVertical_bias="0.3" />
 
     <ImageButton
-        android:id="@+id/u2a7btnPlayer2"
+        android:id="@+id/u3a7btnPlayer2"
         android:layout_width="131dp"
         android:layout_height="134dp"
         android:adjustViewBounds="true"
@@ -126,7 +126,7 @@
 
 
     <ImageView
-        android:id="@+id/u2a7title"
+        android:id="@+id/u3a7title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"

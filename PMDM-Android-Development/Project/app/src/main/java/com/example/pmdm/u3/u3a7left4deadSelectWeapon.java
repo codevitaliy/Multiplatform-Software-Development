@@ -14,9 +14,15 @@ public class u3a7left4deadSelectWeapon extends AppCompatActivity {
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
 
-    //SET FULL SCREEN
+    //Make the activity full-screen
+    fullScreen();
+
+  }
+
+  public void fullScreen() {
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
     setContentView(R.layout.u3a7left4dead_select_weapon);
   }
+
 }

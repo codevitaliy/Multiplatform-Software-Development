@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.156" />
 
     <ImageButton
-        android:id="@+id/imageButton3"
+        android:id="@+id/u3a7btnCharacter1"
         android:layout_width="126dp"
         android:layout_height="138dp"
         android:adjustViewBounds="true"
@@ -37,37 +37,7 @@
         app:srcCompat="@drawable/character_1_" />
 
     <ImageButton
-        android:id="@+id/imageButton6"
-        android:layout_width="126dp"
-        android:layout_height="138dp"
-        android:adjustViewBounds="true"
-        android:background="#5A1E1E"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.852"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632"
-        app:srcCompat="@drawable/character_4" />
-
-    <ImageButton
-        android:id="@+id/imageButton5"
-        android:layout_width="126dp"
-        android:layout_height="138dp"
-        android:adjustViewBounds="true"
-        android:background="#5A1E1E"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.203"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632"
-        app:srcCompat="@drawable/character_2_" />
-
-    <ImageButton
-        android:id="@+id/imageButton4"
+        android:id="@+id/u3a7btnCharacter2"
         android:layout_width="126dp"
         android:layout_height="138dp"
         android:adjustViewBounds="true"
@@ -82,7 +52,37 @@
         app:srcCompat="@drawable/character_3" />
 
     <ImageButton
-        android:id="@+id/imageButton9"
+        android:id="@+id/u3a7btnCharacter3"
+        android:layout_width="126dp"
+        android:layout_height="138dp"
+        android:adjustViewBounds="true"
+        android:background="#5A1E1E"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.203"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632"
+        app:srcCompat="@drawable/character_2_" />
+
+    <ImageButton
+        android:id="@+id/u3a7btnCharacter4"
+        android:layout_width="126dp"
+        android:layout_height="138dp"
+        android:adjustViewBounds="true"
+        android:background="#5A1E1E"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.852"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632"
+        app:srcCompat="@drawable/character_4" />
+
+    <ImageButton
+        android:id="@+id/u3a7btnGoBackCharacter"
         android:layout_width="123dp"
         android:layout_height="57dp"
         android:adjustViewBounds="true"
@@ -97,7 +97,7 @@
         app:srcCompat="@drawable/go_back_bullet" />
 
     <ImageButton
-        android:id="@+id/imageButton10"
+        android:id="@+id/u3a7btnClearCharacter"
         android:layout_width="123dp"
         android:layout_height="57dp"
         android:adjustViewBounds="true"
@@ -109,6 +109,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.885"
-        app:srcCompat="@drawable/clear_bullet" />
+        app:srcCompat="@drawable/clear_bullet"
+        android:importantForAccessibility="no" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

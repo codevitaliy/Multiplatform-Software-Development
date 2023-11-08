@@ -22,7 +22,7 @@
         app:layout_constraintVertical_bias="0.156" />
 
     <ImageButton
-        android:id="@+id/imageButton"
+        android:id="@+id/u3a7btnWeaponChoice1"
         android:layout_width="100dp"
         android:layout_height="111dp"
         android:adjustViewBounds="true"
@@ -38,7 +38,7 @@
         app:srcCompat="@drawable/glock" />
 
     <ImageButton
-        android:id="@+id/imageButton2"
+        android:id="@+id/u3a5btnWeaponChoice2"
         android:layout_width="189dp"
         android:layout_height="124dp"
         android:adjustViewBounds="true"
@@ -53,37 +53,7 @@
         app:srcCompat="@drawable/m16" />
 
     <ImageButton
-        android:id="@+id/imageButton7"
-        android:layout_width="208dp"
-        android:layout_height="119dp"
-        android:adjustViewBounds="true"
-        android:background="#5A1E1E"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.921"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.632"
-        app:srcCompat="@drawable/shotg" />
-
-    <ImageButton
-        android:id="@+id/imageButton8"
-        android:layout_width="123dp"
-        android:layout_height="57dp"
-        android:adjustViewBounds="true"
-        android:background="#5A1E1E"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.854"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.885"
-        app:srcCompat="@drawable/clear_bullet" />
-
-    <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/u3a5btnWeaponChoice3"
         android:layout_width="126dp"
         android:layout_height="138dp"
         android:adjustViewBounds="true"
@@ -98,7 +68,22 @@
         app:srcCompat="@drawable/uzi" />
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/u3a5btnWeaponChoice4"
+        android:layout_width="208dp"
+        android:layout_height="119dp"
+        android:adjustViewBounds="true"
+        android:background="#5A1E1E"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632"
+        app:srcCompat="@drawable/shotg" />
+
+    <ImageButton
+        android:id="@+id/btnGoBackWeapon"
         android:layout_width="123dp"
         android:layout_height="57dp"
         android:adjustViewBounds="true"
@@ -111,4 +96,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.885"
         app:srcCompat="@drawable/go_back_bullet" />
+
+    <ImageButton
+        android:id="@+id/btnClearWeapon"
+        android:layout_width="123dp"
+        android:layout_height="57dp"
+        android:adjustViewBounds="true"
+        android:background="#5A1E1E"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.854"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.885"
+        app:srcCompat="@drawable/clear_bullet" />
 </androidx.constraintlayout.widget.ConstraintLayout>
