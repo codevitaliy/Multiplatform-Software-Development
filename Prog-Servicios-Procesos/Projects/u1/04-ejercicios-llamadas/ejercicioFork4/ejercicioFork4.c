@@ -3,20 +3,47 @@
 #include <unistd.h>
 #include <sys/types.h>
 #include <sys/wait.h>
+#include <math.h>
 
-#define NUM_SONS 5
+#define NUM_SONS 3
 
 int main()
 {
-    for(int i=0;i<NUM_SONS;i++) // loop will run n times (n=5)
+
+    pid_t pid;
+    int i;
+
+    for (i = 0; i < NUM_SONS ; i++)
     {
-        if(fork() == 0)
+        pid = fork();
+
+        if (pid == 0)
         {
-            printf("[son] pid %d from [parent] pid %d\n",getpid(),getppid());
-            exit(0);
+            switch (i)
+            {
+            case 0:
+                printf("I am the son [%d] my pid [%d] and my ppid[%d]\n",i,getpid(),getppid());
+                exit(pid);
+                break;
+            case 1:
+                printf("I am the son [%d] my pid [%d] and my ppid[%d]\n",i,getpid(),getppid());
+                exit(pid);
+                break;
+            case 2:
+                printf("I am the son [%d] my pid [%d] and my ppid[%d]\n",i,getpid(),getppid());
+                exit(pid);
+                break;
+            
+            default:
+                break;
+            }
         }
     }
-    for(int i=0;i<5;i++) // loop will run n times (n=5)
-    wait(NULL);
-     
+    
+    for (size_t i = 0; i < NUM_SONS; i++)
+    {
+        wait(NULL);     
+    } 
+
+    printf("I am the parent pid[%d] and ppid[%d]",getpid(),getppid());
 }
