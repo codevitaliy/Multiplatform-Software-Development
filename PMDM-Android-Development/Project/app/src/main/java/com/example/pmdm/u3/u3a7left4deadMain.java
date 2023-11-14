@@ -23,12 +23,11 @@ public class u3a7left4deadMain extends AppCompatActivity {
 
   static final String PLAYER_ONE = "PLAYER_ONE";
   static final String PLAYER_TWO = "PLAYER_TWO";
-  static final String WEAPON_ONE = "WEAPON_ONE";
-  static final String WEAPON_TWO = "WEAPON_TWO";
   static final String INFO_PLAYER = "com.example.pmdm.u3.INFO_PLAYER";
+  static final String INFO_SELECTED_WEAPON = "com.example.pmdm.u3.INFO_SELECTED_WEAPON";
   String selectedPlayer = "";
-  int selectedWeaponImage;
-  int selectedCharacterImage;
+  Integer selectedWeaponImage;
+  Integer selectedCharacterImage;
   String receivedDataCharacters;
   String receiveDataWeapons;
   ImageButton btnPlayerOne, btnPlayerTwo, btnWeaponOne, btnWeaponTwo;
@@ -68,18 +67,22 @@ public class u3a7left4deadMain extends AppCompatActivity {
                           case "CHARACTER1":
                             newImageResource = R.drawable.character_1;
                             btnPlayerOne.setImageResource(newImageResource);
+                            selectedCharacterImage = 1;
                             break;
                           case "CHARACTER2":
                             newImageResource = R.drawable.character_2;
                             btnPlayerOne.setImageResource(newImageResource);
+                            selectedCharacterImage = 2;
                             break;
                           case "CHARACTER3":
                             newImageResource = R.drawable.character_3;
                             btnPlayerOne.setImageResource(newImageResource);
+                            selectedCharacterImage = 3;
                             break;
                           case "CHARACTER4":
                             newImageResource = R.drawable.character_4;
                             btnPlayerOne.setImageResource(newImageResource);
+                            selectedCharacterImage = 4;
                         }
                       }else if (receivedCharacter.equals(PLAYER_TWO)) {
                         switch (receivedDataCharacters) {
@@ -174,7 +177,12 @@ public class u3a7left4deadMain extends AppCompatActivity {
 
       if (view.getTag() == SelectedType.CHARACTER) {
         Intent intent = new Intent(u3a7left4deadMain.this, u3a7left4deadSelectCharacter.class);
-        intent.putExtra(INFO_PLAYER, selectedPlayer);
+        if(selectedCharacterImage == null) {
+          intent.putExtra(INFO_PLAYER, selectedPlayer);
+        }else {
+          intent.putExtra(INFO_SELECTED_WEAPON,selectedWeaponImage);
+          intent.putExtra(INFO_PLAYER, selectedPlayer);
+        }
         launcherSelectCharacters.launch(intent);
       } else if (view.getTag() == SelectedType.WEAPON) {
         Intent intent = new Intent(u3a7left4deadMain.this, u3a7left4deadSelectWeapon.class);

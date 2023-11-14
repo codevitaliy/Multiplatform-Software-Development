@@ -16,10 +16,13 @@ public class u3a7left4deadSelectCharacter extends AppCompatActivity {
   static final String INFO_CHARACTER_SELECTED = "com.example.pmdm.u3.INFO_CHARACTER_SELECTED";
   static final String INFO_PLAYER_SELECTED_CHARACTER = "com.example.pmdm.u3.INFO_PLAYER_SELECTED";
 
+  static final Integer DEFAULT_VALUE = 0;
+
   public enum PlayerCharacter {
     CHARACTER1, CHARACTER2, CHARACTER3, CHARACTER4;
   }
   String playerSelection;
+  Integer alreadySelected;
   ImageButton imgBtnCharacter1, imgBtnCharacter2, imgBtnCharacter3, imgBtnCharacter4, imgBtnGoBack, imgBtnClean;
 
   @Override
@@ -45,6 +48,7 @@ public class u3a7left4deadSelectCharacter extends AppCompatActivity {
     if(intent != null) {
       playerSelection = intent.getStringExtra(u3a7left4deadMain.INFO_PLAYER);
     }
+
 
 
     View.OnClickListener handler = (View view) -> {
@@ -79,7 +83,7 @@ public class u3a7left4deadSelectCharacter extends AppCompatActivity {
     imgBtnCharacter3.setOnClickListener(handler);
     imgBtnCharacter4.setOnClickListener(handler);
 
-
+    goBack(imgBtnGoBack);
 
   }
 
@@ -101,6 +105,14 @@ public class u3a7left4deadSelectCharacter extends AppCompatActivity {
 
   public void backgroundColor(ImageButton button) {
     button.setBackgroundColor(0x6F000000);
+  }
+
+  public void goBack(ImageButton imgBtn) {
+    imgBtn.setOnClickListener( v -> {
+      finish();
+    });
 
   }
+
+
 }

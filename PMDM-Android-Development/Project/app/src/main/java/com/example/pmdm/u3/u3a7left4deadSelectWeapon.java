@@ -78,6 +78,8 @@ public class u3a7left4deadSelectWeapon extends AppCompatActivity {
     imgBtnWeapon2.setOnClickListener(handler);
     imgBtnWeapon3.setOnClickListener(handler);
     imgBtnWeapon4.setOnClickListener(handler);
+
+    goBack(imgBtnGoBack);
   }
 
   private void handleWeaponSelection(PlayerWeapon selectedWeapon) {
@@ -90,6 +92,7 @@ public class u3a7left4deadSelectWeapon extends AppCompatActivity {
     finish();
   }
 
+
   public void fullScreen() {
     requestWindowFeature(Window.FEATURE_NO_TITLE);
     getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
@@ -98,5 +101,17 @@ public class u3a7left4deadSelectWeapon extends AppCompatActivity {
 
   public void backgroundColor(ImageButton button) {
     button.setBackgroundColor(0x6F000000);
+  }
+
+  public void goBack(ImageButton imgBtn) {
+    imgBtn.setOnClickListener( v -> {
+      finish();
+    });
+  }
+
+  public void Clean(ImageButton imgBtn){
+    imgBtn.setOnClickListener(v -> {
+      Intent data = new Intent();
+    });
   }
 }
