@@ -1,0 +1,36 @@
+{
+  "alumnos":[
+    {
+      "nombre": "Paco",
+      "apellidos": "Ramos",
+      "Telefono": 65424459,
+      "Primer Curso": {
+        "matematicas": 10,
+        "latin": 5,
+        "lengua": 3
+      },
+      "Residencia":{
+        "Localidad":"Madrid",
+        "Calle":"Desengaño 22",
+        "Poblacion":"Madrid",
+        "CP:": "28145"
+      }
+    },
+    {
+      "nombre": "Paco",
+      "apellidos": "Ramos",
+      "Telefono": 65424459,
+      "Primer Curso": {
+        "matematicas": 10,
+        "latin": 5,
+        "lengua": 3
+      },
+      "Residencia":{
+        "Localidad":"Madrid",
+        "Calle":"Desengaño 22",
+        "Poblacion":"Madrid",
+        "CP:": "28145"
+      }
+    }
+  ]
+}
