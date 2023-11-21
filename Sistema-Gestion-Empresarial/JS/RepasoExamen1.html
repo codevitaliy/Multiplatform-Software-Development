@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+
+  <button id="miBoton" class="miBoton">CONTAR</button>
+
+  <p>lore impsum
+    <a href="https://www.wikipedia.com">Wikipedia</a>
+  </p>
+  <p>lore impsum
+    <a href="https://www.google.com">Google</a>
+  </p>
+  <p>lore impsum
+    <a href="https://www.youtube.com">Youtube</a>
+  </p>
+  <p>lore impsum
+    <a href="https://www.microsoft.com">Microsoft</a>
+  </p>
+  <p>lore impsum
+    <a href="https://www.reddit.com">Reddit</a>
+  </p>
+
+  <script>
+    let btnContar = document.getElementById("miBoton");
+    btnContar.addEventListener("click", () => {
+
+    
+      let numEnlaces = enlacesEnParrafos.length;
+      alert("Número de enlaces dentro de párrafos: " + numEnlaces);
+
+      if (numEnlaces >= 4) {
+        let cuartoEnlace = enlacesEnParrafos[3];
+
+        
+        let miObjetoP = document.createElement("p");
+
+      
+        let textNode = document.createTextNode(cuartoEnlace.href);
+
+       
+        miObjetoP.appendChild(textNode);
+
+      
+        document.body.appendChild(miObjetoP);
+      } else {
+        console.log("No hay suficientes enlaces para seleccionar el cuarto.");
+      }
+    });
+
+  </script>
+</body>
+</html>
