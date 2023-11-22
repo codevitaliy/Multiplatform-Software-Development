@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type ="text">Introduce un text </input>
+  <input type ="button" value="Add">
+  <ol></ol>
+    
+    
+    
+    <script>
+      
+      let btnAdd = document.getElementsByTagName("input")[1];
+      let lista = document.getElementsByTagName("ol")[0];
+
+      const listaEmpleados = {
+        "empleados" : [
+          {"nombre" : "jorge",
+          "cargo" : "conserje"},
+          {"nombre" : "paco",
+           "cargo" : "cocinero"}
+        ]
+      }
+
+      let empleadoUno = listaEmpleados.empleados[0].nombre;
+
+      alert(empleadoUno);
+
+      btnAdd.addEventListener("click", () => {
+
+        let inputText = document.getElementsByTagName("input")[0].value;
+
+        let newListElement = document.createElement("li");
+
+        newListElement.innerHTML = inputText;
+
+        lista.appendChild(newListElement);
+      });
+
+    </script>
+</body>
+</html>

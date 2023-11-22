@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="add">
+  <input type="checkbox" value="Seguro?"> Check this
+  <input type="text" value="">Introduce tu nombre </input>
+  <ol id="myList"></ol>
+
+</body>
+  <script>
+
+    let btnAdd = document.getElementsByTagName("input")[0];
+    let checkBox = document.getElementsByTagName("input")[1];
+    
+    let list = document.getElementById("myList");
+
+    btnAdd.addEventListener("click", () => {
+      
+      if(checkBox.checked) {
+        let inputText = document.getElementsByTagName("input")[2].value;
+        let newListElement = document.createElement("li");
+        newListElement.innerHTML = inputText;
+        list.appendChild(newListElement);
+      }else {
+        alert("You must check the checkbox first");
+      }
+
+    });
+
+  </script>
+</html>

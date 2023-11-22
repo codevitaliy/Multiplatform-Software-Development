@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Exam</title>
+</head>
+<body>
+  <h1>Lista Dinámica con Formulario</h1>
+  <form id="myForm">
+    <label for="inputText">Texto:</label>
+    <input type="text" id="inputText" name="inputText" required maxlength="20">
+
+    <br>
+
+    <label for="checkbox">¿Agregar elemento?</label>
+    <input type="checkbox" id="checkbox" name="checkbox">
+
+    <br>
+
+    <label>Género:</label>
+    <input type="radio" id="radio1" name="genre" value="accion">
+    <label for="radio1">Acción</label>
+
+    <input type="radio" id="radio2" name="genre" value="comedia">
+    <label for="radio2">Comedia</label>
+
+    <input type="radio" id="radio3" name="genre" value="drama">
+    <label for="radio3">Drama</label>
+
+    <br>
+
+    <button type="button" id="addButton">Añadir Elemento</button>
+  </form>
+
+  <ul id="myList">
+    <!-- Aquí se agregarán los elementos -->
+  </ul>
+
+  <script>
+
+    let list = document.getElementById("myList");
+
+    let btnAdd = document.getElementById("addButton");
+
+    addButton.addEventListener("click", function() {
+    let inputText = document.getElementsByTagName("input")[0].value;
+    if (validateText(inputText)) {
+      let newLi = document.createElement("li");
+      newLi.innerHTML = inputText;
+      list.appendChild(newLi);
+    }
+    
+    validateRadioButton();
+
+  });
+
+  function validateText(textString) {
+    if (textString.length < 3 || textString.length > 10) {
+      alert("La longitud del texto no es válida (debe ser entre 3 y 10 caracteres).");
+      return false;
+    }
+    return true;  // Retorna true si la validación es exitosa
+  }
+
+  function validateRadioButton() {
+
+    let radioButtons = [document.getElementsByTagName("input")[2],document.getElementsByTagName("input")[3], document.getElementsByTagName("input")[4]];
+    let seleccionado = false;
+    for(let i = 0; i < radioButtons.length; i++) {
+      if(radioButtons[i].checked) {
+        seleccionado = true;
+      }
+    }
+
+    if(!seleccionado) {
+      alert("ningun boton seleccionado");
+    }
+
+  }
+
+
+
+
+  </script>
+</body>
+</html>

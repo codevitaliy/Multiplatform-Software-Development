@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  let biblioteca = {
+    "libros" : [
+      {
+        "titulo" : "Don quijote",
+        "autor" : "Cervantes",
+        "genero" : "Novela caballersca",
+        "paginas" : 596,
+        "disponible" : true
+      },
+      {
+        "titulo": "El señor de los anillos",
+        "autor" : "jrr tolkien",
+        "genero" : "Ciencia ficcion",
+        "paginas" : "450",
+        "disponible" : true
+      }
+    ]
+  }
+
+  console.log(biblioteca.libros[0].titulo);
+
+  biblioteca.libros[0].titulo = "Fundación";
+
+  console.log(biblioteca.libros[0].titulo);
+
+  biblioteca.libros[1].paginas = 150;
+
+  alert(biblioteca.libros[1].paginas);
+
+  biblioteca.libros[0].disponible = false;
+
+  if (biblioteca.libros[0].disponible == false) {
+    alert("Libro: " + biblioteca.libros[0].titulo + " No esta disponible");
+  }
+  
+</script>
+</html>

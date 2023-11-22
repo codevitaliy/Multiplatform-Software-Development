@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="Show JSON">
+  <div id="text"></div>
+  <script>
+    
+
+    const listaAlumnos = {
+      "alumnos": [
+        {
+          "nombre": "Jorge",
+          "curso" : "DAM2",
+          "vivienda" : [
+            {"calle": "petirrojo",
+             "CP" : "28048"}
+          ]
+        },
+        {
+          "nombre": "Mario",
+          "curso" : "DAM1",
+          "vivienda" : [
+            {"calle": "petiverde",
+             "CP" : "28048"}
+        ]
+        }
+      ]
+    };
+
+    let divText = document.getElementsByTagName("div")[0];
+    let btnShow = document.getElementsByTagName("input")[0];
+
+    btnShow.addEventListener("click", () => {
+      imprimirListado(listaAlumnos);
+      alert("hello");
+    });
+
+
+    function imprimirListado (jsonListaAlumnos) {
+
+      let text = "Listado: \n" + JSON.stringify(jsonListaAlumnos, null, 2);
+
+      divText.innerHTML = text;
+
+    }
+
+
+  </script>
+</body>
+
+</html>

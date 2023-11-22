@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="Add">
+  <input type="text" value="">
+  <p></p>
+  <script>
+    let para = document.getElementsByTagName("p")[0];
+    let btnAdd = document.getElementsByTagName("input")[0];
+    let inputText = document.getElementsByTagName("input")[1];
+
+    btnAdd.addEventListener("click", () => {
+      let textValue = inputText.value;
+      
+      para.innerHTML = textValue;
+
+    });
+  </script>
+</body>
+</html>

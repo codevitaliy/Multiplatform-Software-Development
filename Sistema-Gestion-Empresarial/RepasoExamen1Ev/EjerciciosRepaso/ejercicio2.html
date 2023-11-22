@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+</body>
+<script>
+
+  let almacenamientoPeliculas = {
+    "peliculas" : [
+      {
+        "titulo": "El señor de los anillos : El retorno del rey",
+        "director": "Peter Jackson",
+        "año": 2003,
+        "genero" : "Ciencia Ficción",
+        "actores" : [
+          {
+            "Vigo Mortensen" : "Aragorn",
+          },
+          {
+            "Orlando Bloom" : "Legolas",
+          },
+          {
+            "Sir Ian McKeelen" : "Gandalf"
+          }          
+        ],
+        "criticos" : [
+          {
+            "El criticon" : "La hostia de pelicula"
+          }
+        ]
+      },
+      {
+        "titulo" : "Spider-Man 2",
+        "director" : "Sam Raimi",
+        "año" : 2004,
+        "genero" : "superheroes",
+        "actores" : [
+          {"Tobey McGuire" : "Peter Parker"},
+          {"James Franco" : "Harry Osborn"}
+        ],
+        "criticos" : [
+          {"El criticador" : "El único y verdadero spider-man"}
+        ]
+      }
+    ]
+  }
+
+  //console.log(almacenamientoPeliculas);
+
+  let mejorActor = almacenamientoPeliculas.peliculas[0].actores[0];
+
+  console.log("El mejor actor es: " + Object.keys(mejorActor)[0]);
+
+
+  
+</script>
+</html>

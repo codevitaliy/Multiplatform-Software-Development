@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <input type="button" value="Add empleado" id="addEmpleado">
+  <ol id="myList"></ol>
+  <script>
+
+
+    const empleadoUno = {
+      "nombre" : "ray",
+      "cargo" : "ceo"
+    };
+
+    const empleadoDos = {
+      "nombre" : "jorge",
+      "cargo" : "executive manager"
+    };
+
+    let arrayListEmpleados = [empleadoUno, empleadoDos];
+
+    let addButton = document.getElementById("addEmpleado");
+    addButton.addEventListener("click", addEmpleado(arrayListEmpleados));
+
+    function addEmpleado (jsonArrayEmpleados) {
+
+      for(let i = 0; i < jsonArrayEmpleados.length; i++) {
+        let addElementList = document.createElement("li");
+        let lista = document.getElementById("myList");
+        addElementList.innerHTML = "Name: " + jsonArrayEmpleados[i].nombre + " Job: " + jsonArrayEmpleados[i].cargo;
+        lista.appendChild(addElementList);
+      }
+    } 
+
+
+  </script>
+</body>
+
+</html>

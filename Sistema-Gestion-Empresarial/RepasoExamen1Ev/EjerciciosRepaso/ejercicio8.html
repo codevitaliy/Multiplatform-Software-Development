@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input type="button" value="A funcionar!">
+  <p>Link a google</p>
+  <a href="https://www.google.es">Google</a>"
+  <p>Link a wikipedia</p>
+  <a href="https://www.wikipedia.org">Wikipedia</a>"
+  <p>Link a reddit</p>
+  <a href="https://www.reddit.com">Reddit</a>"
+  <p>Link a El mundo</p>
+  <a href="https://www.elmundo.es">El mundo</a>"
+  <p>Link a youtube</p>
+  <a href="https://www.youtube.es">Youtube</a>"
+  <div id="mostrar"></div>
+
+  <script>
+
+    function mostrarConsola() {
+      let pLength = document.getElementsByTagName("p").length;
+      console.log("El largo es de: " + pLength);
+    }
+
+    function mostrarVentana() {
+      let hrefLength = document.getElementsByTagName("a").length;
+      alert("El largo es de : " + hrefLength);
+    }
+
+    function mostrarCuartoEnlace() {
+      let hrefLength = document.getElementsByTagName("a");
+      for(let i = 0; i < hrefLength.length ; i++) {
+        if (i == 3) {
+          let divText = document.getElementById("mostrar");
+          divText.innerHTML = hrefLength[3];
+        }
+      }
+    }
+
+    btnFuncionar = document.getElementsByTagName("input")[0];
+
+    btnFuncionar.addEventListener("click", () => {
+      mostrarConsola();
+      mostrarVentana();
+      mostrarCuartoEnlace();
+    })
+
+  </script>
+
+
+</body>
+</html>
