@@ -31,7 +31,7 @@
     let btnContar = document.getElementById("miBoton");
     btnContar.addEventListener("click", () => {
 
-    
+      let enlacesEnParrafos = document.querySelectorAll('p a');
       let numEnlaces = enlacesEnParrafos.length;
       alert("Número de enlaces dentro de párrafos: " + numEnlaces);
 
@@ -47,7 +47,7 @@
        
         miObjetoP.appendChild(textNode);
 
-      
+        // Agregar el párrafo al cuerpo del documento
         document.body.appendChild(miObjetoP);
       } else {
         console.log("No hay suficientes enlaces para seleccionar el cuarto.");

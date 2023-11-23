@@ -19,6 +19,7 @@ btnArriba.addEventListener("click", () => {
   let newElementList = document.createElement("li");
   newElementList.innerHTML = textInput;
   lista.prepend(newElementList);
+  
 
 });
 
