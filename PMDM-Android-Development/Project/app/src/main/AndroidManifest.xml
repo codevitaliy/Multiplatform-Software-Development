@@ -15,6 +15,15 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
+            android:name=".u4.u4a1Contador.u2a4ContadorMain"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".u3.u3a7left4deadSelectWeapon"
             android:exported="true">
             <intent-filter>
