@@ -15,7 +15,7 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
-            android:name=".u4.u4a1Contador.u2a4ContadorMain"
+            android:name=".u4.u4a1Contador.u4aCountMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

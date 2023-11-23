@@ -137,5 +137,14 @@
     <string name="u3a7strSelectCharacter">SELECT CHARACTER</string>
     <string name="u3a7strSelectWeapon">SELECT WEAPON</string>
 
+    //CONTADOR APP
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="u4a1strDrugFree1">DAYS LAMBDA FREE </string>
+    <string name="u4a1strDrugFree2">DAYS SINGLETON FREE</string>
+    <string name="u4a1strDrugFree3">DAYS OBSERVER FREE</string>
+    <string name="u4a1strDrugFree4">QUIT NOW, ENJOY LIFE</string>
+
+
 
 </resources>
