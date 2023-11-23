@@ -15,7 +15,16 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
-            android:name=".u4.u4a1Contador.u4aCountMain"
+            android:name=".u4.u4a3PingPong.u4a3PingPongMain"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".u4.u4a1Contador.u4a1CountMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

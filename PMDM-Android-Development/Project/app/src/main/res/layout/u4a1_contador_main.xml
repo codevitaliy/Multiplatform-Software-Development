@@ -7,7 +7,7 @@
     android:background="#FFAB91"
     android:configChanges="orientation|screenSize"
     android:screenOrientation="sensor"
-    tools:context=".u4.u4a1Contador.u4aCountMain">
+    tools:context=".u4.u4a1Contador.u4a1CountMain">
 
     <TextView
         android:id="@+id/u4a1idtv1"

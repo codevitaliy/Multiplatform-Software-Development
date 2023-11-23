@@ -8,7 +8,7 @@ import android.view.WindowManager;
 
 import com.example.pmdm.R;
 
-public class u4aCountMain extends AppCompatActivity {
+public class u4a1CountMain extends AppCompatActivity {
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
