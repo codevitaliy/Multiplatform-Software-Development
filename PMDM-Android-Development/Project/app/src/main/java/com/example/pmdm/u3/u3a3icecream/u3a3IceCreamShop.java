@@ -1,4 +1,4 @@
-package com.example.pmdm.u3;
+package com.example.pmdm.u3.u3a3icecream;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;

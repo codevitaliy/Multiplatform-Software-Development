@@ -1,4 +1,4 @@
-package com.example.pmdm.u3;
+package com.example.pmdm.u3.u3a2Calculator;
 
 import android.content.Intent;
 import android.os.Bundle;

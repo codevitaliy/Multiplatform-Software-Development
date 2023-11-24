@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#98F48FB1"
-    tools:context=".u3.u3a3IceCreamShop">
+    tools:context=".u3.u3a3icecream.u3a3IceCreamShop">
 
     <TextView
         android:id="@+id/u3a3tvTitle"

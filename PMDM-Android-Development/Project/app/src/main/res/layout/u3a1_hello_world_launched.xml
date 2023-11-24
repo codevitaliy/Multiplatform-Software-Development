@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFE082"
-    tools:context=".u3.u3a1HelloWorldLaunched">
+    tools:context=".u3.u3a1HelloWorld.u3a1HelloWorldLaunched">
 
     <TextView
         android:id="@+id/textView3"

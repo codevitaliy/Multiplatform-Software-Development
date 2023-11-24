@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#5A1E1E"
-    tools:context=".u3.u3a7left4deadMain">
+    tools:context=".u3.u3a7left4dead.u3a7left4deadMain">
 
     <ImageButton
         android:id="@+id/u3a7btnWeapon1"
