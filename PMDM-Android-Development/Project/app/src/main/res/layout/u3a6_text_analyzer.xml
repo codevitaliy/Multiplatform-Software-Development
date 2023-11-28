@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#E3F2FD"
-    tools:context=".u3.u3a6TextAnalyzer">
+    tools:context=".u3.u3a6textanalyzer.u3a6TextAnalyzer">
 
     <EditText
         android:id="@+id/u3a6etTextInput"

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFDE7"
-    tools:context=".u3.u3a5Fibonacci">
+    tools:context=".u3.u3a5fibonacci.u3a5Fibonacci">
 
     <TextView
         android:id="@+id/u3a5tvTitle"

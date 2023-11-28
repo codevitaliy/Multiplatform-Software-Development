@@ -1,6 +1,6 @@
-package com.example.pmdm.u3;
+package com.example.pmdm.u3.u3a5fibonacci;
 
-import static com.example.pmdm.u3.u3a5FibonacciLaunched.DEFAULT_VALUE;
+import static com.example.pmdm.u3.u3a5fibonacci.u3a5FibonacciLaunched.DEFAULT_VALUE;
 
 import android.content.Intent;
 import android.os.Bundle;

@@ -1,8 +1,7 @@
-package com.example.pmdm.u3;
+package com.example.pmdm.u3.u3a3icecream;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;

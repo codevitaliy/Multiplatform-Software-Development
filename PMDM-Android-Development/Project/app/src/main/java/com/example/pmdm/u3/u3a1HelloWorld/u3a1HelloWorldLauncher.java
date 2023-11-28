@@ -1,4 +1,4 @@
-package com.example.pmdm.u3;
+package com.example.pmdm.u3.u3a1HelloWorld;
 
 import androidx.appcompat.app.AppCompatActivity;
 

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#DCEDC8"
-    tools:context=".u3.u3a3IceCreamLaunched">
+    tools:context=".u3.u3a3icecream.u3a3IceCreamLaunched">
 
     <ImageView
         android:id="@+id/u3a3ivChocolate2"

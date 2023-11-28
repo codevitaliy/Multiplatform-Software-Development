@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#81D4FA"
-    tools:context=".u3.u3a2CalculatorLaunched">
+    tools:context=".u3.u3a2Calculator.u3a2CalculatorLaunched">
 
     <TextView
         android:id="@+id/u3a2tvTitle"

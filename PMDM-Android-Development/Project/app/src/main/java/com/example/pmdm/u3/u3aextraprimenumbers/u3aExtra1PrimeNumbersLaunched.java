@@ -1,4 +1,4 @@
-package com.example.pmdm.u3;
+package com.example.pmdm.u3.u3aextraprimenumbers;
 
 import android.content.Intent;
 import android.os.Bundle;
