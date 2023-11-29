@@ -1,0 +1,108 @@
+import java.util.concurrent.ThreadLocalRandom;
+
+public class DesafioLaberinto {
+
+    public static void main(String[] args) {
+        Laberinto laberinto = new Laberinto();
+
+        Thread guia = new Thread(new Guia(laberinto));
+        guia.start();
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(new Explorador(i + 1, laberinto)).start();
+        }
+    }
+}
+
+class Laberinto {
+
+    private boolean exploracionComenzada = false;
+    private int exploradoresEnLaberinto = 0;
+    private int exploradoresTerminados = 0;
+
+    public synchronized void comenzarExploracion() {
+        System.out.println("¡La exploración del laberinto ha comenzado!");
+        exploracionComenzada = true;
+        notifyAll();
+    }
+
+    public synchronized void registrarAsistencia() {
+        exploradoresEnLaberinto++;
+        System.out.println("Explorador presente. Total: " + exploradoresEnLaberinto);
+    }
+
+    public synchronized void llegarSalida(int exploradorId) {
+        exploradoresTerminados++;
+        System.out.println("Explorador " + exploradorId + " ha llegado a la salida.");
+
+        if (exploradoresTerminados == 10) {
+            notifyAll(); // Notificar al guía que todos los exploradores han llegado
+        }
+    }
+
+    public synchronized void finalizarExploracion() {
+        while (exploradoresTerminados < 10) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        System.out.println("¡La exploración ha terminado!");
+    }
+}
+
+class Guia implements Runnable {
+
+    private final Laberinto laberinto;
+
+    public Guia(Laberinto laberinto) {
+        this.laberinto = laberinto;
+    }
+
+    @Override
+    public void run() {
+        laberinto.comenzarExploracion();
+        laberinto.finalizarExploracion();
+    }
+}
+
+class Explorador implements Runnable {
+
+    private final int exploradorId;
+    private final Laberinto laberinto;
+
+    public Explorador(int exploradorId, Laberinto laberinto) {
+        this.exploradorId = exploradorId;
+        this.laberinto = laberinto;
+    }
+
+    @Override
+    public void run() {
+        laberinto.registrarAsistencia();
+
+        synchronized (laberinto) {
+            while (!laberinto.exploracionComenzada) {
+                try {
+                    laberinto.wait();
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                    return;
+                }
+            }
+        }
+
+        System.out.println("Explorador " + exploradorId + " está explorando...");
+
+        // Simulación de la exploración del laberinto
+        try {
+            Thread.sleep(ThreadLocalRandom.current().nextInt(5000, 15001));
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        laberinto.llegarSalida(exploradorId);
+    }
+}

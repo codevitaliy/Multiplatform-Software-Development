@@ -1,0 +1,112 @@
+import java.util.concurrent.ThreadLocalRandom;
+
+public class BibliotecaVirtual {
+
+    public static void main(String[] args) {
+        Biblioteca biblioteca = new Biblioteca();
+
+        Thread bibliotecario = new Thread(new Bibliotecario(biblioteca));
+        bibliotecario.start();
+
+        for (int i = 0; i < 5; i++) {
+            new Thread(new Lector(i + 1, biblioteca)).start();
+        }
+    }
+}
+
+class Biblioteca {
+
+    private boolean bibliotecaAbierta = false;
+    private int lectoresEnBiblioteca = 0;
+    private int lectoresTerminados = 0;
+    private int librosDisponibles = 10;
+
+    public synchronized void abrirBiblioteca() {
+        System.out.println("¡La biblioteca virtual ha abierto!");
+        bibliotecaAbierta = true;
+        notifyAll();
+    }
+
+    public synchronized void registrarLector() {
+        lectoresEnBiblioteca++;
+        System.out.println("Lector presente en la biblioteca. Total: " + lectoresEnBiblioteca);
+    }
+
+    public synchronized void leerLibros(int lectorId) {
+        while (!bibliotecaAbierta) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        int librosLeidos = ThreadLocalRandom.current().nextInt(1, 4);
+        System.out.println("Lector " + lectorId + " está leyendo " + librosLeidos + " libro(s).");
+
+        // Simulación de la lectura de libros
+        try {
+            Thread.sleep(librosLeidos * 1000); // Tiempo estimado basado en la cantidad de libros
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("Lector " + lectorId + " ha terminado de leer.");
+    }
+
+    public synchronized void devolverLibros(int lectorId) {
+        System.out.println("Lector " + lectorId + " está devolviendo libros.");
+        librosDisponibles += ThreadLocalRandom.current().nextInt(1, 4);
+        System.out.println("Libros disponibles actualmente: " + librosDisponibles);
+    }
+
+    public synchronized void cerrarBiblioteca() {
+        lectoresTerminados++;
+        System.out.println("Lector ha terminado de leer y devolver libros.");
+
+        if (lectoresTerminados == 5) {
+            System.out.println("¡La biblioteca virtual ha cerrado!");
+            notifyAll(); // Notificar al bibliotecario que todos los lectores han terminado
+        }
+    }
+}
+
+class Bibliotecario implements Runnable {
+
+    private final Biblioteca biblioteca;
+
+    public Bibliotecario(Biblioteca biblioteca) {
+        this.biblioteca = biblioteca;
+    }
+
+    @Override
+    public void run() {
+        biblioteca.abrirBiblioteca();
+        try {
+            Thread.sleep(6000); // Tiempo simulado de funcionamiento de la biblioteca
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+        biblioteca.cerrarBiblioteca();
+    }
+}
+
+class Lector implements Runnable {
+
+    private final int lectorId;
+    private final Biblioteca biblioteca;
+
+    public Lector(int lectorId, Biblioteca biblioteca) {
+        this.lectorId = lectorId;
+        this.biblioteca = biblioteca;
+    }
+
+    @Override
+    public void run() {
+        biblioteca.registrarLector();
+        biblioteca.leerLibros(lectorId);
+        biblioteca.devolverLibros(lectorId);
+        biblioteca.cerrarBiblioteca();
+    }
+}

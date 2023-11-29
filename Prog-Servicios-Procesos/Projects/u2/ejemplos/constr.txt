@@ -1,0 +1,127 @@
+import java.util.concurrent.ThreadLocalRandom;
+
+public class DesafioFabrica {
+
+    public static void main(String[] args) {
+        Fabrica fabrica = new Fabrica();
+
+        Thread supervisor = new Thread(new Supervisor(fabrica));
+        supervisor.start();
+
+        for (int i = 0; i < 7; i++) {
+            new Thread(new Trabajador(i + 1, fabrica)).start();
+        }
+    }
+}
+
+class Fabrica {
+
+    private boolean turnoComenzado = false;
+    private int trabajadoresEnFabrica = 0;
+    private int trabajadoresTerminados = 0;
+    private int productosEntregados = 0;
+    private final int productosObjetivo = 7; // Al menos 1 producto por trabajador
+
+    public synchronized void comenzarTurno() {
+        System.out.println("¡El turno ha comenzado!");
+        turnoComenzado = true;
+        notifyAll();
+    }
+
+    public synchronized void registrarAsistencia() {
+        trabajadoresEnFabrica++;
+        System.out.println("Trabajador presente. Total: " + trabajadoresEnFabrica);
+    }
+
+    public synchronized void producirArticulos(int trabajadorId) {
+        while (!turnoComenzado) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        int cantidadArticulos = ThreadLocalRandom.current().nextInt(5, 11);
+        System.out.println("Trabajador " + trabajadorId + " está produciendo " + cantidadArticulos + " artículos.");
+        // Simulación de la producción de artículos
+        try {
+            Thread.sleep(ThreadLocalRandom.current().nextInt(3000, 6001));
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("Trabajador " + trabajadorId + " ha terminado la producción.");
+        productosEntregados += cantidadArticulos;
+
+        // Notificar al supervisor cuando se entrega al menos un producto por trabajador
+        if (productosEntregados >= productosObjetivo) {
+            notifyAll();
+        }
+    }
+
+    public synchronized void entregarProductos(int trabajadorId) {
+        while (productosEntregados < productosObjetivo) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        trabajadoresTerminados++;
+        System.out.println("Trabajador " + trabajadorId + " ha entregado sus productos.");
+
+        if (trabajadoresTerminados == 7) {
+            notifyAll(); // Notificar al supervisor que todos los trabajadores han entregado productos
+        }
+    }
+
+    public synchronized void finalizarTurno() {
+        while (trabajadoresTerminados < 7) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        System.out.println("¡El turno ha terminado!");
+    }
+}
+
+class Supervisor implements Runnable {
+
+    private final Fabrica fabrica;
+
+    public Supervisor(Fabrica fabrica) {
+        this.fabrica = fabrica;
+    }
+
+    @Override
+    public void run() {
+        fabrica.comenzarTurno();
+        fabrica.finalizarTurno();
+    }
+}
+
+class Trabajador implements Runnable {
+
+    private final int trabajadorId;
+    private final Fabrica fabrica;
+
+    public Trabajador(int trabajadorId, Fabrica fabrica) {
+        this.trabajadorId = trabajadorId;
+        this.fabrica = fabrica;
+    }
+
+    @Override
+    public void run() {
+        fabrica.registrarAsistencia();
+        fabrica.producirArticulos(trabajadorId);
+        fabrica.entregarProductos(trabajadorId);
+    }
+}

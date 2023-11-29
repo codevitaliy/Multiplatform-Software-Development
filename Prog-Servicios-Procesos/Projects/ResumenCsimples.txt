@@ -1,0 +1,416 @@
+#include <stdio.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <stdlib.h>
+#include <string.h>
+#include <fcntl.h>
+#include <openssl/evp.h>
+#include <time.h>
+#include <sys/wait.h>
+#include <stdbool.h>
+#include <ctype.h>
+#include <signal.h>
+#include <math.h>
+
+Resumen de Código con Implementación:
+
+    Calculadora de Suma Simple:
+
+        Implementación con scanf:
+
+        c
+
+#include <stdio.h>
+
+int main() {
+    int num1, num2;
+    printf("Ingrese dos números enteros: ");
+    scanf("%d %d", &num1, &num2);
+    printf("La suma es: %d\n", num1 + num2);
+    return 0;
+}
+
+Implementación con fgets y atoi:
+
+c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    int main() {
+        char input[10];
+        printf("Ingrese dos números enteros: ");
+        fgets(input, sizeof(input), stdin);
+        int num1 = atoi(strtok(input, " "));
+        int num2 = atoi(strtok(NULL, " "));
+        printf("La suma es: %d\n", num1 + num2);
+        return 0;
+    }
+
+Conversión de Grados Celsius a Fahrenheit:
+
+    Implementación con scanf:
+
+    c
+
+#include <stdio.h>
+
+int main() {
+    float celsius;
+    printf("Ingrese la temperatura en grados Celsius: ");
+    scanf("%f", &celsius);
+    float fahrenheit = (celsius * 9 / 5) + 32;
+    printf("La temperatura en Fahrenheit es: %.2f\n", fahrenheit);
+    return 0;
+}
+
+Implementación con fgets y atof:
+
+c
+
+    #include <stdio.h>
+    #include <stdlib.h>
+    #include <string.h>
+
+    int main() {
+        char input[10];
+        printf("Ingrese la temperatura en grados Celsius: ");
+        fgets(input, sizeof(input), stdin);
+        float celsius = atof(input);
+        float fahrenheit = (celsius * 9 / 5) + 32;
+        printf("La temperatura en Fahrenheit es: %.2f\n", fahrenheit);
+        return 0;
+    }
+
+Números Primos:
+
+    Implementación con bucle for:
+
+    c
+
+#include <stdio.h>
+
+int main() {
+    int num;
+    printf("Ingrese un número positivo: ");
+    scanf("%d", &num);
+
+    int esPrimo = 1; // Suponemos que es primo
+    for (int i = 2; i * i <= num; ++i) {
+        if (num % i == 0) {
+            esPrimo = 0; // No es primo
+            break;
+        }
+    }
+
+    if (esPrimo)
+        printf("%d es un número primo.\n", num);
+    else
+        printf("%d no es un número primo.\n", num);
+
+    return 0;
+}
+
+Implementación con función:
+
+c
+
+    #include <stdio.h>
+
+    int esPrimo(int num) {
+        for (int i = 2; i * i <= num; ++i) {
+            if (num % i == 0)
+                return 0; // No es primo
+        }
+        return 1; // Es primo
+    }
+
+    int main() {
+        int num;
+        printf("Ingrese un número positivo: ");
+        scanf("%d", &num);
+
+        if (esPrimo(num))
+            printf("%d es un número primo.\n", num);
+        else
+            printf("%d no es un número primo.\n", num);
+
+        return 0;
+    }
+
+Cálculo de Factorial:
+
+    Implementación con bucle for:
+
+    c
+
+#include <stdio.h>
+
+int main() {
+    int num, factorial = 1;
+    printf("Ingrese un número no negativo: ");
+    scanf("%d", &num);
+
+    for (int i = 1; i <= num; ++i) {
+        factorial *= i;
+    }
+
+    printf("El factorial de %d es: %d\n", num, factorial);
+    return 0;
+}
+
+Implementación con función recursiva:
+
+c
+
+    #include <stdio.h>
+
+    int factorial(int num) {
+        if (num == 0 || num == 1)
+            return 1;
+        else
+            return num * factorial(num - 1);
+    }
+
+    int main() {
+        int num;
+        printf("Ingrese un número no negativo: ");
+        scanf("%d", &num);
+
+        printf("El factorial de %d es: %d\n", num, factorial(num));
+        return 0;
+    }
+
+Cifrado César:
+
+    Implementación con bucles y condicionales:
+
+    c
+
+#include <stdio.h>
+
+int main() {
+    char mensaje[100];
+    int desplazamiento;
+
+    printf("Ingrese el mensaje: ");
+    fgets(mensaje, sizeof(mensaje), stdin);
+    printf("Ingrese el desplazamiento: ");
+    scanf("%d", &desplazamiento);
+
+    for (int i = 0; mensaje[i] != '\0'; ++i) {
+        if (mensaje[i] >= 'a' && mensaje[i] <= 'z')
+            mensaje[i] = (mensaje[i] - 'a' + desplazamiento) % 26 + 'a';
+        else if (mensaje[i] >= 'A' && mensaje[i] <= 'Z')
+            mensaje[i] = (mensaje[i] - 'A' + desplazamiento) % 26 + 'A';
+    }
+
+    printf("Mensaje cifrado: %s\n", mensaje);
+    return 0;
+}
+
+Implementación con función:
+
+c
+
+    #include <stdio.h>
+
+    void cifradoCesar(char mensaje[], int desplazamiento) {
+        for (int i = 0; mensaje[i] != '\0'; ++i) {
+            if (mensaje[i] >= 'a' && mensaje[i] <= 'z')
+                mensaje[i] = (mensaje[i] - 'a' + desplazamiento) % 26 + 'a';
+            else if (mensaje[i] >= 'A' && mensaje[i] <= 'Z')
+                mensaje[i] = (mensaje[i] - 'A' + desplazamiento) % 26 + 'A';
+        }
+    }
+
+    int main() {
+        char mensaje[100];
+        int desplazamiento;
+
+        printf("Ingrese el mensaje: ");
+        fgets(mensaje, sizeof(mensaje), stdin);
+        printf("Ingrese el desplazamiento: ");
+        scanf("%d", &desplazamiento);
+
+        cifradoCesar(mensaje, desplazamiento);
+
+        printf("Mensaje cifrado: %s\n", mensaje);
+        return 0;
+    }
+
+Ejercicios Cadenas:
+
+    Implementación de ejercicios prácticos (Contar vocales, Palíndromo, Array de números) según necesidad.
+
+Ejercicio C Parámetros:
+
+    Implementación de una calculadora simple que realiza operaciones básicas:
+
+    c
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(int argc, char *argv[]) {
+    if (argc < 4) {
+        printf("Error: Debe proporcionar al menos 3 parámetros.\n");
+        return 1;
+    }
+
+    char operacion = *argv[1];
+    int num1 = atoi(argv[2]);
+    int num2 = atoi(argv[3]);
+
+    switch (operacion) {
+        case 'suma':
+            printf("%d\n", num1 + num2);
+            break;
+        case 'resta':
+            printf("%d\n", num1 - num2);
+            break;
+        case 'multiplicacion':
+            printf("%d\n", num1 * num2);
+            break;
+        case 'division':
+            if (num2 != 0)
+                printf("%.2f\n", (float)num1 / num2);
+            else
+                printf("Error: División por cero.\n");
+            break;
+        default:
+            printf("Operación no válida.\n");
+            break;
+    }
+
+    return 0;
+}
+
+8. Manejo de Ficheros (Continuación):
+
+    Lectura y Escritura de Archivos de Texto:
+
+    c
+
+#include <stdio.h>
+
+int main() {
+    // Apertura de archivo en modo escritura de texto
+    FILE *archivoTexto = fopen("datos.txt", "w");
+
+    // Comprobar si se pudo abrir el archivo
+    if (archivoTexto == NULL) {
+        perror("No se pudo abrir el archivo de texto");
+        return 1;
+    }
+
+    // Escribir líneas de texto en el archivo
+    fprintf(archivoTexto, "Hola, mundo!\n");
+    fprintf(archivoTexto, "Este es un archivo de texto.\n");
+
+    // Cerrar el archivo de texto
+    fclose(archivoTexto);
+
+    // Apertura de archivo en modo lectura de texto
+    archivoTexto = fopen("datos.txt", "r");
+
+    // Comprobar si se pudo abrir el archivo
+    if (archivoTexto == NULL) {
+        perror("No se pudo abrir el archivo de texto");
+        return 1;
+    }
+
+    // Leer y mostrar las líneas de texto desde el archivo
+    printf("Leyendo el archivo de texto:\n");
+    char linea[100];
+    while (fgets(linea, sizeof(linea), archivoTexto) != NULL) {
+        printf("%s", linea);
+    }
+
+    // Cerrar el archivo de texto
+    fclose(archivoTexto);
+
+    return 0;
+}
+
+Lectura y Escritura de Archivos Binarios:
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+// Definir una estructura para almacenar datos
+struct Registro {
+    int numero;
+    char nombre[50];
+};
+
+int main() {
+    // Declarar una estructura para almacenar datos
+    struct Registro datos;
+
+    // Apertura de archivo en modo escritura binaria
+    FILE *archivoBinario = fopen("datos.bin", "wb");
+
+    // Comprobar si se pudo abrir el archivo binario
+    if (archivoBinario == NULL) {
+        perror("No se pudo abrir el archivo binario");
+        return 1;
+    }
+
+    // Escribir datos en el archivo binario
+    datos.numero = 65;
+    strcpy(datos.nombre, "Ejemplo 1");
+    fwrite(&datos, sizeof(struct Registro), 1, archivoBinario);
+
+    datos.numero = 169;
+    strcpy(datos.nombre, "Ejemplo 2");
+    fwrite(&datos, sizeof(struct Registro), 1, archivoBinario);
+
+    // Cerrar el archivo binario
+    fclose(archivoBinario);
+
+    // Apertura de archivo en modo lectura binaria
+    archivoBinario = fopen("datos.bin", "rb");
+
+    // Comprobar si se pudo abrir el archivo binario
+    if (archivoBinario == NULL) {
+        perror("No se pudo abrir el archivo binario");
+        return 1;
+    }
+
+    // Leer y mostrar datos desde el archivo binario
+    printf("Leyendo datos del archivo binario:\n");
+    while (fread(&datos, sizeof(struct Registro), 1, archivoBinario) == 1) {
+        printf("Número: %d, Nombre: %s\n", datos.numero, datos.nombre);
+    }
+
+    // Cerrar el archivo binario
+    fclose(archivoBinario);
+
+    return 0;
+}
+
+Notas Adicionales:
+
+    Comprobación de Errores:
+
+        Siempre es crucial verificar si las operaciones de apertura, lectura o escritura de archivos tienen éxito. Esto se puede hacer comprobando si el puntero al archivo es NULL o utilizando la función ferror().
+
+        c
+
+            if (archivo == NULL) {
+                perror("No se pudo abrir el archivo");
+                return 1;
+            }
+
+        Manejo de Archivos Texto vs. Binarios:
+            Puedes trabajar tanto con archivos de texto como con archivos binarios. Los archivos de texto almacenan datos legibles por humanos, mientras que los archivos binarios almacenan datos en su forma cruda. El modo de apertura ("r", "rb", "w", "wb", etc.) determina si el archivo se maneja como texto o binario.
+
+    Importante:
+        Asegúrate de entender los conceptos básicos de manejo de archivos y las funciones asociadas en C para aprovechar al máximo esta funcionalidad.
+
+Este resumen y las implementaciones proporcionadas deberían proporcionarte una buena base para abordar tareas relacionadas con el manejo de archivos en C.

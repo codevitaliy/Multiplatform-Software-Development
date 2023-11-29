@@ -1,0 +1,118 @@
+import java.util.concurrent.ThreadLocalRandom;
+
+public class OperacionesBancarias {
+
+    public static void main(String[] args) {
+        Banco banco = new Banco();
+
+        Thread cajero = new Thread(new Cajero(banco));
+        cajero.start();
+
+        for (int i = 0; i < 10; i++) {
+            new Thread(new Cliente(i + 1, banco)).start();
+        }
+    }
+}
+
+class Banco {
+
+    private boolean jornadaComenzada = false;
+    private int clientesEnBanco = 0;
+    private int clientesTerminados = 0;
+
+    public synchronized void comenzarJornada() {
+        System.out.println("¡La jornada bancaria ha comenzado!");
+        jornadaComenzada = true;
+        notifyAll();
+    }
+
+    public synchronized void registrarCliente() {
+        clientesEnBanco++;
+        System.out.println("Cliente presente. Total: " + clientesEnBanco);
+    }
+
+    public synchronized void realizarTransacciones(int clienteId) {
+        while (!jornadaComenzada) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        int numTransacciones = ThreadLocalRandom.current().nextInt(2, 6);
+        System.out.println("Cliente " + clienteId + " está realizando " + numTransacciones + " transacciones.");
+
+        for (int i = 0; i < numTransacciones; i++) {
+            // Simulación de depósito o retiro
+            int monto = ThreadLocalRandom.current().nextInt(100, 1001);
+            boolean esDeposito = ThreadLocalRandom.current().nextBoolean();
+
+            if (esDeposito) {
+                System.out.println("Cliente " + clienteId + " ha depositado $" + monto);
+            } else {
+                System.out.println("Cliente " + clienteId + " ha retirado $" + monto);
+            }
+
+            // Actualización de saldo (simulada)
+            try {
+                Thread.sleep(ThreadLocalRandom.current().nextInt(500, 1501));
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+            }
+        }
+
+        System.out.println("Cliente " + clienteId + " ha terminado las transacciones.");
+    }
+
+    public synchronized void finalizarJornada() {
+        clientesTerminados++;
+        System.out.println("Cliente ha finalizado sus transacciones.");
+
+        if (clientesTerminados == 10) {
+            notifyAll(); // Notificar al cajero que todos los clientes han terminado
+        }
+    }
+}
+
+class Cajero implements Runnable {
+
+    private final Banco banco;
+
+    public Cajero(Banco banco) {
+        this.banco = banco;
+    }
+
+    @Override
+    public void run() {
+        banco.comenzarJornada();
+
+        // Simulación de operaciones del cajero
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        banco.finalizarJornada();
+    }
+}
+
+class Cliente implements Runnable {
+
+    private final int clienteId;
+    private final Banco banco;
+
+    public Cliente(int clienteId, Banco banco) {
+        this.clienteId = clienteId;
+        this.banco = banco;
+    }
+
+    @Override
+    public void run() {
+        banco.registrarCliente();
+        banco.realizarTransacciones(clienteId);
+        banco.finalizarJornada();
+    }
+}

@@ -1,0 +1,477 @@
+Ejercicio de Examen - Soluciones y Código de Ejemplo:
+
+    Crea un proceso que cree un proceso hijo, el envíe 3 números enteros aleatorios a través de un pipe. El proceso hijo los ordenará y los escribirá en el fichero salida.txt.
+
+    c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    int pipefd[2];
+    pid_t pid;
+
+    // Crear el pipe
+    if (pipe(pipefd) == -1) {
+        perror("Error al crear el pipe");
+        exit(EXIT_FAILURE);
+    }
+
+    // Crear el proceso hijo
+    pid = fork();
+
+    if (pid == -1) {
+        perror("Error al crear el proceso hijo");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid == 0) {  // Proceso hijo
+        close(pipefd[1]);  // Cerrar el extremo de escritura
+
+        // Leer los números desde el pipe
+        int numeros[3];
+        read(pipefd[0], numeros, sizeof(numeros));
+
+        // Ordenar los números (puedes usar cualquier algoritmo de ordenamiento)
+        for (int i = 0; i < 2; i++) {
+            for (int j = 0; j < 2 - i; j++) {
+                if (numeros[j] > numeros[j + 1]) {
+                    int temp = numeros[j];
+                    numeros[j] = numeros[j + 1];
+                    numeros[j + 1] = temp;
+                }
+            }
+        }
+
+        // Abrir el fichero salida.txt para escritura
+        FILE *salida = fopen("salida.txt", "w");
+
+        // Escribir los números ordenados en el fichero
+        fprintf(salida, "%d %d %d\n", numeros[0], numeros[1], numeros[2]);
+
+        // Cerrar el fichero y el extremo de lectura del pipe
+        fclose(salida);
+        close(pipefd[0]);
+    } else {  // Proceso padre
+        close(pipefd[0]);  // Cerrar el extremo de lectura
+
+        // Generar 3 números aleatorios
+        int numeros[3];
+        for (int i = 0; i < 3; i++) {
+            numeros[i] = rand() % 100;  // Números aleatorios entre 0 y 99
+        }
+
+        // Enviar los números al hijo a través del pipe
+        write(pipefd[1], numeros, sizeof(numeros));
+
+        // Esperar a que el hijo termine
+        wait(NULL);
+
+        // Cerrar el extremo de escritura del pipe
+        close(pipefd[1]);
+    }
+
+    return 0;
+}
+
+Este código crea un proceso padre que genera 3 números aleatorios, los envía a un proceso hijo a través de un pipe, y luego el proceso hijo los ordena y los escribe en un archivo.
+
+Crea un proceso que cree dos procesos hijos, luego generará N (20) números aleatorios. Enviará los pares al primer hijo, los impares al segundo. Los hijos escribirán por pantalla "Soy el hijo 1|2, he recibido <n>". Por cada número que mande el padre.
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    int N = 20;
+    pid_t pid1, pid2;
+
+    // Crear el proceso hijo 1
+    pid1 = fork();
+
+    if (pid1 == -1) {
+        perror("Error al crear el proceso hijo 1");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid1 == 0) {  // Proceso hijo 1
+        for (int i = 0; i < N; i += 2) {
+            printf("Soy el hijo 1, he recibido %d\n", i);
+        }
+        exit(EXIT_SUCCESS);
+    } else {  // Proceso padre
+        // Crear el proceso hijo 2
+        pid2 = fork();
+
+        if (pid2 == -1) {
+            perror("Error al crear el proceso hijo 2");
+            exit(EXIT_FAILURE);
+        }
+
+        if (pid2 == 0) {  // Proceso hijo 2
+            for (int i = 1; i < N; i += 2) {
+                printf("Soy el hijo 2, he recibido %d\n", i);
+            }
+            exit(EXIT_SUCCESS);
+        } else {  // Proceso padre
+            // Esperar a que ambos hijos terminen
+            wait(NULL);
+            wait(NULL);
+        }
+    }
+
+    return 0;
+}
+
+Este código crea dos procesos hijos. El primer hijo imprime los números pares recibidos del padre, y el segundo hijo imprime los números impares.
+
+Crea un programa que reciba por parámetro un número entero positivo n. Este número indicará el número de hijos. Cada hijo generará un fichero con la posibles combinaciones de caracteres de esa longitud. El hijo 1 una letra, el hijo 2 dos letras 'aa' a la 'zz', etc. Los nombres serán datos1.txt, datos2.txt, etc.
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Uso: %s <n>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    int n = atoi(argv[1]);
+
+    for (int i = 1; i <= n; i++) {
+        pid_t pid = fork();
+
+        if (pid == -1) {
+            perror("Error al crear el proceso hijo");
+            exit(EXIT_FAILURE);
+        }
+
+        if (pid == 0) {  // Proceso hijo
+            // Crear el nombre del fichero
+            char nombre[20];
+            sprintf(nombre, "datos%d.txt", i);
+
+            // Abrir el fichero para escritura
+            FILE *fichero = fopen(nombre, "w");
+            if (fichero == NULL) {
+                perror("Error al abrir el fichero");
+                exit(EXIT_FAILURE);
+            }
+
+            // Escribir las posibles combinaciones de caracteres
+            for (int j = 0; j < i; j++) {
+                for (char c = 'a'; c <= 'z'; c++) {
+                    fprintf(fichero, "%c", c);
+                }
+                fprintf(fichero, "\n");
+            }
+
+            // Cerrar el fichero
+            fclose(fichero);
+
+            exit(EXIT_SUCCESS);
+        }
+    }
+
+    // Esperar a que todos los hijos terminen
+    for (int i = 0; i < n; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+Este código crea un número especificado de procesos hijos, cada uno generando un archivo con las posibles combinaciones de caracteres de la longitud correspondiente.
+
+Crea un programa que reciba un número n por parámetro. El programa creará n hijos y les enviará una señal a cada uno de ellos para matarlos.
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+void manejador(int signo) {
+    printf("Hijo recibió la señal SIGTERM y terminó.\n");
+    exit(EXIT_SUCCESS);
+}
+
+int main(int argc, char *argv[]) {
+    if (argc != 2) {
+        fprintf(stderr, "Uso: %s <n>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    int n = atoi(argv[1]);
+
+    for (int i = 0; i < n; i++) {
+        pid_t pid = fork();
+
+        if (pid == -1) {
+            perror("Error al crear el proceso hijo");
+            exit(EXIT_FAILURE);
+        }
+
+        if (pid == 0) {  // Proceso hijo
+            // Establecer el manejador de señales
+            signal(SIGTERM, manejador);
+
+            while (1) {
+                sleep(1);
+            }
+        }
+    }
+
+    // Dormir para dar tiempo a los hijos de establecer el manejador de señales
+    sleep(2);
+
+    // Enviar la señal SIGTERM a todos los hijos
+    for (int i = 0; i < n; i++) {
+        kill(0, SIGTERM);
+    }
+
+    // Esperar a que todos los hijos terminen
+    for (int i = 0; i < n; i++) {
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+Este código crea un número especificado de procesos hijos y les envía la señal SIGTERM para terminarlos.
+
+Crea un proceso que sea capaz de gestionar una señal definida por el usuario. Luego hará fork y el padre le enviará la señal al hijo. Al gestionar la señal, el hijo escribirá "Recibido y terminará el proceso".
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <signal.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+void manejador(int signo) {
+    printf("Hijo: Señal recibida y proceso terminado.\n");
+    exit(EXIT_SUCCESS);
+}
+
+int main() {
+    pid_t pid;
+
+    // Establecer el manejador de señales
+    signal(SIGUSR1, manejador);
+
+    // Crear el proceso hijo
+    pid = fork();
+
+    if (pid == -1) {
+        perror("Error al crear el proceso hijo");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid == 0) {  // Proceso hijo
+        // Esperar a la señal del padre
+        pause();
+    } else {  // Proceso padre
+        // Enviar la señal SIGUSR1 al hijo
+        kill(pid, SIGUSR1);
+
+        // Esperar a que el hijo termine
+        wait(NULL);
+    }
+
+    return 0;
+}
+
+Este código crea un proceso padre que envía una señal personalizada (SIGUSR1) a un hijo, y el hijo, al gestionar la señal, escribe un mensaje y termina.
+
+Crea un programa que cree un hijo y le mande a través de un pipe un carácter y dos números. El carácter representa una operación matemática: suma o resta. El proceso hijo devolverá en su estado el resultado de la operación.
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
+
+int main() {
+    int pipefd[2];
+    pid_t pid;
+
+    // Crear el pipe
+    if (pipe(pipefd) == -1) {
+        perror("Error al crear el pipe");
+        exit(EXIT_FAILURE);
+    }
+
+    // Crear el proceso hijo
+    pid = fork();
+
+    if (pid == -1) {
+        perror("Error al crear el proceso hijo");
+        exit(EXIT_FAILURE);
+    }
+
+    if (pid == 0) {  // Proceso hijo
+        close(pipefd[1]);  // Cerrar el extremo de escritura
+
+        char operacion;
+        int num1, num2;
+
+        // Leer los datos desde el pipe
+        read(pipefd[0], &operacion, sizeof(char));
+        read(pipefd[0], &num1, sizeof(int));
+        read(pipefd[0], &num2, sizeof(int));
+
+        // Realizar la operación
+        int resultado;
+        if (operacion == '+') {
+            resultado = num1 + num2;
+        } else if (operacion == '-') {
+            resultado = num1 - num2;
+        } else {
+            fprintf(stderr, "Operación no válida.\n");
+            exit(EXIT_FAILURE);
+        }
+
+        // Devolver el resultado en el estado de salida
+        exit(resultado);
+    } else {  // Proceso padre
+        close(pipefd[0]);  // Cerrar el extremo de lectura
+
+        // Enviar datos al hijo a través del pipe
+        char operacion = '+';
+        int num1 = 10, num2 = 5;
+
+        write(pipefd[1], &operacion, sizeof(char));
+        write(pipefd[1], &num1, sizeof(int));
+        write(pipefd[1], &num2, sizeof(int));
+
+        // Esperar a que el hijo termine y recoger el estado
+        int estado;
+        wait(&estado);
+
+        // Imprimir el resultado devuelto por el hijo
+        printf("Resultado: %d\n", WEXITSTATUS(estado));
+
+        // Cerrar el extremo de escritura del pipe
+        close(pipefd[1]);
+    }
+
+    return 0;
+}
+
+Este código crea un proceso padre que envía un carácter y dos números a un hijo a través de un pipe, y el hijo realiza la operación especificada y devuelve el resultado en el estado de salida.
+
+En C, puedes enviar señales utilizando la función kill. Aquí te proporcionaré un ejemplo básico para ilustrar cómo enviar una señal a otro proceso.
+
+Ejemplo de Envío de Señal:
+
+En este ejemplo, crearé dos programas diferentes, uno para enviar la señal (enviador.c) y otro para recibir y manejar la señal (manejador.c).
+
+enviador.c:
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
+
+int main(int argc, char *argv[]) {
+    if (argc != 3) {
+        fprintf(stderr, "Uso: %s <PID_del_destinatario> <número_de_señal>\n", argv[0]);
+        exit(EXIT_FAILURE);
+    }
+
+    pid_t pid_destinatario = atoi(argv[1]);
+    int numero_de_senal = atoi(argv[2]);
+
+    // Enviar la señal al proceso destinatario
+    if (kill(pid_destinatario, numero_de_senal) == -1) {
+        perror("Error al enviar la señal");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Señal enviada al proceso con PID %d.\n", pid_destinatario);
+
+    return 0;
+}
+
+Este programa toma dos argumentos de línea de comandos: el PID del destinatario y el número de la señal que se enviará. Luego, utiliza la función kill para enviar la señal al proceso destinatario.
+
+manejador.c:
+
+c
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <signal.h>
+#include <unistd.h>
+
+// Función para manejar la señal
+void manejador_de_senal(int signo) {
+    printf("Señal recibida: %d\n", signo);
+    exit(EXIT_SUCCESS);
+}
+
+int main() {
+    // Establecer el manejador para la señal SIGUSR1
+    if (signal(SIGUSR1, manejador_de_senal) == SIG_ERR) {
+        perror("Error al establecer el manejador de señales");
+        exit(EXIT_FAILURE);
+    }
+
+    printf("Esperando la señal SIGUSR1. PID: %d\n", getpid());
+
+    // Mantener el programa en ejecución
+    while (1) {
+        sleep(1);
+    }
+
+    return 0;
+}
+
+En este programa, se establece un manejador de señales (manejador_de_senal) para la señal SIGUSR1. Cuando el programa recibe esta señal, imprime un mensaje y termina.
+
+Compilación y Ejecución:
+
+Compila ambos programas usando tu compilador de C. Por ejemplo:
+
+bash
+
+gcc enviador.c -o enviador
+gcc manejador.c -o manejador
+
+Ahora ejecuta el programa manejador en un terminal:
+
+bash
+
+./manejador
+
+Abre otro terminal y obtén el PID del proceso manejador (puedes usar ps aux | grep manejador). Luego, ejecuta el programa enviador con el PID del proceso manejador y el número de señal:
+
+bash
+
+./enviador <PID_del_manejador> 10
+
+En este ejemplo, 10 es el número de la señal SIGUSR1. Deberías ver que el programa manejador imprime el mensaje "Señal recibida: 10" y termina.
+
+Este es un ejemplo simple, pero el envío y manejo de señales en C es una forma poderosa de comunicación entre procesos en un sistema operativo Unix-like. Puedes utilizar señales para indicar eventos, solicitar la terminación de un programa de manera controlada, entre otras cosas.

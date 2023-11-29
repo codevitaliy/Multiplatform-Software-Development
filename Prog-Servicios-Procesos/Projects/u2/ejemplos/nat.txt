@@ -1,0 +1,106 @@
+import java.util.concurrent.ThreadLocalRandom;
+
+public class CompetenciaNatacion {
+
+    public static void main(String[] args) {
+        Piscina piscina = new Piscina();
+
+        Thread juez = new Thread(new Juez(piscina));
+        juez.start();
+
+        for (int i = 0; i < 8; i++) {
+            new Thread(new Nadador(i + 1, piscina)).start();
+        }
+    }
+}
+
+class Piscina {
+
+    private boolean competenciaComenzada = false;
+    private int nadadoresEnPiscina = 0;
+    private int nadadoresTerminados = 0;
+
+    public synchronized void comenzarCompetencia() {
+        System.out.println("¡La competencia de natación ha comenzado!");
+        competenciaComenzada = true;
+        notifyAll();
+    }
+
+    public synchronized void registrarNadador() {
+        nadadoresEnPiscina++;
+        System.out.println("Nadador presente en la piscina. Total: " + nadadoresEnPiscina);
+    }
+
+    public synchronized void nadarEnPiscina(int nadadorId) {
+        while (!competenciaComenzada) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        int distanciaNado = ThreadLocalRandom.current().nextInt(100, 201);
+        System.out.println("Nadador " + nadadorId + " está nadando " + distanciaNado + " metros.");
+
+        // Simulación del nado en la piscina
+        try {
+            Thread.sleep(distanciaNado * 10); // Tiempo estimado basado en la distancia
+        } catch (InterruptedException e) {
+            Thread.currentThread().interrupt();
+        }
+
+        System.out.println("Nadador " + nadadorId + " ha llegado a la meta.");
+        nadadoresTerminados++;
+
+        if (nadadoresTerminados == 8) {
+            notifyAll(); // Notificar al juez que todos los nadadores han terminado
+        }
+    }
+
+    public synchronized void finalizarCompetencia() {
+        while (nadadoresTerminados < 8) {
+            try {
+                wait();
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
+        }
+
+        System.out.println("¡La competencia ha terminado!");
+    }
+}
+
+class Juez implements Runnable {
+
+    private final Piscina piscina;
+
+    public Juez(Piscina piscina) {
+        this.piscina = piscina;
+    }
+
+    @Override
+    public void run() {
+        piscina.comenzarCompetencia();
+        piscina.finalizarCompetencia();
+    }
+}
+
+class Nadador implements Runnable {
+
+    private final int nadadorId;
+    private final Piscina piscina;
+
+    public Nadador(int nadadorId, Piscina piscina) {
+        this.nadadorId = nadadorId;
+        this.piscina = piscina;
+    }
+
+    @Override
+    public void run() {
+        piscina.registrarNadador();
+        piscina.nadarEnPiscina(nadadorId);
+    }
+}

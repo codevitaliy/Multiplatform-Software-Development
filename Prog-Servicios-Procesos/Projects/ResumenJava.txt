@@ -1,0 +1,384 @@
+1. Creación de un Hilo:
+
+    Concepto: Crear un hilo mediante la extensión de la clase Thread y sobrescribir el método run.
+    Ejemplo:
+
+    java
+
+    class MyThread extends Thread {
+        public void run() {
+            System.out.println("Hilo ejecutándose");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            MyThread t = new MyThread();
+            t.start();
+        }
+    }
+
+2. Implementación de la interfaz Runnable:
+
+    Concepto: Implementar la interfaz Runnable y sobrescribir el método run.
+    Ejemplo:
+
+    java
+
+    class MyRunnable implements Runnable {
+        public void run() {
+            System.out.println("Hilo ejecutándose");
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            Thread t = new Thread(new MyRunnable());
+            t.start();
+        }
+    }
+
+3. Nombre del Hilo:
+
+    Concepto: Obtener el nombre del hilo actual usando Thread.currentThread().getName().
+    Ejemplo:
+
+    java
+
+    public class Main {
+        public static void main(String[] args) {
+            System.out.println(Thread.currentThread().getName());
+        }
+    }
+
+4. Prioridad del Hilo:
+
+    Concepto: Establecer y obtener la prioridad de un hilo usando setPriority y getPriority.
+    Ejemplo:
+
+    java
+
+    public class Main {
+        public static void main(String[] args) {
+            Thread t = new Thread();
+            t.setPriority(Thread.MAX_PRIORITY);
+            System.out.println(t.getPriority());
+        }
+    }
+
+5. Dormir un Hilo (Sleep):
+
+    Concepto: Hacer que un hilo duerma usando Thread.sleep.
+    Ejemplo:
+
+    java
+
+    public class Main {
+        public static void main(String[] args) {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+6. Unir Hilos (Join):
+
+    Concepto: Esperar a que un hilo termine su ejecución usando join.
+    Ejemplo:
+
+    java
+
+    class MyThread extends Thread {
+        public void run() {
+            for (int i = 0; i < 5; i++) {
+                try {
+                    Thread.sleep(500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                System.out.println(i);
+            }
+        }
+    }
+
+    public class Main {
+        public static void main(String[] args) {
+            MyThread t1 = new MyThread();
+            MyThread t2 = new MyThread();
+            t1.start();
+            try {
+                t1.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            t2.start();
+        }
+    }
+
+7. Sincronización de Métodos:
+
+    Concepto: Utilizar synchronized en un método para lograr exclusión mutua.
+    Ejemplo:
+
+    java
+
+    class Counter {
+        synchronized void increment() {
+            int count = 0;
+            count++;
+            System.out.println(count);
+        }
+    }
+
+8. Sincronización de Bloques:
+
+    Concepto: Utilizar synchronized en un bloque para sincronizar secciones críticas.
+    Ejemplo:
+
+    java
+
+    class Counter {
+        void increment() {
+            synchronized (this) {
+                int count = 0;
+                count++;
+                System.out.println(count);
+            }
+        }
+    }
+
+9. Comunicación entre Hilos:
+
+    Concepto: Utilizar wait, notify, y notifyAll para la comunicación entre hilos.
+    Ejemplo:
+
+    java
+
+    class Printer {
+        private boolean flag = false;
+
+        synchronized void imprime(String msg) {
+            if (flag) {
+                try {
+                    wait();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+            }
+            // Lógica para imprimir
+            flag = true;
+            notify();
+        }
+    }
+
+Ejercicios:
+
+    Creación de un Hilo:
+        Crear clases que extiendan Thread y que implementen Runnable.
+        Utilizar expresiones lambda para crear hilos.
+        Ejecutar múltiples hilos desde el método principal.
+
+    Ejemplo:
+
+    java
+
+class LambdaThreadExample {
+    public static void main(String[] args) {
+        Thread t1 = new Thread(() -> System.out.println("Hola desde hilo 1"));
+        Thread t2 = new Thread(() -> System.out.println("Hola desde hilo 2"));
+        Thread t3 = new Thread(() -> System.out.println("Hola desde hilo 3"));
+
+        t1.start();
+        t2.start();
+        t3.start();
+    }
+}
+
+Implementación de la interfaz Runnable:
+
+    Crear una clase que implemente Runnable y ejecute hilos con nombres y tablas diferentes.
+    Redireccionar la salida a un archivo y usar sort para verificar las tablas.
+
+Ejemplo:
+
+java
+
+class TablePrinter implements Runnable {
+    private int number;
+
+    public TablePrinter(int number) {
+        this.number = number;
+    }
+
+    public void run() {
+        for (int i = 1; i <= 10; i++) {
+            System.out.println(number + " * " + i + " = " + (number * i));
+        }
+    }
+}
+
+public class TableExample {
+    public static void main(String[] args) {
+        Thread[] threads = new Thread[5];
+
+        for (int i = 0; i < 5; i++) {
+            threads[i] = new Thread(new TablePrinter(i + 1));
+            threads[i].setName("Thread-" + (i + 1));
+            threads[i].start();
+        }
+    }
+}
+
+Los elefantes...
+
+    Crear un hilo que genere números aleatorios y verifique si son primos.
+    Ejecutar múltiples canciones infantiles concurrentemente.
+
+Ejemplo:
+
+java
+
+class AnimalSongThread extends Thread {
+    private String animal;
+    private String action;
+    private int maxNumber;
+
+    public AnimalSongThread(String animal, String action, int maxNumber) {
+        this.animal = animal;
+        this.action = action;
+        this.maxNumber = maxNumber;
+    }
+
+    public void run() {
+        for (int i = 0; i < maxNumber; i++) {
+            // Generate random number and check if it's prime
+            int randomNumber = (int) (Math.random() * 200000) + 100000;
+            boolean isPrime = checkPrime(randomNumber);
+
+            // Print song lyrics and prime status
+            System.out.println(animal + " " + action + " sobre la tela de una araña");
+            System.out.println("Como veía que resistía, fue a llamar otro " + animal);
+            if (isPrime) {
+                System.out.println("Número Aleatorio: " + randomNumber + " es primo");
+            }
+        }
+    }
+
+    private boolean checkPrime(int number) {
+        if (number <= 1) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+}
+
+public class AnimalSongsExample {
+    public static void main(String[] args) {
+        Thread elephantThread = new AnimalSongThread("Elefante", "se balanceaba", 5);
+        Thread dogThread = new AnimalSongThread("Perro", "ladraba", 5);
+        Thread catThread = new AnimalSongThread("Gato", "maullaba", 5);
+
+        elephantThread.start();
+        dogThread.start();
+        catThread.start();
+    }
+}
+
+Contador:
+
+    Crear una clase Counter con métodos sincronizados para incrementar y decrementar una variable.
+    Ejecutar múltiples hilos para incrementar y decrementar.
+
+Ejemplo:
+
+java
+
+class Counter {
+    private int count = 0;
+
+    synchronized void increment() {
+        count++;
+        System.out.println("Increment: " + count);
+    }
+
+    synchronized void decrement() {
+        count--;
+        System.out.println("Decrement: " + count);
+    }
+}
+
+public class CounterExample {
+    public static void main(String[] args) {
+        Counter counter = new Counter();
+        Thread[] incrementThreads = new Thread[5];
+        Thread[] decrementThreads = new Thread[5];
+
+        for (int i = 0; i < 5; i++) {
+            incrementThreads[i] = new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    counter.increment();
+                }
+            });
+
+            decrementThreads[i] = new Thread(() -> {
+                for (int j = 0; j < 1000; j++) {
+                    counter.decrement();
+                }
+            });
+
+            incrementThreads[i].start();
+            decrementThreads[i].start();
+        }
+    }
+}
+
+Bancos:
+
+    Crear un sistema de transferencia bancaria con dos usuarios y realizar ejecuciones con y sin sincronización.
+
+Ejemplo:
+
+java
+
+class BankAccount {
+    private int balance = 100;
+
+    synchronized void transfer(int amount) {
+        balance -= amount;
+        System.out.println("Transferencia exitosa. Saldo actual: " + balance);
+    }
+}
+
+class UserThread extends Thread {
+    private BankAccount account;
+    private int amount;
+
+    public UserThread(BankAccount account, int amount) {
+        this.account = account;
+        this.amount = amount;
+    }
+
+    public void run() {
+        account.transfer(amount);
+    }
+}
+
+public class BankTransferExample {
+    public static void main(String[] args) {
+        BankAccount sharedAccount = new BankAccount();
+
+        // Without synchronization
+        UserThread user1 = new UserThread(sharedAccount, 30);
+        UserThread user2 = new UserThread(sharedAccount, 50);
+
+        user1.start();
+        user2.start();
+    }
+}
