@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">RockPaperScissors</string>
+    <string name="restart_button_text">Restart</string>
+    <string name="user_title">YOU</string>
+    <string name="cpu_title">CPU</string>
+    <string name="msg_user_scored">Great, you won this round! (+1 point)</string>
+    <string name="msg_cpu_scored">Oops, the CPU took this round! (+1 point)</string>
+    <string name="msg_tie">That was a tie! No-one gets points</string>
+    <string name="cpu_choice">The CPU chose</string>
+    <string name="msg_won">Congratulations, you beat the CPU!</string>
+    <string name="msg_lost">Darn it, you lost! The CPU was too lucky...</string>
+    <string name="alert_dialog_title">Confirm restart</string>
+    <string name="alert_dialog_msg">A game is ongoing, are you sure that you want to restart it?</string>
+</resources>

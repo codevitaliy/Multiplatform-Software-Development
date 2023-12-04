@@ -161,7 +161,7 @@
         <activity
             android:name=".u3.u3a3icecream.u3a3IceCreamLaunched"
             android:exported="true"
-            android:configChanges="orientation">
+            android:configChanges="orientation|screenSize">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#C4DDD7"
+    tools:context=".u2.u2a1GuessNumber"
+    tools:layout_editor_absoluteX="0dp"
+    tools:layout_editor_absoluteY="-18dp">
+
+    <TextView
+        android:id="@+id/u2e1tvGuessNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/u2a1TxtGuessAge"
+        android:textSize="48sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.064" />
+
+    <EditText
+        android:id="@+id/u2e1etEnterAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:ems="10"
+        android:inputType="text"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2e1tvGuessNumber"
+        app:layout_constraintVertical_bias="0.036" />
+
+    <TextView
+        android:id="@+id/u2e1tw1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/u2a1TxtEnterAge"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/u2e1etEnterAge"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2e1tvGuessNumber" />
+
+    <Button
+        android:id="@+id/u2e1btStart"
+        android:layout_width="110dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#683D9A19"
+        android:text="@string/u2a1btEnterAGe"
+        android:textAlignment="center"
+        android:textColor="#4A148C"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2e1etEnterAge"
+        app:layout_constraintVertical_bias="0.188" />
+
+    <Button
+        android:id="@+id/u2a1btRestart"
+        android:layout_width="110dp"
+        android:layout_height="48dp"
+        android:backgroundTint="#CC5656"
+        android:text="@string/u2a1btRestart"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.126"
+        app:layout_constraintStart_toEndOf="@+id/u2e1btStart"
+        app:layout_constraintTop_toBottomOf="@+id/u2e1etEnterAge"
+        app:layout_constraintVertical_bias="0.186" />
+
+    <TextView
+        android:id="@+id/u2a1tvPrompt"
+        android:layout_width="206dp"
+        android:layout_height="54dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/u2e1btStart"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/u2e1etEnterAge"
+        app:layout_constraintVertical_bias="0.405" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,0 +1,149 @@
+<resources>
+
+    <string name="app_name">Pmdm</string>
+    <string name="u1a1TxtHelloWorld">Hello World</string>
+    <string name="CANCEL_MESSAGE">CANCELLED\n</string>
+
+    //GUESS THE AGE
+    <string name="u2a1TxtGuessAge">Guess the age!</string>
+    <string name="u2a1TxtEnterAge">Enter the age, you have 5 chances</string>
+    <string name="u2a1btEnterAGe">START</string>
+    <string name="u2a1btRestart">RESTART</string>
+    <string name="u2a1youLost">You lost and out of chances: </string>
+    <string name="u2a1youWin">You win!</string>
+    <string name="u2a1lowerAge">The age must be lower, chances left: </string>
+    <string name="u2a1higherAge">The age must be higher, chances left: </string>
+    <string name="u2a1startAgain">Lets start again, number of tries: </string>
+    //GUESS THE AGE
+
+    //COLOR NAME
+    <string name="u2a2Title">Color Name</string>
+    <string name="u2a2etInputColor"> </string>
+    <string name="u2a2tvStrR">R</string>
+    <string name="u2a2tvStrG">G</string>
+    <string name="u2a2tvStrB">B</string>
+    <string name="u2a2btStrButton">COLOUR ME</string>
+    <string name="u2a2swColor">White</string>
+
+    //PROPINATRON2000
+    <string name="u2a3Title">PROPINATRON 2000</string>
+    <string name="u2a3TotalMoney">Enter the total amount: </string>
+    <string name="u2a3TipsText">Your tip is: </string>
+    <string name="u2a3Poor">Poor :(</string>
+    <string name="u2a3Nice">Nice :)</string>
+    <string name="u2a3Excellent">Great :D</string>
+    <string name="u2a3n1">1</string>
+    <string name="u2a3n2">2</string>
+    <string name="u2a3n3">3</string>
+    <string name="u2a3n4">4</string>
+    <string name="u2a3n5">5</string>
+    <string name="u2a3n6">6</string>
+    <string name="u2a3n7">7</string>
+    <string name="u2a3n8">8</string>
+    <string name="u2a3n9">9</string>
+    <string name="u2a3n0">0</string>
+    <string name="u2a3nD">D</string>
+    <string name="u2a3nC">C</string>
+    <string name="u2a3Calculate">Calculate</string>
+    <string name="u2a3Hint">Enter amount here</string>
+
+    //DOCTOR APPOINTMENT
+    <string name="u2a4title">MEDICAL APPOINTMENT</string>
+    <string name="u2a4WorkingHours">Monday –> Friday 9:00 – 14:00</string>
+    <string name="u2a4TypeDni">Enter your DNI: </string>
+    <string name="u2a4ChooseTime">Choose time</string>
+    <string name="u2a4ChooseDate">Choose date</string>
+    <string name="u2a4Confirm">CONFIRM </string>
+    <string name="u2a4Validation"> </string>
+
+    //ROCK-PAPER-SCISSORS
+
+    <string name="u2a5title">ROCK-PAPER-SCISSORS</string>
+    <string name="u2a5Cpu">CPU</string>
+    <string name="u2a5Player">PLAYER</string>
+    <string name="u2a5Reset">RESET</string>
+    <string name="u2a5Draw">DRAW!</string>
+    <string name="u2a5PlayerWinsRound">Player wins round!</string>
+    <string name="u2a5CpuWinsRound">Cpu wins round!</string>
+    <string name="u2a5PlayerWins">PLAYER WINS</string>
+    <string name="u2a5CpuWins">CPU WINS</string>
+
+    //HELLO WORLD LAUNCHER
+
+    <string name="u3a1strBtn">Press me!</string>
+    <string name="u3a1strTv">Press to launch hello world in another activity!</string>
+    <string name="u3a1strTvLaunchedHelloWorld">Hello World!</string>
+    <string name="u3a1strLaunchedBtnClose">FINISH</string>
+
+    //CALCULATOR LAUNCHER
+
+    <string name="u3a2strTitleMain">CALCULATOR</string>
+    <string name="u3a2strNumber1Main">Number 1:</string>
+    <string name="u3a2strNumber2Main">Number 2:</string>
+    <string name="u3a2strAdditionMain">+</string>
+    <string name="u3a2strSubtractionMain">-</string>
+    <string name="u3a2strMultiplicationMain">*</string>
+    <string name="u3a2strDivisionMain">/</string>
+    <string name="u3a2btnCalculateMain">CALCULATE</string>
+    <string name="u3a2tvStrResultTitle">RESULT:</string>
+    <string name="u3a2TooLongMessage">THE NUMBER IS TOO LONG</string>
+    <string name="u3a2strBtnGoBack">GO BACK</string>
+
+    //ICE CREAM SHOP
+
+    <string name="u3a3strTitleMain">ICE CREAM SHOP</string>
+    <string name="u3a3strVanilla">VANILLA</string>
+    <string name="u3a3strStrawberry">STRAWBERRY</string>
+    <string name="u3a3strChocolate">CHOCOLATE</string>
+    <string name="u3a3strTip">TIP</string>
+    <string name="u3a3btnGenerate">MAKE MY ICE CREAM</string>
+
+    //PRIME NUMBERS
+
+    <string name="u3aExtra1strBtnChooseNumber">Choose Number</string>
+    <string name="u3aExtra1strWriteNumber">Write the number below:</string>
+    <string name="u3aExtra1strBtnBack">GO BACK</string>
+    <string name="u3aExtra1strBtnCheckNumber">CHECK NUMBER</string>
+
+
+    //WARM UP
+
+    <string name="u3a4strTvUserName">ANONYMOUS</string>
+    <string name="u3a4strBtnChangeName">CHANGE NAME</string>
+    <string name="u3a4strBtnAccept">Continue</string>
+    <string name="u3a4strBtnCancel">Cancel</string>
+    <string name="u3a4strBtnClean">Clean</string>
+
+    //FIBONACCI
+
+    <string name="u3a5strTvTitle">FIBONACCI</string>
+    <string name="u3a5strTvNumber1">1</string>ç
+    <string name="u3a5strTvNumber2">1</string>
+    <string name="u3a5strBtnNext">Next</string>
+    <string name="u3a5strBtnAccept">Continue</string>
+
+    //TEXT ANALYZER
+
+    <string name="u3a6strTvTitle">TEXT ANALYZER</string>
+    <string name="u3a6strBtnStart">ANALYZE</string>
+    <string name="u3a6strBtnFinish">FINISH</string>
+
+    //LEFT 4 DEAD
+
+    <string name="u3a7strSelectPlayer1">SELECT PLAYER ONE</string>
+    <string name="u3a7strSelectPlayer2">SELECT PLAYER TWO</string>
+    <string name="u3a7strSelectWeapon1">SELECT WEAPON ONE</string>
+    <string name="u3a7strSelectWeapon2">SELECT WEAPON TWO</string>
+    <string name="u3a7strSelectCharacter">SELECT CHARACTER</string>
+    <string name="u3a7strSelectWeapon">SELECT WEAPON</string>
+
+    //CONTADOR APP
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="u4a1strDrugFree1">DAYS ALCOHOL FREE </string>
+    <string name="u4a1strDrugFree2">DAYS SMOKING FREE</string>
+    <string name="u4a1strDrugFree3">DAYS OBSERVER FREE</string>
+    <string name="u4a1strDrugFree4">QUIT NOW, ENJOY LIFE</string>
+
+
+</resources>

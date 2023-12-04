@@ -1,0 +1,1082 @@
+
+ android:configChanges="orientation|screenSize">
+
+
+NUM
+
+// Enum que representa diferentes tipos de animales en un zoológico
+enum TipoAnimal {
+    MAMIFERO,
+    REPTIL,
+    AVES,
+    PECES
+}
+
+// Clase que representa un animal en el zoológico
+class Animal {
+    private String nombre;
+    private TipoAnimal tipo;
+
+    public Animal(String nombre, TipoAnimal tipo) {
+        this.nombre = nombre;
+        this.tipo = tipo;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public TipoAnimal getTipo() {
+        return tipo;
+    }
+}
+
+public class Zoo {
+    public static void main(String[] args) {
+        // Crear algunos animales
+        Animal leon = new Animal("León", TipoAnimal.MAMIFERO);
+        Animal serpiente = new Animal("Serpiente", TipoAnimal.REPTIL);
+        Animal loro = new Animal("Loro", TipoAnimal.AVES);
+        Animal pez = new Animal("Pez", TipoAnimal.PECES);
+
+        // Mostrar información sobre los animales
+        mostrarInformacionAnimal(leon);
+        mostrarInformacionAnimal(serpiente);
+        mostrarInformacionAnimal(loro);
+        mostrarInformacionAnimal(pez);
+    }
+
+    // Método para mostrar información sobre un animal
+    private static void mostrarInformacionAnimal(Animal animal) {
+        System.out.println("Nombre: " + animal.getNombre());
+        System.out.println("Tipo: " + animal.getTipo());
+        System.out.println();
+    }
+}
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Métodos relacionados con Intents:
+
+    Enviar datos a otra actividad:
+
+    java
+
+Intent intent = new Intent(context, OtraActividad.class);
+intent.putExtra("clave", valor);
+startActivity(intent);
+
+-------------------------------------------------------------------------------------------------------------------
+
+Recibir datos de otra actividad:
+
+java
+
+Intent intent = getIntent();
+String dato = intent.getStringExtra("clave");
+
+-------------------------------------------------------------------------------------------------------------------
+
+Iniciar una actividad y esperar un resultado:
+
+java
+
+Intent intent = new Intent(context, ActividadConResultado.class);
+startActivityForResult(intent, CODIGO_DE_RESULTADO);
+
+-------------------------------------------------------------------------------------------------------------------
+
+Recibir resultado de otra actividad:
+
+java
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CODIGO_DE_RESULTADO && resultCode == RESULT_OK) {
+            // Procesar el resultado
+        }
+    }
+
+    -------------------------------------------------------------------------------------------------------------------
+
+Métodos relacionados con Fragments:
+
+    Crear un Fragmento:
+
+    java
+
+MiFragmento fragmento = new MiFragmento();
+
+-------------------------------------------------------------------------------------------------------------------
+
+Agregar un Fragmento a la actividad:
+
+java
+
+getSupportFragmentManager().beginTransaction()
+        .replace(R.id.contenedor, fragmento)
+        .commit();
+
+-------------------------------------------------------------------------------------------------------------------
+
+Comunicarse entre Fragmentos y Actividad:
+
+    Desde Fragmento a Actividad:
+
+    java
+
+((MiActividad) getActivity()).metodoEnActividad();
+
+-------------------------------------------------------------------------------------------------------------------
+
+Desde Actividad a Fragmento (usando TAG):
+
+java
+
+        MiFragmento fragmento = (MiFragmento) getSupportFragmentManager().findFragmentByTag("miTag");
+        fragmento.metodoEnFragmento();
+
+-------------------------------------------------------------------------------------------------------------------
+
+Métodos de Utilidad:
+
+    Mostrar un Toast:
+
+    java
+
+Toast.makeText(context, "Mensaje", Toast.LENGTH_SHORT).show();
+
+-------------------------------------------------------------------------------------------------------------------
+
+Log en consola:
+
+java
+
+Log.d("Etiqueta", "Mensaje de log");
+
+-------------------------------------------------------------------------------------------------------------------
+
+Obtener el contexto:
+
+java
+
+Context context = getApplicationContext();
+
+-------------------------------------------------------------------------------------------------------------------
+
+Abrir una URL en un navegador:
+
+java
+
+Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("http://www.ejemplo.com"));
+startActivity(browserIntent);
+
+-------------------------------------------------------------------------------------------------------------------
+
+Ocultar el teclado virtual:
+
+java
+
+InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
+
+-------------------------------------------------------------------------------------------------------------------
+
+Abrir la cámara para tomar una foto:
+
+public static void openCameraForPhoto(Activity activity, int requestCode) {
+    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+    if (takePictureIntent.resolveActivity(activity.getPackageManager()) != null) {
+        activity.startActivityForResult(takePictureIntent, requestCode);
+    }
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+ Obtener la fecha actual en formato específico:
+
+java
+
+public static String getCurrentDate(String format) {
+    SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.getDefault());
+    return sdf.format(new Date());
+}
+
+-------------------------------------------------------------------------------------------------------------------
+
+	public static String getCurrentTime(String format) {
+    SimpleDateFormat sdf = new SimpleDateFormat(format, Locale.getDefault());
+    return sdf.format(new Date());
+}
+
+-------------------------------------------------------------------------------------------------------------------
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
+public class DateTimeUtils {
+
+    // Método para obtener la fecha actual como una cadena de texto
+    public static String getCurrentDateAsString() {
+        Date currentDate = new Date();
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        return dateFormat.format(currentDate);
+    }
+
+    // Método para obtener la hora actual como una cadena de texto
+    public static String getCurrentTimeAsString() {
+        Date currentDate = new Date();
+        SimpleDateFormat timeFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+        return timeFormat.format(currentDate);
+    }
+
+    public static void main(String[] args) {
+        // Ejemplo de uso
+        String currentDate = getCurrentDateAsString();
+        String currentTime = getCurrentTimeAsString();
+
+        System.out.println("Fecha actual: " + currentDate);
+        System.out.println("Hora actual: " + currentTime);
+    }
+}
+--------------------------------------------------------------------------------------------------------------------
+
+Comprobaciones Numéricas:
+
+    Comprobar si un número es par:
+
+    java
+
+public static boolean esNumeroPar(int numero) {
+    return numero % 2 == 0;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Comprobar si un número es impar:
+
+java
+
+public static boolean esNumeroImpar(int numero) {
+    return numero % 2 != 0;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Comprobar si un número es positivo:
+
+java
+
+public static boolean esNumeroPositivo(int numero) {
+    return numero > 0;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Comprobar si un número es negativo:
+
+java
+
+    public static boolean esNumeroNegativo(int numero) {
+        return numero < 0;
+    }
+
+--------------------------------------------------------------------------------------------------------------------
+
+Validación de Entrada:
+
+    Comprobar si una cadena es un número entero:
+
+    java
+
+public static boolean esNumeroEntero(String cadena) {
+    try {
+        Integer.parseInt(cadena);
+        return true;
+    } catch (NumberFormatException e) {
+        return false;
+    }
+}
+--------------------------------------------------------------------------------------------------------------------
+Generar número aleatorio dentro de un rango:
+
+java
+
+public static int generarNumeroAleatorio(int minimo, int maximo) {
+    return (int) (Math.random() * (maximo - minimo + 1)) + minimo;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+Generar número aleatorio de tipo float:
+
+java
+
+    public static float generarNumeroAleatorioFloat(float minimo, float maximo) {
+        return (float) (Math.random() * (maximo - minimo)) + minimo;
+    }
+--------------------------------------------------------------------------------------------------------------------
+Manipulación de Cadenas:
+
+    Reversar una cadena:
+
+    java
+
+public static String reversarCadena(String cadena) {
+    return new StringBuilder(cadena).reverse().toString();
+}
+--------------------------------------------------------------------------------------------------------------------
+Convertir cadena a minúsculas:
+
+java
+
+public static String convertirAMinusculas(String cadena) {
+    return cadena.toLowerCase();
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Convertir cadena a mayúsculas:
+
+java
+
+    public static String convertirAMayusculas(String cadena) {
+        return cadena.toUpperCase();
+    }
+
+--------------------------------------------------------------------------------------------------------------------
+
+Trabajo con Listas y Arrays:
+
+    Obtener elemento aleatorio de una lista:
+
+    java
+
+public static <T> T obtenerElementoAleatorio(List<T> lista) {
+    Random random = new Random();
+    return lista.get(random.nextInt(lista.size()));
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Revertir un array:
+
+java
+
+public static <T> void revertirArray(T[] array) {
+    Collections.reverse(Arrays.asList(array));
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Clonar un array:
+
+java
+
+    public static <T> T[] clonarArray(T[] array) {
+        return array.clone();
+    }
+
+
+--------------------------------------------------------------------------------------------------------------------
+Fechas y Tiempo:
+
+    Calcular diferencia entre dos fechas:
+
+    java
+
+public static long diferenciaEntreFechasEnMillis(Date fecha1, Date fecha2) {
+    return Math.abs(fecha1.getTime() - fecha2.getTime());
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Agregar días a una fecha:
+
+java
+
+    public static Date agregarDiasAFecha(Date fecha, int dias) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(fecha);
+        calendar.add(Calendar.DAY_OF_YEAR, dias);
+        return calendar.getTime();
+    }
+
+--------------------------------------------------------------------------------------------------------------------    
+
+Otras Utilidades:
+
+    Esperar por un tiempo específico (en milisegundos):
+
+    java
+
+public static void esperar(int milisegundos) {
+    try {
+        Thread.sleep(milisegundos);
+    } catch (InterruptedException e) {
+        e.printStackTrace();
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Verificar si un objeto es nulo:
+
+java
+
+public static boolean esNulo(Object objeto) {
+    return objeto == null;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Fechas y Tiempo:
+
+    Obtener la fecha actual y hora en formato específico:
+
+    java
+
+public static String obtenerFechaYHoraActual() {
+    Date fechaActual = new Date();
+    SimpleDateFormat formatoFechaHora = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+    return formatoFechaHora.format(fechaActual);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Comparar dos fechas:
+
+java
+
+public static int compararFechas(Date fecha1, Date fecha2) {
+    return fecha1.compareTo(fecha2);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Verificar si una fecha está en el pasado:
+
+java
+
+public static boolean esFechaEnElPasado(Date fecha) {
+    return fecha.before(new Date());
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Verificar si una fecha está en el futuro:
+
+java
+
+public static boolean esFechaEnElFuturo(Date fecha) {
+    return fecha.after(new Date());
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Calcular la diferencia en días entre dos fechas:
+
+java
+
+public static long diferenciaEnDias(Date fecha1, Date fecha2) {
+    long diferenciaEnMillis = Math.abs(fecha1.getTime() - fecha2.getTime());
+    return TimeUnit.DAYS.convert(diferenciaEnMillis, TimeUnit.MILLISECONDS);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+public static boolean esNumeroPrimo(int numero) {
+    if (numero <= 1) {
+        return false;
+    }
+    for (int i = 2; i <= Math.sqrt(numero); i++) {
+        if (numero % i == 0) {
+            return false;
+        }
+    }
+    return true;
+}
+ 
+
+--------------------------------------------------------------------------------------------------------------------
+
+ Verificar si un año es bisiesto:
+
+java
+
+public static boolean esAnoBisiesto(int ano) {
+    return (ano % 4 == 0 && ano % 100 != 0) || (ano % 400 == 0);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Calcular el factorial de un número:
+
+java
+
+public static int calcularFactorial(int numero) {
+    if (numero == 0 || numero == 1) {
+        return 1;
+    } else {
+        return numero * calcularFactorial(numero - 1);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Verificar si un número es positivo, negativo o cero:
+
+java
+
+public static String determinarSigno(int numero) {
+    if (numero > 0) {
+        return "Positivo";
+    } else if (numero < 0) {
+        return "Negativo";
+    } else {
+        return "Cero";
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Calcular el cuadrado de un número:
+
+java
+
+public static int calcularCuadrado(int numero) {
+    return numero * numero;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Calcular la raíz cuadrada de un número:
+
+java
+
+public static double calcularRaizCuadrada(double numero) {
+    return Math.sqrt(numero);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Verificar si un número es un cuadrado perfecto:
+
+java
+
+public static boolean esCuadradoPerfecto(int numero) {
+    double raizCuadrada = Math.sqrt(numero);
+    return raizCuadrada == Math.floor(raizCuadrada);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Calcular el valor absoluto de un número:
+
+java
+
+public static int valorAbsoluto(int numero) {
+    return Math.abs(numero);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Generar un número aleatorio entre un rango específico:
+
+java
+
+public static int generarNumeroAleatorioEnRango(int minimo, int maximo) {
+    Random random = new Random();
+    return random.nextInt((maximo - minimo) + 1) + minimo;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Redondear un número a cierta cantidad de decimales:
+
+java
+
+public static double redondearNumero(double numero, int decimales) {
+    BigDecimal bd = new BigDecimal(numero).setScale(decimales, RoundingMode.HALF_UP);
+    return bd.doubleValue();
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Calcular el área de un círculo:
+
+java
+
+public static double calcularAreaCirculo(double radio) {
+    return Math.PI * Math.pow(radio, 2);
+}
+
+public static List<Integer> generarSecuenciaFibonacci(int termino) {
+    List<Integer> fibonacci = new ArrayList<>();
+    int a = 0, b = 1;
+    while (a <= termino) {
+        fibonacci.add(a);
+        int temp = a;
+        a = b;
+        b += temp;
+    }
+    return fibonacci;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Crear un TreeMap y Agregar Elementos:
+
+    Crear un TreeMap y agregar elementos de forma ascendente:
+
+    java
+
+TreeMap<Integer, String> treeMapAscendente = new TreeMap<>();
+treeMapAscendente.put(3, "Tres");
+treeMapAscendente.put(1, "Uno");
+treeMapAscendente.put(2, "Dos");
+// El TreeMap se ordenará automáticamente en orden ascendente por las claves.
+
+--------------------------------------------------------------------------------------------------------------------
+
+Crear un TreeMap y agregar elementos de forma descendente utilizando un comparador personalizado:
+
+java
+
+    TreeMap<Integer, String> treeMapDescendente = new TreeMap<>(Collections.reverseOrder());
+    treeMapDescendente.put(3, "Tres");
+    treeMapDescendente.put(1, "Uno");
+    treeMapDescendente.put(2, "Dos");
+    // El TreeMap se ordenará automáticamente en orden descendente por las claves.
+
+    --------------------------------------------------------------------------------------------------------------------
+
+Acceder y Modificar Elementos:
+
+    Obtener el primer y último elemento del TreeMap:
+
+    java
+
+// Primer elemento (clave y valor)
+Map.Entry<Integer, String> primerElemento = treeMapAscendente.firstEntry();
+int clavePrimerElemento = primerElemento.getKey();
+String valorPrimerElemento = primerElemento.getValue();
+
+// Último elemento (clave y valor)
+Map.Entry<Integer, String> ultimoElemento = treeMapAscendente.lastEntry();
+int claveUltimoElemento = ultimoElemento.getKey();
+String valorUltimoElemento = ultimoElemento.getValue();
+
+--------------------------------------------------------------------------------------------------------------------
+
+Obtener un submapa basado en un rango de claves:
+
+java
+
+    // Submapa con claves en el rango [1, 2)
+    SortedMap<Integer, String> submapa = treeMapAscendente.subMap(1, 2);
+
+    --------------------------------------------------------------------------------------------------------------------
+
+Eliminar Elementos:
+
+    Eliminar el primer y último elemento del TreeMap:
+
+    java
+
+    // Eliminar el primer elemento
+    treeMapAscendente.pollFirstEntry();
+
+    // Eliminar el último elemento
+    treeMapAscendente.pollLastEntry();
+
+    --------------------------------------------------------------------------------------------------------------------
+
+Iterar sobre el TreeMap:
+
+    Iterar sobre las claves y valores del TreeMap:
+
+    java
+
+    for (Map.Entry<Integer, String> entry : treeMapAscendente.entrySet()) {
+        int clave = entry.getKey();
+        String valor = entry.getValue();
+        // Hacer algo con la clave y el valor...
+    }
+  --------------------------------------------------------------------------------------------------------------------
+
+Otros Métodos Útiles:
+
+    Verificar si el TreeMap contiene una clave específica:
+
+    java
+
+boolean contieneClave = treeMapAscendente.containsKey(2);
+
+--------------------------------------------------------------------------------------------------------------------
+
+Verificar si el TreeMap contiene un valor específico:
+
+java
+
+boolean contieneValor = treeMapAscendente.containsValue("Dos");
+
+
+--------------------------------------------------------------------------------------------------------------------
+
+Obtener el comparador utilizado para ordenar el TreeMap:
+
+java
+
+Comparator<Integer> comparador = treeMapAscendente.comparator();
+
+--------------------------------------------------------------------------------------------------------------------
+
+Obtener el número de elementos en el TreeMap:
+
+java
+
+    int numeroElementos = treeMapAscendente.size();
+
+Estos ejemplos deberían ayudarte a comprender cómo trabajar con TreeMap en Java y cómo realizar diversas operaciones comunes con esta estructura de datos
+basada en árboles. Ten en cuenta que, para trabajar con TreeMap, las claves deben ser comparables o debes proporcionar un comparador durante la creación del TreeMap
+
+--------------------------------------------------------------------------------------------------------------------
+	
+Para convertir un TreeMap a un ArrayList y viceversa, puedes utilizar los siguientes métodos. Ten en cuenta que esta conversión dependerá de tus requisitos específicos, ya que la estructura de un TreeMap se basa en pares clave-valor, mientras que un ArrayList es una lista de elementos.
+De TreeMap a ArrayList:
+
+java
+
+import java.util.ArrayList;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class TreeMapToArrayListExample {
+
+    public static void main(String[] args) {
+        // Crear un TreeMap
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        treeMap.put(3, "Tres");
+        treeMap.put(1, "Uno");
+        treeMap.put(2, "Dos");
+
+        // Convertir TreeMap a ArrayList de claves
+        ArrayList<Integer> keysList = new ArrayList<>(treeMap.keySet());
+
+        // Convertir TreeMap a ArrayList de valores
+        ArrayList<String> valuesList = new ArrayList<>(treeMap.values());
+
+        // Imprimir ArrayList de claves y valores
+        System.out.println("ArrayList de claves: " + keysList);
+        System.out.println("ArrayList de valores: " + valuesList);
+    }
+}
+ 
+--------------------------------------------------------------------------------------------------------------------
+
+De ArrayList a TreeMap:
+
+ import java.util.ArrayList;
+import java.util.TreeMap;
+
+public class ArrayListToTreeMapExample {
+
+    public static void main(String[] args) {
+        // Crear un ArrayList de pares clave-valor
+        ArrayList<Map.Entry<Integer, String>> arrayList = new ArrayList<>();
+        arrayList.add(Map.entry(3, "Tres"));
+        arrayList.add(Map.entry(1, "Uno"));
+        arrayList.add(Map.entry(2, "Dos"));
+
+        // Convertir ArrayList a TreeMap
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        for (Map.Entry<Integer, String> entry : arrayList) {
+            treeMap.put(entry.getKey(), entry.getValue());
+        }
+
+        // Imprimir TreeMap
+        System.out.println("TreeMap resultante: " + treeMap);
+    }
+}
+
+--------------------------------------------------------------------------------------------------------------------
+	
+
+ Si deseas utilizar comparadores para ordenar el ArrayList o el TreeMap, puedes proporcionar un comparador personalizado al momento de crear estas estructuras de datos. Aquí te muestro cómo hacerlo:
+De TreeMap a ArrayList con Comparador:
+
+java
+
+import java.util.ArrayList;
+import java.util.Comparator;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class TreeMapToArrayListWithComparatorExample {
+
+    public static void main(String[] args) {
+        // Crear un TreeMap con un comparador personalizado para ordenar las claves de forma descendente
+        TreeMap<Integer, String> treeMap = new TreeMap<>(Comparator.reverseOrder());
+        treeMap.put(3, "Tres");
+        treeMap.put(1, "Uno");
+        treeMap.put(2, "Dos");
+
+        // Convertir TreeMap a ArrayList de claves con el mismo comparador
+        ArrayList<Integer> keysList = new ArrayList<>(treeMap.keySet());
+
+        // Imprimir ArrayList de claves
+        System.out.println("ArrayList de claves (descendente): " + keysList);
+    }
+}
+
+De ArrayList a TreeMap con Comparador:
+
+java
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Map;
+import java.util.TreeMap;
+
+public class ArrayListToTreeMapWithComparatorExample {
+
+    public static void main(String[] args) {
+        // Crear un ArrayList de pares clave-valor
+        ArrayList<Map.Entry<Integer, String>> arrayList = new ArrayList<>();
+        arrayList.add(Map.entry(3, "Tres"));
+        arrayList.add(Map.entry(1, "Uno"));
+        arrayList.add(Map.entry(2, "Dos"));
+
+        // Ordenar el ArrayList por claves en orden ascendente usando un comparador
+        Collections.sort(arrayList, Map.Entry.comparingByKey());
+
+        // Convertir ArrayList a TreeMap manteniendo el orden ascendente
+        TreeMap<Integer, String> treeMap = new TreeMap<>();
+        for (Map.Entry<Integer, String> entry : arrayList) {
+            treeMap.put(entry.getKey(), entry.getValue());
+        }
+
+        // Imprimir TreeMap
+        System.out.println("TreeMap resultante (ascendente): " + treeMap);
+    }
+}
+
+En estos ejemplos, se utiliza Comparator.reverseOrder() para ordenar las claves del TreeMap de forma descendente y Map.Entry.comparingByKey() para ordenar el ArrayList de pares clave-valor por claves de forma ascendente. Puedes personalizar estos comparadores según tus necesidades específicas.
+
+--------------------------------------------------------------------------------------------------------------------
+
+3. Análisis de Texto (Ejemplos Adicionales):
+a. Contar Palabras:
+
+java
+
+String inputText = "Este es un ejemplo de conteo de palabras en una cadena de texto.";
+int wordCount = inputText.split("\\s+").length;
+
+--------------------------------------------------------------------------------------------------------------------
+
+b. Encontrar Palabra Más Larga:
+
+java
+
+String[] words = inputText.split("\\s+");
+String longestWord = Arrays.stream(words)
+        .max(Comparator.comparingInt(String::length))
+        .orElse("");
+
+--------------------------------------------------------------------------------------------------------------------
+
+Contar Palabras en una Cadena:
+
+java
+
+public int countWords(String text) {
+    return text.split("\\s+").length;
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Invertir una Cadena:
+
+java
+
+public String reverseString(String input) {
+    return new StringBuilder(input).reverse().toString();
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Reemplazar Caracteres en una Cadena:
+
+java
+
+public String replaceCharacters(String input, char target, char replacement) {
+    return input.replace(target, replacement);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Funciones con Listas y Arrays:
+
+    Sumar Todos los Elementos de una Lista:
+
+    java
+
+public int sumList(List<Integer> numbers) {
+    return numbers.stream().mapToInt(Integer::intValue).sum();
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Encontrar el Elemento Mínimo en un Array:
+
+java
+
+public int findMinValue(int[] array) {
+    return Arrays.stream(array).min().orElse(Integer.MAX_VALUE);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar una Lista de Forma Ascendente:
+
+java
+
+public List<Integer> sortListAsc(List<Integer> numbers) {
+    return numbers.stream().sorted().collect(Collectors.toList());
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Filtrar Números Pares en una Lista:
+
+java
+
+public List<Integer> filterEvenNumbers(List<Integer> numbers) {
+    return numbers.stream().filter(n -> n % 2 == 0).collect(Collectors.toList());
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Verificar si una Lista Contiene un Elemento Específico:
+
+java
+
+public boolean containsElement(List<String> list, String target) {
+    return list.contains(target);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+
+Ordenación de ArrayLists:
+
+    Ordenar ArrayList de Números en Orden Ascendente:
+
+    java
+
+public void sortNumbersAscending(ArrayList<Integer> numbers) {
+    Collections.sort(numbers);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Números en Orden Descendente:
+
+java
+
+public void sortNumbersDescending(ArrayList<Integer> numbers) {
+    Collections.sort(numbers, Collections.reverseOrder());
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Cadenas en Orden Alfabético:
+
+java
+
+public void sortStringsAlphabetically(ArrayList<String> strings) {
+    Collections.sort(strings);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Objetos Personalizados:
+Supongamos que tienes una clase Person con un atributo age y quieres ordenar una lista de personas por edad.
+
+java
+
+public void sortPeopleByAge(ArrayList<Person> people) {
+    people.sort(Comparator.comparingInt(Person::getAge));
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Objetos con Comparator Personalizado:
+En este ejemplo, el Comparator te permite definir una lógica de ordenación personalizada.
+
+java
+
+public void sortPeopleByCustomLogic(ArrayList<Person> people) {
+    people.sort((p1, p2) -> {
+        // Lógica personalizada para ordenar, por ejemplo, por nombre
+        return p1.getName().compareTo(p2.getName());
+    });
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Fechas:
+
+java
+
+public void sortDates(ArrayList<Date> dates) {
+    Collections.sort(dates);
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Mapas por Valor:
+Supongamos que tienes un ArrayList de HashMaps y quieres ordenarlo por un valor específico.
+
+java
+
+public void sortMapsByValue(ArrayList<HashMap<String, Integer>> listOfMaps, String key) {
+    listOfMaps.sort((map1, map2) -> map1.get(key).compareTo(map2.get(key)));
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Objetos por Varios Atributos:
+En este ejemplo, los objetos Person tienen atributos age y name, y se ordenan por age y luego por name.
+
+java
+
+public void sortPeopleByMultipleAttributes(ArrayList<Person> people) {
+    people.sort(Comparator.comparingInt(Person::getAge).thenComparing(Person::getName));
+}
+
+--------------------------------------------------------------------------------------------------------------------
+
+Ordenar ArrayList de Números por Longitud de Cadena:
+Supongamos que tienes una lista de números representados como cadenas y quieres ordenarlos por la longitud de la cadena.
+
+java
+
+    public void sortNumbersByStringLength(ArrayList<String> numbersAsString) {
+        numbersAsString.sort(Comparator.comparing(String::length));
+    }
+
+Estos ejemplos ilustran diversas formas de ordenar ArrayLists en Java, dependiendo de los tipos de elementos y de la lógica de ordenación que necesites. ¡Espero que te sean útiles!
+
+ 
+	
+
+ 
+
+ 
+	
+
+ 
