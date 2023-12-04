@@ -24,6 +24,7 @@ public class u3a3IceCreamShop extends AppCompatActivity {
   public static final String SPINNER_SELECTION ="com.example.pmdm.ur.SPINNER_SELECTION";
   static final int MAX_NUMBER_BALLS = 3;
   static final int MIN_NUMBER_BALLS = 1;
+  //PARA OCULTAR EL TECLADO PULSANDO EN CUALQUIER PARTE DE LA PANTALLA
   View rootView;
   EditText numberVanilla;
   EditText numberStrawberry;
@@ -32,7 +33,6 @@ public class u3a3IceCreamShop extends AppCompatActivity {
   ArrayAdapter<String> adapter;
   ArrayList<String> spinnerData;
   Button generateBtn;
-
   int intVanillaBalls, intStrawberryBalls,intChocolateBalls, totalIceCream;
 
 
@@ -66,9 +66,6 @@ public class u3a3IceCreamShop extends AppCompatActivity {
     generateBtn.setOnClickListener(view -> {
 
       if(checkIceCream()) {
-
-
-
         Intent intent = new Intent(this, u3a3IceCreamLaunched.class);
         intent.putExtra(VANILLA_BALLS, intVanillaBalls);
         intent.putExtra(STRAWBERRY_BALLS, intStrawberryBalls);

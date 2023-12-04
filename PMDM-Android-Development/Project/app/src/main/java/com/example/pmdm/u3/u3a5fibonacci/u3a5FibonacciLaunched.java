@@ -43,8 +43,6 @@ public class u3a5FibonacciLaunched extends AppCompatActivity {
       Intent data = new Intent();
 
       data.putExtra(SUM_DATA, total);
-      setResult(RESULT_OK, data);
-      finish();
 
     });
 

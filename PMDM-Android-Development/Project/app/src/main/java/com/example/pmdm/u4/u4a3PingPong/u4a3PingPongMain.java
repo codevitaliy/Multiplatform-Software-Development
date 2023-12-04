@@ -24,3 +24,4 @@ public class u4a3PingPongMain extends AppCompatActivity {
         setContentView(R.layout.u4a3_ping_pong_main);
     }
 }
+

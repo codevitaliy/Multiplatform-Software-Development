@@ -66,6 +66,7 @@ public class u2a5RockPaperScissors extends AppCompatActivity {
         builder.setPositiveButton("YES", new DialogInterface.OnClickListener() {
           @Override
           public void onClick(DialogInterface dialog, int which) {
+
             setReset();
           }
         });

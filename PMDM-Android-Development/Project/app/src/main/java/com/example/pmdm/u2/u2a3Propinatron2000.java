@@ -54,15 +54,25 @@ public class u2a3Propinatron2000 extends AppCompatActivity {
     tvDisplay = findViewById(R.id.u2a3tvTip);
     buttonCalculate = findViewById(R.id.u2a3btIdCalculate);
 
+    // Se crea un objeto OnClickListener utilizando una expresión lambda.
     OnClickListener numberButtonHandler = (View view) -> {
+
+      // Se obtiene el botón que fue clickeado.
       Button bt = (Button) view;
-      String buttonText = bt.getText().toString();
+
+      // Se obtiene el texto actual del EditText (posiblemente un campo de entrada de números).
       String previousText = etNumberInput.getText().toString();
 
-      String newText = previousText + buttonText;
-      etNumberInput.setText(newText);
+      // Se obtiene el texto del botón clickeado.
+      String buttonText = bt.getText().toString();
 
+      // Se concatena el texto actual con el texto del botón clickeado.
+      String newText = previousText + buttonText;
+
+      // Se establece el nuevo texto en el EditText.
+      etNumberInput.setText(newText);
     };
+
 
     bt0.setOnClickListener(numberButtonHandler);
     bt1.setOnClickListener(numberButtonHandler);

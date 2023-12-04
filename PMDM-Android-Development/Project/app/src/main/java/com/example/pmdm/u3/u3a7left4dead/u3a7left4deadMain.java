@@ -28,7 +28,6 @@ public class u3a7left4deadMain extends AppCompatActivity {
   Integer selectedWeaponImage;
   Integer selectedCharacterImage;
   String receivedDataCharacters;
-  String receiveDataWeapons;
   ImageButton btnPlayerOne, btnPlayerTwo, btnWeaponOne, btnWeaponTwo;
 
   @Override

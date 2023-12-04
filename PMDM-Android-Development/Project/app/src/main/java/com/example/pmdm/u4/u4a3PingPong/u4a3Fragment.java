@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.pmdm.R;
@@ -19,14 +20,15 @@ import com.example.pmdm.R;
  */
 public class u4a3Fragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+    private static final int MAX_SCORE = 21;
+    private static final String WINNER_P_ONE = "PLAYER ONE WINS";
+    private static final String WINNER_P_TWO = "PLAYER TWO WINS";
+    private int scorePlayerOne = 0;
+    private int scorePlayerTwo = 0;
+    private Button btnPlayerOne;
+    private Button btnPlayerTwo;
 
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private String fragmentName; // New variable to store the fragment name
 
     public u4a3Fragment() {
         // Required empty public constructor
@@ -40,23 +42,21 @@ public class u4a3Fragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment u4a3Fragment.
      */
-    // TODO: Rename and change types and number of parameters
-    public static u4a3Fragment newInstance(String param1, String param2) {
+    public static u4a3Fragment newInstance(String fragmentName) {
         u4a3Fragment fragment = new u4a3Fragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
+        args.putString("fragmentName", fragmentName);
         fragment.setArguments(args);
         return fragment;
     }
 
-    private static final int MAX_SCORE = 21;
-    private static final String WINNER_P_ONE = "PLAYER ONE WINS";
-    private static final String WINNER_P_TWO = "PLAYER TWO WINS";
-    private int scorePlayerOne = 0;
-    private int scorePlayerTwo = 0;
-    private Button btnPlayerOne;
-    private Button btnPlayerTwo;
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        if (getArguments() != null) {
+            fragmentName = getArguments().getString("fragmentName", "");
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,

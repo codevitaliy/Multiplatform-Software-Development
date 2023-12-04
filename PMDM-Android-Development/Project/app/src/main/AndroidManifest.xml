@@ -15,6 +15,33 @@
         android:theme="@style/Theme.Pmdm"
         tools:targetApi="31">
         <activity
+            android:name=".pingpong.MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".u3.u3a9ImplicitIntents.u3a9Implicit"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.SENDTO" />
+
+                <data android:scheme="mailto" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+
+                <!-- PARA INTENTS IMPLÍCITOS -->
+
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".u4.u4a3PingPong.u4a3PingPongMain"
             android:exported="true">
             <intent-filter>
@@ -52,15 +79,6 @@
         </activity>
         <activity
             android:name=".u3.u3a7left4dead.u3a7left4deadMain"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".u3.u3a7Left4DeadMain"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -142,7 +160,9 @@
         </activity>
         <activity
             android:name=".u3.u3a3icecream.u3a3IceCreamLaunched"
-            android:exported="true">
+            android:exported="true"
+            android:configChanges="orientation">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -15,9 +15,7 @@ public class u3a7left4deadSelectCharacter extends AppCompatActivity {
 
   static final String INFO_CHARACTER_SELECTED = "com.example.pmdm.u3.INFO_CHARACTER_SELECTED";
   static final String INFO_PLAYER_SELECTED_CHARACTER = "com.example.pmdm.u3.INFO_PLAYER_SELECTED";
-
   static final Integer DEFAULT_VALUE = 0;
-
   public enum PlayerCharacter {
     CHARACTER1, CHARACTER2, CHARACTER3, CHARACTER4;
   }
