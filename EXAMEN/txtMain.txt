@@ -1,0 +1,213 @@
+package com.example.vitaliypopovychexamen.ejercicio1;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.CheckBox;
+import android.widget.Spinner;
+import android.widget.TextView;
+
+import com.example.vitaliypopovychexamen.R;
+
+import java.util.ArrayList;
+
+public class MainActivity extends AppCompatActivity {
+
+    Spinner spinnerOrigen;
+    Spinner spinnerDestino;
+    Button btnIda;
+    Button btnVuelta;
+    CheckBox checkSoloIda;
+    Button btnReservar;
+    TextView outputErrores;
+    ArrayList<String> spinnerDataOrigen;
+    ArrayAdapter<String> adapterOrigen;
+    ArrayList<String> spinnerDataDestino;
+    ArrayAdapter<String> adapteDestino;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_launched);
+
+        btnIda = findViewById(R.id.btnIdIda);
+        btnVuelta = findViewById(R.id.btnIdVuelta);
+        checkSoloIda = findViewById(R.id.checkBox);
+        btnReservar = findViewById(R.id.btnReservar);
+        outputErrores = findViewById(R.id.tvErrores);
+
+        spinnerOrigen = findViewById(R.id.spinnerOrigen);
+        spinnerDataOrigen = new ArrayList<>();
+        adapterOrigen = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, spinnerDataOrigen);
+        adapterOrigen.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinnerOrigen.setAdapter(adapterOrigen);
+        /** addElementToSpinnerOrigen("Madrid");
+        addElementToSpinnerOrigen("Barcelona");
+        addElementToSpinnerOrigen("Valencia");
+        addElementToSpinnerOrigen("Zaragoza");
+        addElementToSpinnerOrigen("Sevilla");
+        addElementToSpinnerOrigen("Málaga");
+        addElementToSpinnerOrigen("Murcia");
+        addElementToSpinnerOrigen("Palma de mallorca");
+        addElementToSpinnerOrigen("Las Palmas de Gran Canaria");
+        addElementToSpinnerOrigen("Alicante");
+         */
+
+
+        spinnerDestino = findViewById(R.id.spinnerDestino);
+
+    }
+
+    public void addElementToSpinnerOrigen(String element) {
+        spinnerDataOrigen.add(element);
+        adapterOrigen.notifyDataSetChanged();
+    }
+}
+
+//LAUNCHED XML
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ejercicio1.LaunchedActivity"
+
+    >
+
+    <Spinner
+        android:id="@+id/spinnerOrigen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#90CAF9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.202" />
+
+    <Spinner
+        android:id="@+id/spinnerDestino"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#90CAF9"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.298" />
+
+    <Button
+        android:id="@+id/btnIdIda"
+        android:layout_width="175dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#FFD54F"
+        android:text="selecciona ida"
+        android:textColor="#050404"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.397" />
+
+    <Button
+        android:id="@+id/btnIdVuelta"
+        android:layout_width="175dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#FFD54F"
+        android:text="selecciona vuelta"
+        android:textColor="#050404"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.527" />
+
+    <CheckBox
+        android:id="@+id/checkBox"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Solo ida"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.647" />
+
+    <Button
+        android:id="@+id/btnReservar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="RESERVAR"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.947" />
+
+    <TextView
+        android:id="@+id/tvErrores"
+        android:layout_width="279dp"
+        android:layout_height="110dp"
+        android:layout_marginTop="520dp"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+//MAIN XML:
+
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ejercicio1.MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="309dp"
+        android:layout_height="147dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.152" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.765" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.86" />
+</androidx.constraintlayout.widget.ConstraintLayout>

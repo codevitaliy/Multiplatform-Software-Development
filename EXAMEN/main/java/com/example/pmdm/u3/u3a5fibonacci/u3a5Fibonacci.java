@@ -70,3 +70,29 @@ public class u3a5Fibonacci extends AppCompatActivity {
 
   }
 }
+
+btnFechaIda.setOnClickListener(v ->{
+            Calendar calendar = Calendar.getInstance();
+            int year = calendar.get(Calendar.YEAR);
+            int month = calendar.get(Calendar.MONTH);
+            int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+            DatePickerDialog datePickerDialog = new DatePickerDialog(
+                    MainActivity.this,
+                            onDateSetListener,
+                            year,
+                            month,
+                            day
+            );
+
+            datePickerDialog.show();
+        });
+
+        onDateSetListener = (view, year, monthOfYear, dayOfMonth) -> {
+            // This is the callback method when the date is set
+            // You can handle the selected date here
+            selectDataIda = LocalDate.of(year, monthOfYear, dayOfMonth);
+            // Do something with the selected date, like updating a TextView
+            fechaIda = establecerIda();
+            Toast.makeText(this, "HPÑA", Toast.LENGTH_SHORT).show();
+        };
