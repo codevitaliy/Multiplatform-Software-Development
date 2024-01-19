@@ -10,41 +10,16 @@
 #include <sys/types.h> // Tipos de datos específicos del sistema
 #include <sys/stat.h>  // Funciones relacionadas con la información del archivo
 #include <errno.h>     // Códigos de error
-#include <sys/wait.h>  // Esperar al hijo 
+#include <sys/wait.h>  // Esperar al hijo
 #include <sys/types.h> // Para los pid y ppid;
 
-#define READ 0
-#define WRITE 1
+int main() {
 
-int main()
-{
+  char string[100];
 
-  int fd[2];
-  pid_t pid;
+  printf("Enter a string: \n");
 
-  if (pipe(fd) == -1)
-  {
-    perror("pipe error");
-    exit(EXIT_FAILURE);
-  }
+  scanf("%s", string);
 
-  pid = fork();
-
-  if (pid == -1)
-  {
-    perror("fork error");
-    exit(EXIT_FAILURE);
-  }
-
-  if (pid == 0)
-  {
-
-    printf("Soy el proceso hijo: %d y mi padre es %d\n", getpid(), getppid());
-  }
-  else
-  {
-
-    wait(NULL);
-    printf("Soy el proceso padre: %d\n", getpid());
-  }
+  return 0;
 }
