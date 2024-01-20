@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">repaso_pmdm</string>
+
+    <!-- U2A1 -->
+
+    <string name="u2a1StrBtnPlay">play</string>
+    <string name="u2a1StrBtnReset">reset</string>
+
+
+</resources>
