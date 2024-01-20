@@ -13,13 +13,45 @@
 #include <sys/wait.h>  // Esperar al hijo
 #include <sys/types.h> // Para los pid y ppid;
 
-int main() {
+#define STRING_LENGTH 100
 
-  char string[100];
+int main()
+{
+
+  char string[STRING_LENGTH];
+
+  int vowel_counter_lowercase = 0, vowel_counter_uppercase = 0;
 
   printf("Enter a string: \n");
 
   scanf("%s", string);
+
+  for (int i = 0; i < STRING_LENGTH && string[i] != '\0'; i++)
+
+  {
+    switch (string[i])
+    {
+    case 'a':
+    case 'e':
+    case 'i':
+    case 'o':
+    case 'u':
+      vowel_counter_lowercase++;
+      break;
+        case 'A':
+        case 'E':
+        case 'I':
+        case 'O':
+        case 'U':
+        vowel_counter_uppercase++;
+      break;
+    default:
+    break;
+    
+    }
+  }
+
+  printf("Number of lowercase vowels: %d, Number of uppercase vowels: %d\n", vowel_counter_lowercase, vowel_counter_uppercase);
 
   return 0;
 }
