@@ -62,7 +62,9 @@
     "*.embeddedhtml": "html",
     "stdlib.h": "c",
     "signal.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "unistd.h": "c",
+    "string.h": "c"
   },
   "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }

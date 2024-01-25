@@ -13,7 +13,7 @@
         android:theme="@style/Theme.Repaso_pmdm"
         tools:targetApi="31">
         <activity
-            android:name=".tema2.u2a2ColoNames"
+            android:name=".tema2.u2a2ColorNames"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +22,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".tema2.u2e1AdivinarNumero"
+            android:name=".tema2.u2a1AdivinarNumero"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

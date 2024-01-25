@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".tema2.u2e1AdivinarNumero">
+    tools:context=".tema2.u2a1AdivinarNumero">
 
     <EditText
         android:id="@+id/u2e1etNumberInput"

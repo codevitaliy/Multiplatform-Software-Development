@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.example.repaso_pmdm.R;
 
-public class u2e1AdivinarNumero extends AppCompatActivity {
+public class u2a1AdivinarNumero extends AppCompatActivity {
 
     static final int NUM_MAX_TRY = 5;
     static final String WINNER = "YOU WON";

@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": false,
-      "cwd": "/home/codevitaliy/repos/Multiplatform-Software-Development/Prog-Servicios-Procesos/C/ejercicios/01-ejercicios/2.celsius",
-      "program": "/home/codevitaliy/repos/Multiplatform-Software-Development/Prog-Servicios-Procesos/C/ejercicios/01-ejercicios/2.celsius/build/Debug/outDebug",
+      "cwd": "/home/codevitaliy/repos/Multiplatform-Software-Development/Prog-Servicios-Procesos/C/ejercicios/04_ejercicios-llamadas-fork",
+      "program": "/home/codevitaliy/repos/Multiplatform-Software-Development/Prog-Servicios-Procesos/C/ejercicios/04_ejercicios-llamadas-fork/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [

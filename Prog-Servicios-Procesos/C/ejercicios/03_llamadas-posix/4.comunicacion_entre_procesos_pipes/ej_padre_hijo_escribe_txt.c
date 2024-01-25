@@ -59,7 +59,7 @@ int main() {
     fclose(archive);
 
 
-  }else if (pid != 0) { //padre
+  }else if (pid > 0) { //padre
 
     double input_number = 0;
 

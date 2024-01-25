@@ -49,7 +49,7 @@ int main()
 
     perror("error ejecutando execvp");
   }
-  else if (pid != 0)
+  else if (pid > 0)
   { // codigo padre
 
     char buffer[1024];
