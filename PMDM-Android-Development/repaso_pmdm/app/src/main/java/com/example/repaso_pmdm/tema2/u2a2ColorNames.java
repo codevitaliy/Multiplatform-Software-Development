@@ -2,6 +2,7 @@ package com.example.repaso_pmdm.tema2;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -15,7 +16,7 @@ public class u2a2ColorNames extends AppCompatActivity {
 
     EditText etInput;
     SeekBar skBarRed, skBarGreen, skBarBlue;
-    CheckBox cbColor;
+    CheckBox checkColor;
     Button btnStart;
     TextView tvOutput;
 
@@ -28,29 +29,52 @@ public class u2a2ColorNames extends AppCompatActivity {
         skBarRed = findViewById(R.id.u2a2sbR);
         skBarGreen = findViewById(R.id.u2a2sbG);
         skBarBlue = findViewById(R.id.u2a2sbB);
-        cbColor = findViewById(R.id.u2a2cbTextColor);
+        checkColor = findViewById(R.id.u2a2cbTextColor);
         tvOutput = findViewById(R.id.u2a2tvOutput);
-
-
-
+        btnStart = findViewById(R.id.u2a2btnStart);
 
         btnStart.setOnClickListener(v -> {
+
+            int colorRed, colorGreen, colorBlue;
+
+            colorRed = skBarRed.getProgress() ;
+            colorGreen = skBarGreen.getProgress();
+            colorBlue = skBarBlue.getProgress();
+            tvOutput.setBackgroundColor(Color.rgb(colorRed, colorGreen, colorBlue));
             String inputString = etInput.getText().toString();
+            if (checkColor.isChecked()) {
+                tvOutput.setText(inputString);
+                tvOutput.setTextColor(Color.WHITE);
 
-            skBarRed.getProgress();
-            skBarGreen.getProgress();
-            skBarBlue.getProgress();
-
-
-
-
-
+            }else{
+                tvOutput.setText(inputString);
+            }
         });
 
+        SeekBar.OnSeekBarChangeListener seekBarChangeListener = new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
+                int colorRed, colorGreen, colorBlue;
 
+                colorRed = skBarRed.getProgress() ;
+                colorGreen = skBarGreen.getProgress();
+                colorBlue = skBarBlue.getProgress();
+                tvOutput.setBackgroundColor(Color.rgb(colorRed, colorGreen, colorBlue));
+            }
 
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
 
+            }
 
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
 
+            }
+        };
+
+        skBarRed.setOnSeekBarChangeListener(seekBarChangeListener);
+        skBarGreen.setOnSeekBarChangeListener(seekBarChangeListener);
+        skBarBlue.setOnSeekBarChangeListener(seekBarChangeListener);
     }
 }

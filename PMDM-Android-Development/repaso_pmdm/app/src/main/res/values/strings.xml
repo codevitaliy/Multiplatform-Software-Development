@@ -11,6 +11,23 @@
     <string name="u2a2strBtnStart"> START</string>
     <string name="u2a2strCheckBox"> CHECKED BLACK, UNCHECKED WHITE</string>
 
+    <!-- U2A3 PROPINATRON 2000 -->
+
+    <string name="u2a3strBtnNum1"> 1 </string>
+    <string name="u2a3strBtnNum2"> 2 </string>
+    <string name="u2a3strBtnNum3"> 3 </string>
+    <string name="u2a3strBtnNum4"> 4 </string>
+    <string name="u2a3strBtnNum5">5  </string>
+    <string name="u2a3strBtnNum6">6 </string>
+    <string name="u2a3strBtnNum7">7 </string>
+    <string name="u2a3strBtnNum8"> 8</string>
+    <string name="u2a3strBtnNum9">9 </string>
+    <string name="u2a3strBtnNum0"> 0</string>
+    <string name="u2a3strBtnBorrar"> DEL </string>
+    <string name="u2a3btnStrCalcularPropina">CALCULAR PROPINA </string>
+    <string name="u2a3strRbButtonMal">MAL</string>
+    <string name="u2a3strRbButtonNormal">NORMAL </string>
+    <string name="u2a3strRbButtonBien">BIEN </string>
 
 
 
