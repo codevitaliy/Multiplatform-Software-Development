@@ -64,7 +64,8 @@
     "signal.h": "c",
     "stdio.h": "c",
     "unistd.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "math.h": "c"
   },
   "C_Cpp.default.compilerPath": "/usr/bin/gcc"
 }

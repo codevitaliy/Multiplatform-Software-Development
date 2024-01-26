@@ -16,6 +16,7 @@
 #define READ 0
 #define WRITE 1
 #define ALEATORY_NUMBERS 3
+#define BUFFER_SIZE 100
 
 int main(int argc, char *argv[])
 {
@@ -50,7 +51,6 @@ int main(int argc, char *argv[])
     {
 
       read(fd[READ], &array_numbers[i], sizeof(array_numbers[i]));
-
     }
 
     close(fd[READ]);
@@ -59,31 +59,78 @@ int main(int argc, char *argv[])
 
     printf("%d , %d, %d\n", num_one, num_two, num_three);
 
-    if(num_one >= num_two && num_one >= num_three){
-      if(num_two >= num_three) {
+    if (num_one >= num_two && num_one >= num_three)
+    {
+      if (num_two >= num_three)
+      {
         printf("1. %d, 2. %d, 3. %d\n", num_one, num_two, num_three);
-      }else if(num_two <= num_three) {
+      }
+      else if (num_two <= num_three)
+      {
         printf("1. %d, 2. %d, 3. %d\n", num_one, num_three, num_two);
+        num_aux = num_three;
+        num_three = num_two;
+        num_two = num_aux;
       }
     }
 
-    if(num_two >= num_one && num_two >= num_three){
-      if(num_one >= num_three) {
+    if (num_two >= num_one && num_two >= num_three)
+    {
+      if (num_one >= num_three)
+      {
         printf("1. %d, 2. %d, 3. %d\n", num_two, num_one, num_three);
-      }else if(num_one <= num_three) {
+        num_aux = num_one;
+        num_one = num_two;
+        num_two = num_aux;
+      }
+      else if (num_one <= num_three)
+      {
         printf("1. %d, 2. %d, 3. %d\n", num_two, num_three, num_one);
+        num_aux = num_one;
+        num_one = num_two;
+        num_two = num_three;
+        num_three = num_aux;
       }
     }
 
-    if(num_three >= num_one && num_three >= num_two){
-      if(num_one >= num_two) {
+    if (num_three >= num_one && num_three >= num_two)
+    {
+      if (num_one >= num_two)
+      {
         printf("1. %d, 2. %d, 3. %d\n", num_three, num_one, num_two);
-      }else if(num_one <= num_two) {
+        num_aux = num_one;
+        num_one = num_three;
+        num_three = num_two;
+        num_two = num_aux;
+      }
+      else if (num_one <= num_two)
+      {
         printf("1. %d, 2. %d, 3. %d\n", num_three, num_two, num_one);
+        num_aux = num_one;
+        num_one = num_three;
+        num_three = num_aux;
+
       }
     }
 
-    
+    FILE* archivo = fopen("num_order.txt", "w");
+
+    if(archivo == NULL){
+      perror("error leyendo archivo txt");
+      return 1;
+    }
+
+    char stringOrden[BUFFER_SIZE];
+
+    sprintf(stringOrden, "1. %d, 2. %d, 3 %d", num_one, num_two, num_three);
+
+    fprintf(archivo,"%s", stringOrden);
+
+    fclose(archivo);
+
+    return 0;
+
+
   }
   else
   { // codigo del padre
@@ -97,13 +144,11 @@ int main(int argc, char *argv[])
 
       rand_number = rand();
       write(fd[WRITE], &rand_number, sizeof(rand_number));
-
-      
     }
 
     close(fd[WRITE]);
 
-      wait(NULL);
+    wait(NULL);
   }
 
   return 0;
