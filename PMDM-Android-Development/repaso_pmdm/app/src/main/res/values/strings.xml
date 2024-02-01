@@ -29,7 +29,11 @@
     <string name="u2a3strRbButtonNormal">NORMAL </string>
     <string name="u2a3strRbButtonBien">BIEN </string>
 
+    <!-- U2A4 CITA MEDICA -->
 
+    <string name="u2a4strBtnFecha">FECHA</string>
+    <string name="u2a4strBtnHora">HORA</string>
+    <string name="u2a4strBtnReservar">RESERVAR</string>
 
 
 </resources>

@@ -27,7 +27,7 @@ public class u2a1AdivinarNumero extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.u2e1_adivinar_numero);
+        setContentView(R.layout.u2a1_adivinar_numero);
 
         btnPlay = findViewById(R.id.u2a1btnPlay);
         btnReset = findViewById(R.id.u2a1btnReset);
