@@ -1,4 +1,13 @@
-package hilos.CreacionThreads;
+package hilos.Ejercicio1CreacionHilos;
+
+
+/* Hilos:
+
+    Crea una clase que extienda de Thread y sobrescriba el método run para imprimir "Hola Mundo" en la consola. Luego, instancia y ejecuta el hilo en la clase principal.
+    Crea un versión de forma que implementes Runnable.
+    Crea una versión con un Lambda.
+
+Haz un método princpial que arranque los 3 threads. */
 
 public class Programa {
   public static void main(String[] args) {

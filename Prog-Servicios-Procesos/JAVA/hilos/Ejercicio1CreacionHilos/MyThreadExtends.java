@@ -1,4 +1,4 @@
-package hilos.CreacionThreads;
+package hilos.Ejercicio1CreacionHilos;
 
 public class MyThreadExtends extends Thread {
 

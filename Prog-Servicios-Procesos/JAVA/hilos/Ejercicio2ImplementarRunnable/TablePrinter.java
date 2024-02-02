@@ -1,4 +1,4 @@
-//package hilos.ImplementarRunnable;
+package hilos.Ejercicio2ImplementarRunnable;
 
 public class TablePrinter implements Runnable {
 
