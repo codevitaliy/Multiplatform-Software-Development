@@ -30,7 +30,7 @@ public class Servidor {
 
       ds.receive(receivePacket);
 
-      String msg = new String(receivePacket.getData(), 0, receivePacket.getLength());
+      //String msg = new String(receivePacket.getData(), 0, receivePacket.getLength());
 
       //datagrampacket para enviar los datos al cliente de vuelta 
       DatagramPacket sendPacket = new DatagramPacket(receivePacket.getData(), receivePacket.getLength(),receivePacket.getAddress(),receivePacket.getPort());
