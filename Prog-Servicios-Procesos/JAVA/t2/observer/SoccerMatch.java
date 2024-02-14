@@ -55,5 +55,7 @@ public class SoccerMatch {
                 System.out.println("Unrecognized event.");
             }
         }
+        sc.close();
     }
+    
 }
