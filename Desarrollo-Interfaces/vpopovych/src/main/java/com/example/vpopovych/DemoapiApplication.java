@@ -1,4 +1,4 @@
-package com.example.demoapi;
+package com.example.vpopovych;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
