@@ -144,6 +144,7 @@
     <string name="u4a1strDrugFree2">DAYS SMOKING FREE</string>
     <string name="u4a1strDrugFree3">DAYS OBSERVER FREE</string>
     <string name="u4a1strDrugFree4">QUIT NOW, ENJOY LIFE</string>
+    <string name="title_activity_u6a1_adapter_partidos">u6a1AdapterPartidos</string>
 
 
 </resources>

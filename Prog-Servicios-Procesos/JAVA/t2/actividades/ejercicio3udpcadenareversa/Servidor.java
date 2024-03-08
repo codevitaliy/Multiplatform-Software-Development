@@ -24,7 +24,7 @@ public class Servidor {
         ds.receive(packet);
 
         String msg = new String(packet.getData(), 0, packet.getLength());
-        System.out.println(msg);
+        System.out.println("Received msg " + msg);
 
         String reversedString = "";
 
@@ -35,7 +35,7 @@ public class Servidor {
 
         System.out.println(reversedString);
 
-
+       
       }
     } catch (SocketException e) {
       e.printStackTrace();
